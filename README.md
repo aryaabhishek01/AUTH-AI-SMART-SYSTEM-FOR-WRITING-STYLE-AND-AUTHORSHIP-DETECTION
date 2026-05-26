@@ -1,4 +1,4 @@
-To activate venv environment: source venv/bin/activate
+To activate venv environment: venv\Scripts\activate
 
 To run: python app.py
 
