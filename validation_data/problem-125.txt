@@ -1,0 +1,10 @@
+This is indeed triggered by Parallels' "Access Windows folders to Mac" but not systematically. The most likely way to trigger it seems to be login into the Windows VM while that sharing is enabled. Some "Advanced Settings" in that sharing configuration may also be needed to reproduce.
+Once mDNSResponder has gone wild, nothing in Parallels can restore its sanity: the problem can only be solved on the Mac. Good news: there's no need to completely reboot the mac; restarting only the corresponding daemon is enough:
+Make sure the exit status is '0' for success using launchctl list | grep -i dns.
+See https://launchd.info and man launchctl for more details.
+We are experiencing occasional performance problems in our WIFI. With Wireshark I see a high number (currently 50/s) of MDNS responses for localhost_prl:127.0.0.1.
+I don't think that this is normal. A MDNS response with 127.0.0.1 seem pointless to me. Additionally, the responses sometimes include the same answer multiple times (see screenshot).
+I'm not aware of any loops in our network. I couldn't find the reason for those packages too. I only see the responses, but no requests for localhost_prl.
+I appreciate any input. The traffic is constantly high volume.
+P.S.: I originally posted this problem on networkengineering, but was asked to move it here instead.
+This seems to be a bug in Parallels Desktop 14. Disabling "Sharing - Share Windows - Access Windows Folders from Mac" (not sure about the exact option name, I use it in another language) and rebooting the Mac afterwards seems to solve this problem.

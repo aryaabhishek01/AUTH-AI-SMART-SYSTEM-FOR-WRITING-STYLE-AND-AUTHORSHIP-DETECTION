@@ -1,0 +1,8 @@
+Since the scope of the question was to perform an "initial" hystorical migration of mailbox, here are different brute force approaches: move emails from old IMAP to new inbox. From then on, fetchmail daemon will work fine with new mail
+Synchronize both mailboxes, select all (or groups of) emails and drag&drop or cut&paste them into the new Inbox. This will take some time and manual work, but can do none or little damage, especially if you move emails in groups
+Since I have access to the server, a tool such as imap2maildir can dump an IMAP box into a Maildir compatible box. Merging the original Maildir with the new one initializes message collection correctly
+There are plenties of tools made for IMAP migration/synchronization. There are even online tools, to which you must provide your box password (for your security you may change the password to a temporary one during migration), and you must trust the service not to keep your personal data.
+It appears that the date exposed to the user by Windows Mail does not come from the Date header field, but rather from the latest Received field (Received fields are primarily meant to trace a message through delivery gateways, as mentioned in RFC5321 and RFC5322).
+When fetchmail delivers a message, even with the mda option (not using SMTP), by default it adds its own Received field with the current date and time.
+Fortunately it provides an option to disable this:
+I believe you want to combine this option with a non-SMTP delivery, for instance with --mda /usr/lib/dovecot/deliver. Otherwise the SMTP server would probably add its own Received field after fetchmail.

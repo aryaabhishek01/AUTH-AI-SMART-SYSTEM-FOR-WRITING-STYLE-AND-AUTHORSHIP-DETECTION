@@ -1,0 +1,7 @@
+There is no "standard" load balancing set up for MS SQL Server that you can run via a wizard.
+This would be a database architecture decision and implemented at the database level not the server level. Techniques would be:
+If anyone disagrees, then I'd like to see an article by a respected known MS SQL figure saying clustering is load balancing. The articles quoted above do not mention load balancing. For example, A Microsoftie (Chas Boyd) says it is not here.
+My question to the OP would be what kind of load do you expect?
+Database servers are usually IO and memory bound, so proper disk configuration (with appropriate filegroups) and as much RAM as possible will go a lot further than any solution above.
+Don't forget: SQL Server 2005/Windows 2003 Enterprise 32-bit goes to 32GB RAM (of which you'd have 26-28GB data cache) and you are not limited by drive letters because of NTFS mount points. As for x64...
+New technologies for database load balancing, separate from SQL Server, are available. These software solutions integrate with Always On in 2012 or 2014 and support automatic read/write split and other load balancing techniques. Look for NetScaler DataStream or ScaleArc for SQL Server as two examples of this transparent SQL load balancing software.

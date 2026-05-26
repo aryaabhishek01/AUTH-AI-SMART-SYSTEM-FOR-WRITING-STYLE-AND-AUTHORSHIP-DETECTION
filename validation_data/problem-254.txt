@@ -1,0 +1,10 @@
+If the router has any sort of branding - either stickers on the device itself or the ISP's logo on the web interface, it is more than likely configured by the manufacturer for the ISP and can be locked down or anything.
+Without knowing your ISP, it is impossible to say for sure, but a lot of ISPs do try to limit functionality on devices to give their support staff an easy life.
+Your best bet will either to buy a new router and use it on the service or reflashing the router with a generic firmware that is unlocked and gives you full functionality.
+If you do reflash, make sure you have the ability to go back to the ISPs firmware as it is possible that they will not support you or you may have to hand the router back when you finish with their service e.t.c. (it is unlikely, but just be careful.) - Also, be sure to backup all settings as a firmware update will probably wipe all connection settings.
+First time here ! So here is my little situation :
+I have purchased an Wireless IP Camera which I have correctly set up to work on my Wireless Router. Here are the IPs : 
+So the camera is perfectly visible when going to 192.168.1.150 when at home.
+The thing is that I want to make it accessible on the Internet.  And for this, as I heard, I need to do port forwarding of my IP Camera to make it accessible on the net (let's say my router's Net ip : 111.111.1.111, I would have to forward the camera to be accessible to 111.111.1.111:8888
+So the Wireless Router is a ZyXEL P-600 Series, provided by my ISP here in Thailand.  The thing is that, there doesn't seem to be any configurations for the port forwarding in the Router set up web page (at 192.168.1.1).  On the other hand, the manual of the ZyXEL shows the options accessible. Could the ISP have disabled them ?
+So how could I make my IP Camera work then ? Is my only option to reinstall the driver of the P-600 and setup the Internet access by myself (thus probably screwing up my Internet since I'm a networking incompetent) ?

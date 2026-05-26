@@ -1,0 +1,6 @@
+I have already dual boot on different HDD now I want install triple boot . On both HDD has Windows 7 I want install Ubuntu 14.04 LTS if I choose Install alongside Windows 7 then other OS Windows 7 will unused?
+Triple booting may be possible. But you want to plan this. First, backup your system. Because I have done double and triple boots and there is a LOT that can go wrong. So you should do a bare metal backup of the whole partition onto an external hard disk or the cloud or whatever you like. You must, must back up. 
+But I am not sure from the question exactly what you are trying to triple boot. A good site for discussing triple boots is:
+though an archive article might have to be found in the site. 
+But I'd say that rather than triple booting have you considered using Virtualbox instead? You could run an OS in a  virtual way? That would be simpler and not risk your data and bootloader and so on. Again, the dedoimedo site has articles on virtualisation. 
+Sorry but I can't write a lot more. Triple booting 2 Linux partitions and 1 windows? Or 2 windows and 1 Linux? They would involve different considerations. 

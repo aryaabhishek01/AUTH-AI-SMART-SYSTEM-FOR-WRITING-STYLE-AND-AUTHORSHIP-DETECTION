@@ -1,0 +1,11 @@
+I am trying to set up a multi-user FreeBSD server using nginx.
+In my /usr/local/etc/nginx/nginx.conf file I set user www www; so that nginx acts as the www user, part of the www group. I also set user = www and group = www in my /usr/local/etc/php-fpm.conf.
+What I want to achieve is that I (as the administrator) can add users to my system and create a folder for them (and of course the according server entry in the nginx.conf) in /usr/local/www for them to use, a bit like a shared hosting environment (without any automatic setup).
+After installing nginx and php I created a first test user anon, and created a folder for him /usr/local/www/anonsite.
+I then performed chown anon:www anonsite to make him the owner, and set the group to www, permission of the folder then looked like this: drwxr-xr-x 3 anon www 4 Apr 11 22:00 anonsite .
+Creating a info.php in this folder as anon and pointing a browser to it now works. I then tested downloading and extracting grav, however it will only show a blank page (because of my wrong permission setup, I assume). If I change php-fpm.conf user=anon, it works as intended, or alternatively using chmod -R g+w /usr/local/www/anonsite, after extracting the the downloaded grav folder, will make it work as well.
+And this is where I am stuck currently and can't wrap my head around. Both of these "fixes" seem wrong or bad practice to me. If I compare my setup to a shared host provider I use, my webroot folder there only has drwxr-x--- 5 username apache 4096 Apr 2 05:00 username permissions, and after extracting a grav test setup it will work right away (is this because of the way Apache works, maybe?).
+Could someone explain to me why that's the case and maybe walk me through the steps to properly set this up, or what I am doing wrong?
+Is the approach I tried considered bad practice overall?
+nginx will likely be able to read the files as needed withing being explicitly setting the file's group owner as the nginx user
+and for php-fpm the nginx user can simply be set as the listener

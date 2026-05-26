@@ -1,0 +1,6 @@
+If you are behind a NAT it is very likely that when the Teredo server tries to open a connection to you, but your NAT isn't forwarding the right port(s) on to you.
+I'd find out which ports are required, or if possible forward all ports to your machine to test that it is indeed a port forwarding issue.
+Check go6's wiki on Teredo and see if the section on "Teredo IPv6 addressing" gives you any insight to what else you might need to look into. You should be able to look at your assigned IPv6 address and then determine the ports you need forwarding.
+Check if the machine with native IPv6 is not behind a stateful firewall which blocks icmpv6.
+I had a similar problem, where a machine in a network with 6to4 was not able to connect to a machine using teredo in another network. Explicitly allowing icmpv6 in the IPv6 firewall in the 6to4 gateway (instead of just using ip6table's -m state --state ESTABLISHED,RELATED) was enough to cure the issue. This happens because teredo sends a IPv6 ping to the "native" (6to4 in this case) host, in a way iptables does not identifies as "RELATED", and will not work if that ping packet is dropped or rejected.
+Blocking ICMP in general tends to only cause headaches, but I (mistakenly as it turned out) believed netfilter's state tracker would be enough to allow all needed ICMP packets.

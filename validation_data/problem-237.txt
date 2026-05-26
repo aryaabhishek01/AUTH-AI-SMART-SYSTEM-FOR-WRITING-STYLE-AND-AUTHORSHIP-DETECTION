@@ -1,0 +1,8 @@
+Even with innodb_file_per_table setting, the ibdata* still stores critical (meta)data about your tables, you should not have destroyed it. I'm affraid your data are lost, except if there is a way to extract them from the idb files and restore them after the ibdata* file has been rebuilt.
+I was having innodb with one ibdata file. i have changed it in my.cnf to have ibd file for every table (innodb_file_per_table). then i run the following query on all of my innodb tables to have its own ibd file
+now after converting all of my tables, ibdata still having the same size, so i have deleted it, and restarted mysql. mysql has created it again with 10MB size (as defined in my.cnf)
+but the problem now is that i can see all of my tables normally when  show tables;
+but whenever i want to desc tablename or select * from tablename i am getting this error message
+and in show engines i can't see innodb in the list!!
+also i tried to delete the ib_logfile0 and ib_logfile1, i got another message
+I know that i was supposed to mysqldump and restore, but this is what i have done :( , anybody has an idea of how to delete the ibdata1 file and keep innodb engine enabled?

@@ -1,0 +1,5 @@
+EncFS is a good non-container (not a fixed size like TrueCrypt or dm-crypt/LUKS) variable size folder/file encryption system. It's available on any Debian system too.
+Similar to eCryptFS, but EncFS keeps it's config file inside the encrypted folder and can be mounted rather "portably" and easily, whereas eCryptFS would require knowing the mount options or copying some extra config files to special folders before mounting.
+Also EncFS does not need root privileges to run (like eCryptFS does), so EncFS is more "portable" running as a regular user only.
+The venerable TrueCrypt has versions for most OS's, including Linux distros and Windows. It is simple to create a folder as a TrueCrypt container. Caveat: questions were rised about the trustworthiness of that encryption, and VeraCrypt might be an alternative, though I have seen no independent audit of VeraCrypt yet.
+Another choice is simply to archive the folder with 7-Zip or PeaZip and use a password. Again, these applications are available for many OS's.

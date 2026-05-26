@@ -1,0 +1,8 @@
+Go into system preferences, Network, highlight Wifi on the left and then click on advanced bottom right.
+Remove all the wireless networks. Now click OK, then highlight the wifi on the right again and then click the '-' symbol on the wireless adapter. Restart then go back into system preferences, network, then click the + symbol and add the wireless adapter again. 
+Apply then switch on the wireless adapter and try to rejoin a network.
+I'm having a problem with my MacBook Pro (13-inch, Mid 2012) to connect at the WIFI. The connection is available, but when I click on it, after waiting a while, it appear the diagnosis of connection. 
+After processing that (also if I interrupt it in the middle) and after switching off and on again the WIFI, the MacBook correctly connects to the network.
+Unfortunately this solution is not permanent, in fact the next time I try to connect at the WIFI it happens the same.
+I'm using an OpenFiber router by Wind (Italy) and I configured a double connection, one for the guests and one for me. Here some screenshots about the 192.168.1.1 configuration:
+I don't have any problems with the Huawei P10, iPhone 8, iPad, MacBook Pro (13-inch, Early 2011). So this makes me think that the router configuration is fine, but that I have problems with my MacBook Pro.

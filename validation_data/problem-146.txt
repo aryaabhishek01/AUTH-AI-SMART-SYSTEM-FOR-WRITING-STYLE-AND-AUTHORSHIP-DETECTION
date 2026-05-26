@@ -1,0 +1,5 @@
+Disk First Aid might be reporting that the GPT partition table and the MBR partition table disagree with each other about your partition map.  You can confirm this by typing fdisk /dev/disk0 from a terminal window.  See if fdisk reports a different partition layout than diskutil does.
+Are you trying to recover the former Boot Camp partition or are you just trying to clear the error so you can use it to partition your disk again?
+If your goal is to merely clear the error, use fdisk to remove all partitions and create a single partition, type EE, starting on sector 1 and ending on the last sector of the drive.  This is what a 'normal' GPT partition's MBR protective partition looks like.
+I believe I've found a simple solution for my problem. For anyone experiencing the same issues, here's how I did it:
+It worked flawlessly. I now have a fully-working Macintosh HD partition (500go), and a recovery partition that is only 650 Mb. I am able to boot on both Macintosh HD and Recovery HD, and the recovery tools report no errors. 

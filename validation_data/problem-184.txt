@@ -1,0 +1,14 @@
+It's possible that you hit SQL's size limit for batch size. Check out https://msdn.microsoft.com/en-us/library/ms143432.aspx.
+If your file is just line after line of INSERT INTO [Table] (field, field) VALUES (value, value); then you have some better options than splitting the file.
+I am currently doing an internship and I received a 42 gb ms sql-server import script.
+I tried to import the script using the ms SQLCMD tool all at once.
+It ran for 30 minutes and then I got the following error:
+So naturally I checked line 37 and searched for the value 7500 but I could not find it.
+Then I tried to find the last executed query in my server log.
+Having found the last inserted query, I knew what line in my script was causing the error.
+Unfortunately I could not find the value 7500 in the error causing line.
+So I cleared my database, and tried to import the script a second time with the exact same error as result.
+So I tried to split the 42 gb script into 3000 smaller scripts.
+I am now running the 3000 scripts sequentially and it seems to be running just fine.
+It has been running for 4 hours now and it is past the point of the previous error.
+My question is: Did I find a bug in SQLCMD or is this a known problem with larger import scripts? If this is a know problem what is the best way to counter this (Splitting the file took a long time)

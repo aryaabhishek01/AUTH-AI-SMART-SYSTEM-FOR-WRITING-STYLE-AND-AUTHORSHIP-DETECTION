@@ -1,0 +1,7 @@
+Two tables that are in 1:1 relationship should, in almost all cases, be combined into a single table.  Here are some exceptions of where it may be beneficial to have multiple, parallel, vertically partitioned, tables.  Note: you probably do not have any of these cases.
+Each way has its pros and cons of course. However, here is how I would precede:
+I would split the columns into two tables. One for the columns that are frequently used, and the other for the columns that are used less frequently. 
+For example, if you use this table to authentications users, you probably would need these fields very often: email/username, password, first and last name (for greetings), and probably few other fields, like score or last login time. 
+On the other hand, you will rarely be in need of the user's address, or the primary school they attended. So, there is no need to load this data each time you use the table. 
+So, grouping columns into [frequently used, less frequently used] has an advantage of utilizing resources. However, it is slightly more work at table management level. 
+If you go with the option of having all columns in one table, consider covering indexes for the fields that are usually queries together. 

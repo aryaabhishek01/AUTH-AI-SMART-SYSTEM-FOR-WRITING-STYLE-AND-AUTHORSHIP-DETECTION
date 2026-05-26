@@ -1,0 +1,72 @@
+The function handleInput(e) on line 92 does not need 4 if statements to determine if you are going the opposite direction. You can concatonate that in your switch and make a comment about it:
+You have an update function on line 123, with a forEach method. That method takes a function as parameter, and provides one argument. You have this on line 126:
+You pass that variable in a function and do nothing else then calling another function with the same parameter. You could replace that like this:
+This does not work for line 327 (functor push will throw error)
+I like what you do with defineAppleProperties, using the while loop to determine the apple location, but it could cause issues;
+If the player has a perfect game, the snake will fill the entire map if he ate the last apple. If that happens, you have an endless while loop, causing a tab/browser crash. I would check the snake length vs amount of positions on the game board to fix that.
+  let canvas = document.getElementById('gameboard');
+  let scoreBoard = document.querySelector('.scoreboard');
+  let highscoreLabel = document.querySelector('.highscore');
+      x: Math.floor( Math.random() * gameBoardWidth ),
+      y: Math.floor( Math.random() * gameBoardHeight ),
+          if( ( bodySegment.x === this.x ) && ( bodySegment.y === this.y ) ) {
+          if( (( this.x % snake.blockSize === 0 ) && ( this.y % snake.blockSize === 0 )) && this.isOutsideSnakeBody() ) {
+            this.x =  Math.floor( Math.random() * gameBoardWidth );
+            this.y = Math.floor( Math.random() * gameBoardHeight );
+    if(snake.direction === 'right' && event.keyCode === 37) {
+    else if(snake.direction === 'left' && event.keyCode === 39) {
+    else if(snake.direction === 'up' && event.keyCode === 40) {
+    else if(snake.direction === 'down' && event.keyCode === 38) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect( o.x, o.y, snake.blockSize, snake.blockSize );
+  for( let y = snake.blockSize; y < 600; y += snake.blockSize ) {
+    for( let x = snake.blockSize; x < 800; x += snake.blockSize ) {
+    scoreBoard.innerHTML = 'Points: ' + player.points;
+      let storageHighscoresItems = JSON.parse(localStorage.getItem('highscores'));
+      storageHighscoresItems.forEach( ( item ) => {
+        storageHighscoresItemsArr.push( item.score );
+      let highscore = Math.max( ...storageHighscoresItemsArr );
+      highscoreLabel.innerHTML = 'Highscore: ' + highscore;
+      snake.body[i].x = snake.body[i - 1].lastPosX;
+      snake.body[i].y = snake.body[i - 1].lastPosY;
+      snake.body[i - 1].lastPosX = snake.body[i - 1].x;
+      snake.body[i - 1].lastPosY = snake.body[i - 1].y;
+    if(( snakeHead.x === apple.x ) && ( snakeHead.y === apple.y )) {
+    if((snakeHead.x === snake.body[i].x) && (snakeHead.y === snake.body[i].y)) {
+    addEventListener( 'keydown', e => handleInput(e), true );
+    removeEventListener( 'keydown', handleInput, true );
+  let restartBtn = document.getElementById('restart'),
+    gameOverScreen = document.querySelector('.gameover-screen'),
+    finalScoreLabel = document.querySelector('.final-score'),
+    playerNameInput = document.querySelector('.player-name'),
+    highscoreBoardBtn = document.getElementById('highscores-btn');
+    finalScoreLabel.innerHTML = 'Your score: ' + GAME_STATE.getPlayer().points;
+    if(GAME_STATE.getPlayer().isSaved === false) {
+      GAME_STATE.getPlayer().name = playerNameInput.value;
+        highscores = highscores.concat(JSON.parse(localStorage.getItem('highscores')));
+      highscores.push({name: GAME_STATE.getPlayer().name, score: GAME_STATE.getPlayer().points});
+      localStorage.setItem('highscores', JSON.stringify(highscores));
+    restartBtn.addEventListener( 'click', restartGame, false );
+    highscoreBoardBtn.addEventListener('click', showHighscores, false );
+    restartBtn.removeEventListener( 'click', restartGame, false );
+    highscoreBoardBtn.removeEventListener('click', showHighscores, false );
+  let highscoresBoard = document.querySelector('.highscores-board'),
+    highscoresList = document.querySelector('.highscores-list'),
+    highscoresReturnBtn = document.getElementById('return-from-highscores');
+    let storageHighscoresItems = JSON.parse(localStorage.getItem('highscores'));
+    storageHighscoresItemsArr.sort(function (a, b) {
+            let li = document.createElement('li');
+            li.innerHTML = (storageHighscoresItemsArr[i].name || 'Noname') +
+             ' - ' + storageHighscoresItemsArr[i].score;
+    highscoresReturnBtn.addEventListener( 'click', goBack, false );
+    highscoresReturnBtn.removeEventListener( 'click', goBack, false );
+        <li><p class="final-score">Your score: </p></li>
+        <input class="player-name" type="text" maxlength="6"></li>
+        <li><button class="btn reset-btn" id="restart">Restart</button></li>
+        <li><button class="btn highscores-btn" id="highscores-btn">Highscores</button></li>
+      <button class="btn return-btn" id="return-from-highscores">Back</button>
+    <canvas id="gameboard" class="board"></canvas>
+I've decided to take your advice and improve the style of my code.I would like to know what do you think of it now,and maybe what's more needs to be changed.Though I'm not sure if I refactored it correctly because now my JS script has 100 more lines of code.
+1.GAME_STATE - responible for everything while player is not dead.Updates data,draws on the canvas
+2.GAMEOVER_STATE - updates localStorage and handles user input on the Game Over screen
+4.GAME - initialazes and updates a modules,depending on it's 'state' varaible

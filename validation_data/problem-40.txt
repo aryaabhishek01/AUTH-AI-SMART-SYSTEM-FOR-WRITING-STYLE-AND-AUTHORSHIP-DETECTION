@@ -1,0 +1,6 @@
+diskpart only allows "converting" empty disks, so you'll need to delete all partitions using the clear command. If the disk has data that you want to keep, then your only choices are to upgrade to a Windows version that has mbr2gpt, or use third-party software.
+The most common third-party tool for in-place conversion is gdisk (aka gptfdisk), which costs $0.00. It has a Windows .exe version but is primarily a Linux tool; you can find it already present in many "live CDs/USBs" such as the Gparted CD.
+At this point you can delete the Windows partitions and reinstall. Alternatively, you can manually create an EFI System Partition and use bcdboot (as documented in other threads) to convert the existing Windows installation to UEFI mode.
+But if you don't want Windows Update to be slow, then why are you installing a three-year-old release in the first place?... Better just make a new Windows 10.1809 USB stick so that you'll get the features immediately after installation. (Preferably using the Media Creation Tool if you want UEFI support – I can no longer recommend Rufus.)
+No need to reinstall at all. Recent Windows 10 versions ship with the MBR2GPT tool.
+The tool needs to be invoked from an elevated command prompt. The quickest way to get one is Win, type cmd, press Ctrl+Shift+Enter.

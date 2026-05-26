@@ -1,0 +1,9 @@
+I think it is choking on 200 threads.  Recommend not using more than twice the number of CPU cores you have.  And even that may be too high...
+In particular, there is no use adding more threads after saturating the I/O.  (I am not familiar with your configuration, so I cannot be more specific.)
+innodb_buffer_pool_size =235G is dangerously high for 244GB of RAM.  If there is swapping, that could be killing performance.
+If you have "indexed every column", that is another performance killer for loading.  And "indexing every column" is usually useless.  Instead, discover what indexes you need, and have only them.  This often includes 'composite' indexes.
+Also, multiple UNIQUE (including PRIMARY) indexes on a table is costly.
+Im trying to restore a database which is 1.3TB and its in AWS Aurora. I want to restore a copy of this database to an EC2 instance(32 vCPU, 244GB MEMORY).
+I used mydumper to take backup from AWS RDS and it took 6 Hrs. 
+But Im trying to load this backup using myloader. Its running more than 12hrs, but still 30% data only restored.
+Is there any additional settings that I should change for faster restore? 

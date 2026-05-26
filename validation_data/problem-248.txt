@@ -1,0 +1,60 @@
+We are using regular expressions to recognise the valid message but then manually extracting the values.
+If we change the regex pattern to ^s:([^;]+);r:([^;]+);m--\"([\\w\\s]+)\"$ we can use the groups with the regex (the parentheses indicate the groups)
+We can be a bit fancier if desired and use named groups ^s:(?<sender>[^;]+);r:(?<receiver>[^;]+);m--\"(?<message>[\\w\\s]+)\"$
+We can simplify things an amount by placing all the active code in the validation/parsing piece and using the MessageInfo  so hold the results.
+If we ever need to make changes, we now have them all localized to ProcessLine not split between CoreAction/lineSplitter and the MessageInfo class
+I can tell you're concerned about performance (and not just because of the tag on the question). This is a good impulse, because it helps you avoid selecting terribly inefficient algorithms. But it can also hurt, when it leads you to micromanage details that would be better left to (for example) a regular expression engine.
+You have some good habits. I love to see foreach loops. I'm very glad that you used a StringBuilder rather than just the + operator. Putting sanitization logic in the public setter for a property so that you can maintain a "clean" private backing field is a great idea.
+Passing ref parameters generally makes code more difficult to maintain. In fact, I'll go farther than that: Anything that increases the scope of a variable usually makes code more difficult to maintain. Imagine I'm reading your lineSplitter function, I've never seen it before, and I'm in a big hurry because there's a bug in the company's legacy chat log parsing program that's costing us thousands of dollars for every minute it's down. I can't tell what I am and am not allowed to change with how the indexer variable is treated, without reading other functions. I can't tell what it will be when it's passed in, I can't tell how it will change when I pass it to stringFill, and I don't know if I'll break anything in CoreAction if I change its value within lineSplitter.
+Now, the fact that you've made all three of those functions private is a big help - I can be sure that there are no other places in the codebase that I might be breaking with edits to lineSplitter. But it would still be vastly preferable to find an approach that doesn't require ref variables at all.
+An object should always be valid. Take this contrived example:
+I've heard this called "temporal coupling". It's unfriendly because there's no warning that I can't call Length() on an invalid object - just the error when I try. My favorite approach to provide that warning is by required constructor arguments; simply don't allow invalid objects to exist.
+    public string Value { get; } // no "set" -> must be assigned at construction
+    /// The value used for <see cref="Length()"/>. Cannot be null.
+        Value = value ?? throw new ArgumentNullException("Foo requires a non-null value");
+Why am I ranting about this? It applies to your strategy of creating a list of MessageInfo objects, only some of which are valid. That works, so long as you always remember to check. I would much rather see the invalid input lines completely filtered out.
+String.Join is often nicer than StringBuilder, in the same way Linq is often nicer than a for- or foreach-loop. A StringBuilder generally requires four lines of code:
+Whereas string.Join (which has similar performance characteristics), often requires only one (or perhaps two for readability):
+Regex Capture Groups are your friends, as Alan T pointed out. Here's a demo you can play around with and see live results (That site uses the Ruby regex engine rather than the .NET regex engine, but the differences are minor enough that you can ignore them here).
+Linq is a beautiful library in C# for transforming sequences, with extension functions on IEnumerable like Select(mapper), Where(filter), and ToList(). To me, this task is begging for the application of Linq. My solution uses foreach in 1 place, Linq in 5 places, and 0 fors or whiles. I'll show you more below.
+Separate classes to hold separate logic. You've already done some of this; I would take it even further. Here's how I sliced it all up:
+An outline of my solution - brace yourself, because I may have gone a little too far (but I'll let you be the judge):
+// Program - "build these objects, then ask them questions"
+            Console.WriteLine($@"{message.Sender} says ""{message.Message}"" to {message.Receiver}");
+        Console.WriteLine($"Total data transferred: {log.TotalPayloadSize}MB");
+// ChatLog - "Filter bad lines, build ChatMessages, and summarize"
+    public IEnumerable<ChatMessage> Messages { get; }
+        var lines = Enumerable       // My Linq approach to avoid a foreach loop:
+            .Range(1, numberOfLines) // Generate a sequence of N integers
+            .Select(_ => readLine()) // Replace each integer with a string from the input
+        TotalPayloadSize = Messages.Sum(message => message.PayloadSize);
+    private List<ChatMessages> Parse(IEnumerable<string> lines)
+        //     transform each line to a LineParser object (Select)
+        //     transform each remaining LineParser to a ChatMessage (Select)
+        //     return a list, to avoid the multiple enumeration trap (ToList)
+// LineParser - "Filter out junk and calculate size"
+    public ChatMessage Message => _message ?? throw new InvalidOperationException("Line could not be parsed");
+    private static Regex _format { get; } = new Regex("...");
+            // set the _message variable to a new ChatMessage from on match.Groups
+    public ChatMessage(string rawSender, string rawReceiver, string message)
+        // Construct two NameParsers, and set field values
+// NameParser - "Filter out junk and calculate size"
+    private int SumOfDigitCharacters(string rawName)
+        //     transform rawName to an array of characters
+        //     transform each digit character to an int
+    private static Regex _letterOrSpace { get; } = new Regex("...");
+    private string StripNonAlphaCharacters(string rawName)
+        var lettersAndSpaces = // Here I used Linq to
+        //     transform rawName to an array of chars
+Why so many classes? It might look awkward, but it's hugely valuable in terms of testability. The same goes for the Func<string> parameter to ChatLog - it feels strange but it allows ChatLog to be completely independent of Console, which is a big win. This means that I can create a suite of unit tests automatically verifying the behavior of the program without manually inspecting what was printed to the console after each run of the program. For example:
+    public void NameParser_CalculatesSizeCorrectly()
+        var testCases = new List<(string rawName, int expectedSize)>
+        foreach (var (rawName, expectedSize) in testCases)
+            Assert.AreEqual(expectedSize, parser.PayloadSize, $"'{rawName}' should have a payload of size {expectedSize}, not {parser.PayloadSize}");
+Now that I've verified the behavior of NameParser directly, I don't need to worry about it in any of my other tests. If I make any changes, I can run all of my tests again in a matter of seconds. If there are any problems, the tests immediately show what went wrong.
+A final note about performance. The three situations where you should be concerned about code performance, in my opinion, are these:
+Short of those situations, the maintainability of your code is far more important than the speed. I don't know whether my solution is faster than yours, but
+I've gone on long enough, so I'll spare you any more preaching about Separation of Concerns and Unit Testing. Let me just include some snippets from my other tests:
+private Func<string> Enumerate(params string[] lines)
+        : throw new InvalidOperationException($"There were only {lines.Length} lines of input!");
+    "s:G3er%6g43i;r:Kak€$in2% re3p5ab3lic%an;m--\"I can sing\"",

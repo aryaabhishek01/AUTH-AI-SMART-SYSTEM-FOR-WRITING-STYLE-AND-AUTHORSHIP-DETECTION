@@ -1,0 +1,5 @@
+I want to see what domain name is being looked up when I use Visual Studio's help (using the F1 key) because the first time I use it, I get a Unable to Service Request error page, but the second time I get the page I'm requesting.  This issue is documented here.
+I have a hosts file that blocks certain sites of questionable ethics, so I would like to know what site that I'm blocking is causing this without having to start unblocking many sites to stop this from happening and report my findings to that same bug.
+You could use wireshark to listen on port 53 (using capture filters, but mostly just port 53). It would give you an idea of which DNS requests are being made and answered in general (though you would maybe have to comb a bit through them if many applications are requesting in that same period.)
+This also requires you to have enough permissions on your machine (which you may not have, depending on the situation.)
+Still, it seems to be an issue with the time it takes for the DNS to answer. The second time it would be in the cache and it would be instant, the first one, however, takes far longer than the application expects.

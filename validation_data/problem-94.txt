@@ -1,0 +1,8 @@
+This isn't working like that. /etc/hosts is not about redirecting at all, you would have to edit this file on all client systems until DNS has propagated completely so this would work only if you control all clients. 
+What might work is to set up some forwarding via iptables or ssh on the old machine to the new one. 
+Something to try (untested, just a quick idea, 192.168.0.2 is the new, 192.168.0.1 is the old server): 
+On the old server, deactivate mysql. On the new server, start an ssh session like that: 
+and keep it open. This should redirect the traffic arriving at port 3306 to the new server, port 3306. If you use another port for mysql, adapt accordingly. 
+I don't follow what your proposal achieves.  How will tweaking /etc/hosts on the old master SQL help you with your goal of minimizing DNS propagation delay?
+If you control the DNS servers and resolvers on the hosts, you might be able to publish the old master with a shorter TTL in advance of the change, and then when you make the change restart any nscd processes.
+Best, based on what I'm assuming to be the scale of your business, would be to declare an outage window during which time you deem the databases to be read-only.

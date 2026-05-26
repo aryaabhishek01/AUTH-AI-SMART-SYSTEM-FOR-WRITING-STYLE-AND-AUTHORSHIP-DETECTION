@@ -1,0 +1,10 @@
+There have been many changes in file sharing (SMB) from XP to Vista/7, one of them being on the authentication method.
+You could try making the Win7 machines go back to using NTLMv1 (Google "windows 7 NTLMv1") but this is a bad idea.
+You have an environment that is outdated beyond imagination. I would not even think about fixing ANYTHING in it, sincerely.
+To get you started on the Right Path (TM), start studying the implementation of CentOS 7 to replace both Fedora/RedHat, preferibly on a new machine. Transferring the old files and setting up file sharing will be a piece of cake (relatively speaking).
+That being said, I'm not familiar with jBase and it looks like legacy software. Contact the vendor to check if they support a newer Linux distribution. If not, I would consider migrating from it (and hiring a dedicated sysadmin or contracting with a service provider to maintain your servers).
+Go to: Control Panel -> Administrative Tools -> Local Security Policy
+"Network security: LAN Manager authentication level" -> Send LM & NTLM responses
+"Minimum session security for NTLM SSP" -> uncheck: Require 128-bit encryption  
+source: http://www.enterprisenetworkingplanet.com/windows/article.php/3849061/Use-Samba-With-Windows-7-Clients.htm
+which I found from this post that may also be helpful for you, https://www.kubuntuforums.net/archive/index.php/t-43698.html

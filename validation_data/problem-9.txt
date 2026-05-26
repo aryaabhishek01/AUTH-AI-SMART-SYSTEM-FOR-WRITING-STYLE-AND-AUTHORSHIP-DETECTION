@@ -1,0 +1,12 @@
+A multicast group is formed of all computers listening to a certain multicast address. Therefore a multicast group automatically exists whenever at least one computer is listening to the multicast address given.
+You simply have to start a program which is listening to multicast packets on a certain address. For example a program listening to UDP packets.
+Using Wireshark I saw that Linux sends an IGMP joining message when the program is started and an IGMP leaving message when the program is finished.
+If there are multiple programs listening to the same address Linux may behave like this: The "join" message will only be sent when the first of these programs is started and the "leave" message will only be sent when the last program is finished.
+I don't know if a ready-to-use program exists but I found an example C program here.
+Simply send some packet (e.g. an UDP packet) to a multicast address. The sender need not even be listening to that multicast address (it need not be part of the multicast address group).
+The example program in the link above seems also to be able to send messages...
+My ultimate goal is to setup IGMP snooping on a linux machine using netfilter hooks. This is for exploratory purposes to understand IGMP protocol.
+What we plan to do is create a Multicast group on Host2 so that we can send the multicast traffic from Host1 to Host2 and using the hooks on Host2 we can then check for membership messages (join, leaving, timing info, port etc) on Host2 and create our own Multicast Database similar to mdb.
+How can we create a Multicast group ? (commands to use on linux ?)
+How can we attach interfaces or Host's to that multicast group ?
+How can we transfer packets between interfaces belonging to multicast group?

@@ -1,0 +1,6 @@
+Burning a CD-ROM compatible with ISO9660 on command-line will always require a step to build the iso(9660) image, I think.
+However, graphical tools like k3b (KDE) or brasero (gnome) will allow you to create data CD-ROMs without you need to explicitely run this step, they probably build the image on the fly during burning process.
+Yes and no. Yes, you must create a suitable stream of bytes; and no, because you don't need to store it as a regular file on your HDD or SSD.
+Many Linux tools follow "do one thing and do it well" rule. We have mkisofs for creating an ISO image, then e.g. cdrecord or cdrskin for burning it. In Windows tools that bloat to do all things by themselves are far more common. Another answer has already suggested they may build images on the fly; they may also store these images as temporary files.
+Note you can achieve something similar in Linux. Check -o option of mkisofs; if this option is lacking, stdout is used. Programs writing to  optical media can use their stdin in "Track At Once" mode.
+Or you can create temporary files, even in memory (like in /dev/shm/).

@@ -1,0 +1,5 @@
+(I'm assuming for the purposes of this question you are using Kali Linux for security related functions, and you are not just trying to prevent casual access - as Kali Linux is, AFAIK a pen testing platform)
+If you want to hide them from root so its not possible for root to read them, you will need to encrypt the Windows data - if the disk is in the machine its possible for root to read it - even if it means reading the raw partition data.  Thus the only way to protect it would be to remove the disk, or scramble the bytes as a decent encryption system would do.
+If you have specific documents you need to hide, but hide them in such a way that it can't be proven you are hiding them, look at Veracrypt and "Plausable Deniability/hidden volumes".  [ I have not used this program, I did use its predecessor truecrypt though ]
+I've currently got Kali-Linux installed and running on a USB drive. I recently realised that I can access all the files from the hard drive on the Windows and OSX partitions from file browser. 
+I would like to know if there is a way to lock these away so root on Kali cannot access them. 

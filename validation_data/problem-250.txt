@@ -1,0 +1,7 @@
+The Url Rewrite 2-module for IIS7 is very flexible and allows you to define redirect rules based on patterns and data sources. 
+You can specify a pattern and then have a defined "list" in an xml-file with mappings between different IDs if that is what you want. That means that you can do the following:
+You know that 345 in the old system actually maps to 49287, so it rewrites it with a single rule (but with mapping from a list) to:
+http://learn.iis.net/page.aspx/469/using-rewrite-maps-in-url-rewrite-module/
+I've done this with a map with over 2000 entries, and didn't find it to be slow at all. However, it wasn't 2000 rules, which might be a difference. In my case it was 3 rules, but with a map of 2000 entries.
+You could however map the asp filenames in a map and probably use less rules for it.
+Ouch! You might consider making this data-driven - that's probably the approach I'd take. Assuming the new site/CMS will be done in ASP.NET, change the .asp file extension to be handled by ASP.NET instead, then either have a catch-all HTTP handler for *.asp, or catch 404 errors in Global.asax. From there, see if there's a redirect defined for the URL (put these in a database table or something, and optionally stuff them in ASP.NET's Cache object on the fly to cut down on repeated lookups) and spit out a 301 redirect if so. Otherwise just 404.

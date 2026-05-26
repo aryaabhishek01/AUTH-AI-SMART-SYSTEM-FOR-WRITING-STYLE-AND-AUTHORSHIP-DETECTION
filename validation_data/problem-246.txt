@@ -1,0 +1,10 @@
+I am trying to log slow serial data (about 40 bytes per minute at 9600 baud) on the Pi.
+I have a rough program using wiringSerial which only provides unbuffered serialGetchar
+I could write a serialGets but wonder if/why it hasn't been done before.
+PS The last time I wrote something like this was in the 1980s on CP/M
+I want the equivalent of fgets(), and was going to write this using serialGetchar but the timeout caused problems, requiring post processing.
+I realised the required functionality was already in the kernel, it just required different initialisation.
+Do you need to write a program for this or can you just use basic Unix commands? Could you provide us more details on what you want to achieve...
+Assuming you serial port is connected through your USB port. You can easily log incoming bytes from serial port by redirecting (or simply listening) the right interface file, such as:
+In the same way, you can write on the serial port:
+To find out on which interface file your device is available, check /var/log/dmesg or issue a lsusb.

@@ -1,0 +1,13 @@
+Way too many magic numbers: 65, 90, 97, 120.   Instead, use literal constants that the reader can understand without consulting an ASCII chart, like:
+Store your character in a local variable, instead of calling .charAt() on the same character 3 times in the last loop. 
+Consider using Character::isUpperCase() and Character::isLowerCase() functions. 
+Use StringBuilder instead of StringBuffer for efficiency. 
+You should avoid statements on the same line as an if.
+Also, I find that the (s.charAt(0) < 65) || (s.charAt(0) > 90) are really hard to understand as they use magic numbers.
+But, most importantly, are you sure your code is responding to all the cases ?
+Let's create some unit test with JUnit and AssertJ :
+Without much surprise, the isValidString_shouldAcceptStringWithDiacritics is failing... but so is the isValidString_shouldAcceptVeryLongWord because the 120 isn't the good number !
+Never forget to do some unit tests :) (you should also add some tests for numbers and special characters)
+To conclude, if I were you, I'd get rid of the current test altogether and use the Character methods that are nicer lookings, namely isUpperCase and isLowerCase :
+Now, if you rerun the tests, they should be all green.
+You can also use the same methods for your convert function ;)

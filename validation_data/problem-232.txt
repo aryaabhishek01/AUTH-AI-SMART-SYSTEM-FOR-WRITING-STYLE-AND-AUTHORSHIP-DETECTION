@@ -1,0 +1,8 @@
+I was in the same boat and extensively researched various Bluetooth devices for a TRRS-compatible solution.  Finally I found this unit, the Plantronics Pulsar 260 http://www.amazon.com/Plantronics-UPP260-Pulsar-260-Stereo/dp/B000N8P4R8
+While it doesn't say TRRS anywhere, if you look at the way it works, it utilizes a 2.5mm earbud/inline mic combo, rather than the usual 3.5mm audio-only output w/ an internal mic in the hardware.
+I ordered this + a 2.5mm to 3.5mm adapter, and it works great with any pair of 3.5mm earbud/mic hardware.   Just ensure that the adapter you order has a 4-conductor plug - if you end up with a standard 3-conductor plug you'll lose the mic signal.
+Working great for both music listening and phone calls on an iPhone 5S.  As is traditionally the case with Bluetooth, music listening is not super crystal clear 100% of the time - but it's stereo and works well.
+Ladies and Gentlemen, after much frustrating searching just like all of you, I believe I came across a forum angel that gave me a lead where I found the perfect solution.
+https://www.hq98.com/prymeblu-bth-300-wireless-mic-bluetooth/
+If you go to the Pryme website and open the manual, it states that it will even work with apple-configured TRRS jacks!  I purchased it right away and should be here in a couple days. What's more, it works as an amplifier and does transmit stereo and not mono.  This is the device we've been craving that TRULY turns any headset into a bluetooth one!
+I will try to come back and report my test results, but I feel like a kid at Christmas right now!

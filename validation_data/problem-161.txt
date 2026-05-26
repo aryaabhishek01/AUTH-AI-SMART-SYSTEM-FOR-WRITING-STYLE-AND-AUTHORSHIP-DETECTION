@@ -1,0 +1,5 @@
+For a domain or workgroup to be seen on a given subnet (really, broadcast domain of a LAN, not necessarily a single IPv4 subnet per se), it must have at least one member on that subnet, and that member (or "one of those members" if there are more than one) must act as a master browser for that domain or workgroup on that subnet.
+So you should expect to see one master browser for each domain or workgroup that has members present on that subnet. So if you have a subnet with 4 machines and each is a member of a different domain or workgroup, then each will be the master browser for its own domain/workgroup on that subnet, so you will have 4 master browsers on that subnet.
+I don't know the internals of the exact registrations well enough to tell you how that maps to registrations of the group name \x01\x02__MSBROWSE__\x02\x01.
+On a SMB/CIFS network using NetBIOS over TCP, the group name \x01\x02__MSBROWSE__\x02\x01 is registered, which is the master browser for the subnet.
+If I have different domains/workgroups on my subnet, should I expect to see one of these registrations per group, or is it simply per subnet only?

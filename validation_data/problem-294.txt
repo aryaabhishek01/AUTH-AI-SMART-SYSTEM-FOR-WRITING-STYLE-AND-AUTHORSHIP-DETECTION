@@ -1,0 +1,7 @@
+If the VPN is configured so that only traffic to the office goes through it, tracking is unlikely - but beware of DNS servers - if these are reassigned to the VPN then they can see what you are looking up.
+If the VPN is configured to push a default route, all traffic is directed through the VPN and could be intercepted. (https traffic is hard to intercept, but not impossible if a root certificate has been added to your PC)
+You can get a feel for how traffic is routed by doing traceroutes and working out how it goes, and/or using the route command and getting the same info. (More accurate but harder to understand)
+None of this allows them to look into your hard drive or see active programs on your local PC, so if you close all personal applications while looking at the VPN, and don't have any file shares on your PC, you should be OK (unless they take specific  measures to hack into your PC - which would be easier across a VPN but by no means trivial.)
+I often connect to my work computer remotely when I am at home using my home PC(the work computer is at home with me on internal IP 192.168.xx.xx).
+I then connect to VPN from my RDPed work computer.
+My question is can my employer track my activity on home computer which I am using to Remote desktop in to tthe work computer.

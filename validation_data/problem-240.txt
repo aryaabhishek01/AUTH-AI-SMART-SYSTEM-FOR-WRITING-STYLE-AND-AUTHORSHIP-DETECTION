@@ -1,0 +1,6 @@
+When I add a user to Outlook delegation, using this method
+However when I set the user as a delegate, I get the following error:
+The powershell cmdlet you're using there (Set-CalendarProcessing) is only for 'Resource' mailboxes. This refers to objects like rooms, company cars, projectors, and other things that your organization use by booking time on a calendar. 
+This particular Exchange object type has a special calendar assistant available that can either automatically accept or reject calendar requests that are sent to it, or you can set a delegate. The naming here is misleading, since delegate is used elsewhere in the Exchange world to mean something else. 
+The error you recieved is indicating that the mailbox you're trying to run this cmdlet against is not a resource type, so it doesn't have the special calendar attendant, and therefore cannot have a delegate. 
+As far as I know, the only way to set the type of delegate you're trying to set is by doing it manually through the Outlook desktop client (like your screenshot shows).

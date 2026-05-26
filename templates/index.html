@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Style Detection</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .auth-container { background-color: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; }
+        .auth-container h2 { margin-bottom: 1.5rem; }
+        .auth-container input { width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        .auth-container button { width: 100%; padding: 0.75rem; border: none; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer; font-size: 1rem; }
+        .auth-container button:hover { background-color: #0056b3; }
+        .form-toggle { margin-top: 1rem; font-size: 0.9rem; }
+        .form-toggle a { color: #007bff; text-decoration: none; cursor: pointer; }
+        .message { color: red; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <h2 id="form-title">Login</h2>
+        <form id="login-form" action="/login" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <form id="register-form" action="/register" method="post" style="display:none;">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+
+        <p class="form-toggle">
+            <span id="toggle-text">Don't have an account?</span>
+            <a href="#" id="toggle-link" onclick="toggleForm()">Register now</a>
+        </p>
+
+        {% if message %}
+        <p class="message">{{ message }}</p>
+        {% endif %}
+    </div>
+
+    <script>
+        function toggleForm() {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const formTitle = document.getElementById('form-title');
+            const toggleText = document.getElementById('toggle-text');
+            const toggleLink = document.getElementById('toggle-link');
+
+            if (loginForm.style.display === 'none') {
+                loginForm.style.display = 'block';
+                registerForm.style.display = 'none';
+                formTitle.textContent = 'Login';
+                toggleText.textContent = "Don't have an account?";
+                toggleLink.textContent = "Register now";
+            } else {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'block';
+                formTitle.textContent = 'Register';
+                toggleText.textContent = "Already have an account?";
+                toggleLink.textContent = "Login now";
+            }
+        }
+    </script>
+</body>
+</html>

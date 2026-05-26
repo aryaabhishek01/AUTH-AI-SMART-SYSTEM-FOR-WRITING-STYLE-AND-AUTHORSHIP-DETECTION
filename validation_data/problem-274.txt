@@ -1,0 +1,12 @@
+This means you're hitting the FcgidMaxProcesses limit (which defaults to 100).
+If your server is CPU-bound - which should be the case for Wordpress (where the database should work correctly, ie. properly indexed, maybe eating a moderate amount of I/O but still using very few CPU) - it won't be able to serve more than two requests concurrently since you have two CPUs.
+If you get past this limit, time sharing (aka the scheduler) on the CPUs makes your requests much longer to process. In this case, the demand is directly measured by the 'load average' (run the 'w' command). If it's 4.0 and you have 2 CPUs, request that would have taken usually 1 second to process will need 2 secs. And so on. I repeat, this is true if your server is CPU-bound; check CPU usage via top, if it reports ~100% us (CPU/user) that's it.
+As a rule of thumb, I don't set FcgidMaxProcesses higher than 2x or 4x the number of CPU cores on a server. Past this limit, it's just to slow. Which means that some incoming requests are rejected (clients see 503 or 504) in order to keep your server running in acceptable conditions.
+So you might need to spare some CPU (use more aggressive caching, install php-apc, etc.), or add some CPUs. If you need more detailed CPU stats to optimize into your application you may use http://forge.bearstech.com/trac/wiki/PhpTop which I wrote for this very purpose.
+im relatively new to running my own server and my host don't seem to be giving me up advice or help on the matter either.
+I run a very popular website and after doing some twitter and fb posts to over 2 million fans and followers the server really seemed to lagg and take strain.
+The server has 2CPU cores and 4GB of ram, 100GB HDD and is running wordpress as the main website. Wordpress has been given more than enough memory to function and i just wanted to know why we was getting such a lagg on our server even during the peak times with our high spec.
+google analytics only showed around 200-250 people on the site (using realtime analytics)
+so my hosting company told me to check the error logs and i saw this happening quite a lot..
+[Wed Jan 30 16:07:18 2013] [warn] [client 92.235.67.138] mod_fcgid: can't apply process slot for /var/www/cgi-bin/cgi_wrapper/cgi_wrapper, referer: URL
+what exactly does this mean, and how can i resolve it, does this have anything to do with the lagg?

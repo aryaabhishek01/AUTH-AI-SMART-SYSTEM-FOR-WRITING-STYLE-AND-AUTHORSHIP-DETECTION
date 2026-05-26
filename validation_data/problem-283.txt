@@ -1,0 +1,9 @@
+It's quite possible that the file was moved to that location from a different folder on the same volume. When you move a file from a different folder with different permissions to a folder in the same volume the original permissions are retained. 
+This article is a bit old, but the same rules still generally apply as well as workarounds on how to change this behavior. 
+I manage a handful of servers connected to a much larger Active Directory network. All the Windows shares on our servers have a mixture of local account permissions and AD permissions.
+In this particular case, something confusing has happened.
+Has permissions GROUP1:Read, Administrators... etc.
+Windows claims that USER1's permissions are inherited from the C: drive. Checking each folder downwards including the C: drive, the user's permissions do not exist in any folder.
+I was able to reset the permissions by copying and pasting the file (it did not inherit USER1!) Strange.
+Because USER1 had write access to this file, it caused some automation to fail. USER1 is part of GROUP1 and should only have read access. 
+Can anyone explain this strange behaviour, and how I might prevent it in the future?

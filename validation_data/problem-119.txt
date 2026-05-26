@@ -1,0 +1,7 @@
+To track folder modifications you can turn on auditing on the problem locations to log the activity. 
+That should help you track down the issue, the logs will be recorded in the windows security log.
+You might want to do more virus scanning etc in safe mode using msconfig and disabling all nonmicrosoft services. Then try and run the microsoft Malicious Software Removal Tool after a full virus scan, and might want to enable the windows firewall as part of your protection with fighting this issue.
+So I have a clients server that is infected with malware. Basically any index.php file on the server was infected as well as header.php, function.php. The infection seems to be primarily wordpress sites although other types of sites reside on the account as well.
+The hack seems to generate some type of a "key" in a file called ".." That file, even though it gets deleted, returns within in a few minutes. (probably 10 or 15 minutes). I've gone ahead and cleaned all the infected files I've found with some scripting.
+Here's my question, I am presuming that if I can find the file(s) that are respawning the ".." file(s) back on the server, I am thinking it will lead me to the source of the infection as well. But what I'd like to know is, how can I actually track that down?
+I was thinking maybe tailing the logs in SSH or something to see if that would show me something, but I am not quite sure. I know I'd like to find the infection point and get it removed before I have to do a complete reclean of the server. Right now - I'm just baby sitting respawned ".." files.

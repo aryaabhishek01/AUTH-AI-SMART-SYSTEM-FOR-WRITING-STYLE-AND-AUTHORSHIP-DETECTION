@@ -1,0 +1,5 @@
+In the attached screenshot you can see that I have three small partitions called "Healthy (EFI System/OEM Partition)".
+It's been quite a while since I've been in Disk Management, but the last time I was, I'm quite sure those weren't there. I recently started a Windows reinstallation a couple of times but stopped it before I was committed to the operation, so I'm wondering if those were created as a result of that. Just a guess...
+OEM partition is used for recovery purpose when your system fails to boot up. When you insert your recovery disk it will fetch recovery points from this OEM partition and try to restore to the previous restoration points which will be mentioned in this partition.
+You can surely delete this partition without facing any issues. If you manually want to create such partition again then you can do it by booting with Windows Bootable disk.
+Reference: https://www.urtech.ca/2018/12/everything-you-need-to-know-about-healthy-oem-partitions-and-how-to-easily-remove-them/

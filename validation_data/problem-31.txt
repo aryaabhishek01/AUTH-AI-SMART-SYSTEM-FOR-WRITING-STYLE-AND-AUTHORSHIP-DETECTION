@@ -1,0 +1,12 @@
+You can avoid this iteration if you track the location of the tail element.  
+Of course, you have to maintain the tail in other places as well.  
+Since both branches update tail, I moved that out of the if/else.  
+I notice that you use this. to specify object fields.  That actually isn't necessary unless there is a conflict with a parameter or local variable.  Of course, if you simply prefer it that way to make it obvious which variables are object fields, you can.  
+You can also update the tail when you dequeue to an empty queue, but you don't need to do so for functionality.  It does allow the garbage collector to collect the node though.  
+As I've never implemented a queue, I decided to create a very simple implementation using a linked list approach.
+I create a singly linked list, using a private Node class that references some data and a previous Node,
+When enqueuing data, I check to see if the linked list is empty or not (by checking to see if the head of the list is null).
+If it's empty, point the head to a newly-created Node with the input data. If the list is not empty, I iterate through
+the list until I reach the end (i.e. the previous Node is null) and then I insert a newly-created Node.
+When dequeuing, I throw an IllegalStateException if the queue is empty. If the queue is not empty, I set the new head of
+the queue to be the old head's previous value, and return the old head's data value.

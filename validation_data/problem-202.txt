@@ -1,0 +1,14 @@
+In sql 2016, you still can create user who can create a databas and become db_owner on the databas he creates but not be an sysadmin.
+That user can login with [user1] and create database and do all CRUD operations in that database (only)
+I have run into something i can't find any answer to and maybe you can help me.
+In SQL 2012 and 2014, if a user have the server role dbcreator and public and create a databas that user got db_owner db role on the created database and could do what ever he needed to with that database.
+In SQL 2016 this does not happen and the database you create gets inaccessable because the user is added to the database only as a user and not as a db_owner and sa is set as dbo.
+Does anyone know of any changes in the roles between 2012/2014 and 2016 regarding this and how do i solve it, what server role does, the lowest possible, a user need to have go become db_owner on the database it creates?
+I need a user, that can create a databas and become db_owner on the databas he creates but not be an sysadmin.
+Well the problem is not that u can't create the user with that server role, the problem is that it does not work like in 2014.
+What db role does that user you created the database with got in that database?
+I have tested this on 2 versions, Standard and Express, both did work the same.
+So have the dbcreate server role changed in how it works in SQL 2016 or is it just a setting or installation feature that i have missed?
+I got a TSQL script for creating a User with dbcreate server role, then using that  user to create the database and the user got the db_owner db role.
+After that i ran that script i had no problem creating users and set them as Dbcreator and create database with the user and it then got to be a db_owner on the database.
+I'll be testing on customer server now and see if i get the same result there.

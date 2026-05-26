@@ -1,0 +1,9 @@
+In my experience (mostly mobile titles), the audio quality should be as low as as possible without overt negative side effects so that you have more in memory for other things.
+Keep in mind that just because there's compression involved doesn't necessarily mean that your quality is too low.  Your audience isn't going to be doing side by side comparisons with the base sounds like you are, so if they're missing something through the lossy compression, they're generally not going to know about it.  
+For example, you have to ask yourself if there's any reason to use stereo sounds or music.  Is the effect it gives you worth nearly twice the overhead?  For music, depending on how it's authored, the answer might be yes.  Some engines don't even support stereo sources for sound effects.  That kind of thing.
+Where that line is is very subjective, of course.  There are other answers that go into more specific rules of thumb.  
+The important thing is to have standards, set them early, and try to stick to it.  If you're authoring music for a game and have to half its bitrate to fit into memory, then you're going to be much worse off than if you set a low quality level in the first place.
+Sound and it's quality is something like religion. Never ending story.
+People will say, that MP3 320kbps is lossless, while experts will say that any MP3 is crap, but in the end, no one will hear a difference in the result... unless they're in the music industry for 20 years+.
+What would be the best format for video game, and what properties should be enough (Hertz, bitrate etc.), assuming that 320kbps MP3 is "heavy"?
+Maybe an example or two, how some AAA titles work with their sounds.

@@ -1,0 +1,10 @@
+I'm having trouble setting up a reverse proxy with apache 2.4.6 on RHEL7.5.
+I have the following virtualhost which sends requests to 3 backends:
+which means that the ProxyPass directive is not matching my request. I have also tried wrapping the ProxyPass* directives within a <Location> directive but it did not work either.
+Trying an equivalent rule (v1) with RewriteRule works as expected, balancing requests between the 3 servers:
+I can see that the requests are matching the proper VirtualHost, since I'm seeing the redirects, but I can't fathom why the ProxyPass is seemingly being ignored.
+I've checked and apache is loading the modules (confirmed also by the server-info handler):
+I have other servers with similar setups running apache v2.4.6 on RHEL7.4 and apache 2.2.15 on RHEL6.5 which work. I can't find any difference in loaded modules between the RHEL7 servers, but still one works and the other doesn't.
+There's probably some difference in configuration which I'm missing. The configuration is mostly default, with changes only to files in /etc/httpd/conf.d (the above virtualhost is contained in its own file).
+What is failing here? Why doesn't the ProxyPass directive work?
+RewriteRule gets processed at runtime before ProxyPass. The catchall RewriteRule will match everything. Remove that rule and use ErrorPage directives instead.

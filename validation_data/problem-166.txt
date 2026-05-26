@@ -1,0 +1,6 @@
+I recommend using the Hyper-V management console to manage your virtual machine. I haven't had the privilege of using Windows 8 Hyper-V, but I manage a couple of Hyper-V servers. You can download the Windows 8 RSAT tools from Microsoft, which comes with the Hyper V management console. Once you have that installed point it to your localhost.
+Now, make sure you external network is set to the proper network card of your hyper-v server. In my example my external network is connected to the gigabit ethernet nic of my physical machine. To get to this menu, right click on your hyper v server from the management console, and select 'Virtual Network Manager'.
+After that, for your VM settings, select the same Network that you configured for external access in the previous step.
+And last (or first?) make sure That the physical computer has access to the network.
+I successfully installed Ubuntu 12.10 server into the Hyper-V, but until now way I'm not able to connect it to my network. I created internal and external virtual switch, both pointing to the the physical adapter on the host machine, and nothing.
+Maybe there is some step I didn't do, or software i need to install. 

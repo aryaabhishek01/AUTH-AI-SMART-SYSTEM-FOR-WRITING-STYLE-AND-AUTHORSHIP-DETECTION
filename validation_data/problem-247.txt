@@ -1,0 +1,8 @@
+I'd really made GET and POST routes into separate functions. Makes your project clearer as it grows.
+Instead of error +=, I'd made errors a list, and appended to that. It may be not an obvious win in your case, but imagine you will want some other way to separate errors in the future, eg, with HTML.
+Also it would be much simpler, if postable could serve as a validation and returned reasons why it's not postable. Then there will be no need to check it twice.
+JSON data with spaces on key side is not JavaScript-friendly, so it's better be something like:
+Note also using ISO format: With front-end side library like Moment.js, it will be easy to turn it into "N days ago", to other timezone or to other format later.
+open(f"{POSTS}{file}", "r") is not good practice from security point of view. Ensure the resulting path concatenation still lies within the directory it is intended to be. (See some answers here: https://stackoverflow.com/questions/6803505/does-my-code-prevent-directory-traversal )
+Note the use of a set instead of a list for membership tests.
+You should really consider removing your styles from the index head and putting them into a separate .css file. Among other things, it'll improve caching behaviour.

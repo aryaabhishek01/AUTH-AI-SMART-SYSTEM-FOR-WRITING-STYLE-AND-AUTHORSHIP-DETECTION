@@ -1,0 +1,9 @@
+http://www.eightforums.com/virtualization/5137-how-add-virtual-network-editor-vmware-player.html
+Check the above link, read from the beginning but vmware player 5.0 procedure is further below the post on the above link.
+Instead of getting into all of the above and or vmware workstation 9.0, why don't you use virtualbox ?
+http://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html
+It's free, very rich in features, extensive command-line. have never had any problems with it.
+Just use bridged adapter in virtualbox, if you want to ssh from your local lan provided you had it configured on your ubuntu vm, that should work, if you want to allow it over the internet / external access then open the appropriate ssh port on your router and forward it to your vm ip address in bridged mode.
+I would recommend using virtualbox instead of modifying vmware player 5.0, unless there is a specific feature of vmware which you want to utilize.
+I installed ubuntu on my laptop in vmware player 5.0.0 build-812388) under windows 7.
+I do coding in ubuntu and would like to connect to ubuntu remotely with ssh. From My understanding, I need to use Bridged connection.

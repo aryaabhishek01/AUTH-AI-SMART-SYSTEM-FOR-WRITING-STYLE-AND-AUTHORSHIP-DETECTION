@@ -1,0 +1,9 @@
+All the above answers will work perfectly well, but may cause false positives if you've got the string in more than just source code. Say you are looking for where you use the FooBar class in a java project, you can search for all files named *.java and grep just those.
+The section in between the $() will expand to the output of that command. The -H prints out the filename. It's the default where there is more than one file name, but we explicitly add it here in case the expansion only returns one file name. The -n prints the line number of the match.
+This will work for small projects, but if you're dealing with a larger project, there the potential for the find to expand to a string longer than the command line limit. It's therefore safer to use:
+xargs will take input from standard in and split it up so it fits on the command line, running the command multiple times if necessary. The -print0 and -0 are required to deal with files with spaces in their name.
+You can also look for all the filesnames with a match in using:
+The -l will just display the file name and stop looking in a particular file as soon as it finds a match.
+If you're going to be doing this sort of thing frequently, you may want to look at a tool like ctags or exuberant tags, which maintain a search index of your source code and can answer these sorts of questions quickly. Both vim and emacs have support for these tools. You may also like to look at an IDE like eclipse, which can do cross referencing very well.
+(I know you were looking for a class definition, but in Java a class will be defined in a file with the same name as the class. If you were doing cpp, you could do something like:
+This will also print the line number next to each match.

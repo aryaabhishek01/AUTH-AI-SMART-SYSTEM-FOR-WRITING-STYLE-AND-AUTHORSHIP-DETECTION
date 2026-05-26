@@ -1,0 +1,8 @@
+I have a java app that accesses an NFS share with hard mount (soft mount does troubles i get many RPC timeout's for some reason).
+If i turn off (svcadm -v disable to the nfs server) then my java app gets stuck
+returns nothing as my java process hangs - strange, why even kill -3 to get thread dump does not return?
+also i even had problems killing my process - its not something i want to do, i don't want my app to get stuck if the mount is down
+Anyone has a solution or can recommend what I should be doing?
+I would like to use maybe soft mounts the problem is that i get many RPC timeout while I try to copy files from one server to an nfs share.
+so because i'm getting these errors with soft mounts and it looks unreliable (its over tcp) then i wished to test hard mount but this makes my app stuck if the share is down for some reason.
+Blocking-and-retrying-indefinitely is the very definition of a hard-mount. Passing the intr option to the mount command ought to at least allow you to interrupt the blockage when the mount is down, if I'm reading the docs correctly.

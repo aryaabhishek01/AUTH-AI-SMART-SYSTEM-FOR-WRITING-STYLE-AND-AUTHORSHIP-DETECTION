@@ -1,0 +1,8 @@
+I routinely backup (copy) all my Android phone's files to a portable hard drive using my PC.
+My old phone died. They sent me a new one. I restored all my old files to the new phone, but my old contacts did not restore. 
+What have I done wrong? Is there some trick to restoring files?
+Think of Contacts1.1 as a Windows program that reads it's data from a location that user cannot change... Say, C:\Users\sam\contacts\... You backup your C:\Users\sam\ directory, and restore it on another Windows machine that has Contacts2.0 installed. Now, your contacts are in the new system as binary data, but if Contacts2.0 is reading them from C:\Program Files\Contats only, you wont be able to see them.
+You could manually move them, but what if they are also in different format?
+In a real scenario, database fields might be different.
+That's why you manually export/import data to/from a format that is supported on every version of that program. Program then stores the data as it likes.
+Windows Mail client for example uses .eml, Outlook uses .pst, and Contacts uses .vcf.

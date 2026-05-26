@@ -1,0 +1,7 @@
+The good news is that your script doesn't look exploitable.  In particular, stripping out line break characters protects against header-splitting attacks.  Good job there.
+The bad news is that it can mangle the text unnecessarily.  For example, if a user submits the form with the subject line
+And for what gain?  strip_tags() is meant as a feeble defense against inappropriate HTML tags, but here you are sending plain text mail — a problem that has absolutely nothing to do with HTML.
+It also probably does not make sense to strip all line termination characters from the message.
+A more general concern I have is your use of the term sanitize, as it leads to confusion.  I recommend striking that word from your programming vocabulary (even if the PHP documentation uses it), to be replaced by three specific terms:
+Canonicalization provides user-friendliness.  Validation enforces your business logic.  Escaping, not canonicalization or validation, upholds security.  The term "sanitize" conflates the three mechanisms, leading you do write improperly engineered code.
+If I pass name=test@fake.com\nTo: spam@someone.com the newline will not be filtered out. You should use \\n instead of \n, or just nl2br.

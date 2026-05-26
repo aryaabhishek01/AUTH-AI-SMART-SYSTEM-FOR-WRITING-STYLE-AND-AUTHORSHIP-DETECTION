@@ -1,0 +1,12 @@
+Looking at dump with Windbg shows this string \??\ACPI#INT3400#2&daba3ff&3#{ee27098e-1b22-472a-89d8-5ccce16b1356}
+Which seams to be an "Intel DPTF Manager" or related driver. So look inf this driver was updated and rollback to older version.
+Really hoping someone can help me. I'm at work and trying to fix one of our laptops. It's Dell Latitude E5450 running Windows 10.
+A couple of hours ago (before I got in, unfortunately) it displayed a popup with an update from Dell. My coworker opted to install it and get it out of the way.
+It rebooted as part of the update process, and began bluescreening with the error code: PNP_DETECTED_FATAL_ERROR.
+It does this for a few times until it goes to the recovery menu. I can get into safe mode.
+Here are the five latest Minidump files: minidumps
+Nothing looks off in the device manager. There's three disabled devices, but all of them because of safe mode.
+Dell support was.. Well, well-meaning and as helpful as they could be. Unfortunately, it seems like I know more than they did and their only solution as "reinstall".
+I've tried similiar things with another latop a few months back. System restore worked then, but doesn't now.
+I'm really hoping to save reinstalling as an absolutely last resort.
+Anybody have any ideas on what could be wrong and what I can try to fix it?

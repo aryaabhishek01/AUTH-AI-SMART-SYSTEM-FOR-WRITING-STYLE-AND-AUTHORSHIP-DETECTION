@@ -1,0 +1,7 @@
+I've been using SecondCopy (7.0.0.146) on XP for a few years now to copy important files from one hard-disk to another.
+One thing that bothers me is that it is unable to copy some files that are open. I assume Windows provides an API that allows an application to put an exclusive lock on an open file and backup utilities like SecondCopy just can't access them until they are closed.
+As a result, since I have to close a bunch of files/applications for SecondCopy to complete successfully, I typically don't run SecondCopy regularly like I should... which pretty much beats the whole purpose of backing up data :-/
+For those of you using a similar solution to back up your important file onto a second mass storage solution...
+I use SyncToy from Microsoft. I am unsure about how it behaves with locked files as I have it configured just to copy my data files and I run it at night.
+You can configure multiple pairs of folders so, if you can separate between files you are still working on and those that are done or not in use at the moment (eg, Pictures, Music, ...) you can get at least those copied over and once you can close the other ones, you can copy those then.
+But try running it through open files and see how it behaves.

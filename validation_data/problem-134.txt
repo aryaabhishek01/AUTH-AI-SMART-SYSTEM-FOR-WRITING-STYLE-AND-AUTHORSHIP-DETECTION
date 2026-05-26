@@ -1,0 +1,6 @@
+It's solid. I've been running Windows XP/7 on a mac mini for years. If you have enough hardware resources (CPU, Disk, RAM) it's really nothing to worry about.
+Macs are more expensive in terms of price the quality is well worth it. Macs are better (quality) than OEM value-added desktop manufacturers (Dell, HP, etc.). I tend to think of the mac as a better alternative to a PC as macs can have a foothold in two worlds (windows and osx) where as windows pcs cannot (excluding hackintoshes of course).
+If you're debating on whether it's a good purchase or not, you should approach it more functionally and see if the programs you need will run with windows via bootcamp OR vmware/parallels. 
+From my personal experience, using Windows on Mac are just fine both in Bootcamp and in VMWare.
+You might want to take a look here, where apple lists the requirements for running windows through bootcamp.
+Basically, if your OS can run Lion 10.7, and you have 16+GB of hard drive space (this is the absolute minimum, but I would recommend more since you want to install applications on the windows partition).

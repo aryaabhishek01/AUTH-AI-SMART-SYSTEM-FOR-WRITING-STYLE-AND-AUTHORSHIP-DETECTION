@@ -1,0 +1,11 @@
+I'm trying to run an old piece of software in a VirtualBox VM running Windows XP. My host system is Debian.
+I have the CD-ROM image in MDF + MDS format (which I believe is an uncommon format created by Alcohol 120%). I converted it to ISO, but unfortunately that breaks the copy-protection on the image, which the MDF format presumably retains, so I'm prevented from running the software after installation.
+The ideal solution here would be to somehow mount the image in its original format and map the drive so VirtualBox can mount it (it doesn't support MDF + MDS natively, clearly).
+I may have to convert the image first. The problem is retaining the copy-protection, held in the MDS file. Does anyone have experience with this?
+If the image was correctly done you can install Alchool 120% in the guest system (in the virtualized Windows XP) and mount your image from there.
+ If it doesn't work (and it is a working image), then we have to deduce that the hardware emulation layer introduced by the virtualization is not accurate enough to deal with Alchool 120% and the "special sectors"...(with a pun: Alcohol 120% run less then 100%).
+If your virtualized environment doesn't allow to mount that format natively, 
+you may try more way to convert the image in a more common format, e.g. an ISO. (The OP tried with no success).
+You need to put particularly attention doing a byte for byte copy and not a simple copy of the data.
+It may be needed to copy even the read only sectors and to check if there were sectors of different (special) sizes... 
+If with one of the previous solutions the image works, it means that the image was correctly done and you can start to search for other program/options in order to convert it in a format that VirtualBox can mount.

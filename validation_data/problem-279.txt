@@ -1,0 +1,7 @@
+You might want to check the presence of the installed General Ledger schemes. Even though you are not an accountant, there is always a main General Ledger scheme. This one has in almost all countries the code '1' and this is the assumed default for the third parameter of the excel function I_EOL_GL_ACTCLN_CODE.
+Typically when an accountant transfers a division to entrepreneur, the original General Ledger schemes remain but are not visible due to licensing.
+you will probably see that there are differences between the divisions. Use the correct reporting scheme code. You can not alter them from within Exact Online. Maybe Exact support can help you with a temporary upgrade to enable access to the screen General Ledger schemes. Or even better switch to RGS.
+I am using the following Excel formula to retrieve the Exact Online classification code from a GL Account:
+where A3 is the division code (the number), B3 is the General Ledger account for example "1301" for Debtors and the last argument is reporting scheme code.
+For some divisions in Exact Online, I get the correct classification. For approximately 75% of my divisions I get an empty answer.
+When I look in the screen "G/L Account Classifications", I see no differences. It seems although that some very old and very new divisions in terms of date created work, but the rest not.

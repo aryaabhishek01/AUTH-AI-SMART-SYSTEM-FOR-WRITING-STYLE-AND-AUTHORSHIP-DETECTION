@@ -1,0 +1,6 @@
+If you can handle a slight delay in the data you are reporting on then a easy solution would be to restore the database less frequently.
+You can still backup and copy every 5 minutes but just change the frequency of the restore job to once an hour or whatever is appropriate. 
+Users may still get disconnected but the frequency will be lower.
+If you need to keep online access to the data, you've got a couple of options (assuming you're wanting to use just SQL native functionality for the solution, if you are open to 3rd party software and/or hardware, you've got quite a few other options):
+1) Replication - most likely transactional replication and a single read-only subscriber (msdn is a good start for an overview, I'd post a link but I can only use 1 at the moment, just google "sql server replication msdn" and it will be at the top)
+2) Keep your log shipping configuration to get data to the secondary server and leverage database snapshots combined with a common database and rotating synonyms (see here for details on this type of architecture). This will only work if you are using the enterprise edition on the secondary server (only edition that supports snapshots).

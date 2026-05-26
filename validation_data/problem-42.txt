@@ -1,0 +1,5 @@
+All ports are treated equal, however, in case of PoE, it is important to understand that PoE switches typically cannot power all ports at their maximum power at the same time.
+I.e. NETSWITCH-24POE-2 recommended by Vicon provides up to 15.4W of power per port, but only 190W in total, meaning only 12 ports can supply full power PoE at the same time. It is possible that each group of 4 ports has its own power limit, hence the recommendation that you use one of the ports in the group for a non-PoE connection.
+Your DGS‑1026MP switch has a total output of 370W so if your cameras use up to 15W you are safe to use any and all ports for your cameras.
+I am setting up a motion capture system (vicon vantage), and the cameras are PoE, and all plug into a switch (DGS‑1026MP, 26 Port Gigabit Max PoE Switch) to feed a PC. 
+The instructions say to not plug in the cameras into the upper right port of each group of four ports (see picture) and to reserve those ports for the PC or other switches. Is there a reason for this? I thought switches treated all ports as equivalent?

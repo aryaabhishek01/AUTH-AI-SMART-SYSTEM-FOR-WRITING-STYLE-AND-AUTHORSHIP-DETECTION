@@ -1,0 +1,11 @@
+Jsut a random thought that you might look into your DNS entry in the /etc/resolv.conf file and other networking places in the filesystem.Try to "dig" your nameserver and well as the router get the information out of that.
+As you said I would love to look into the /etc/sysconfig/network file and related places to hunt down.
+I have a couple of Centos linux servers, that have a very simple task, they run nginx + fastcgi for php , and some NFS mounts between them, readonly
+They have some RPC commands to start some downloading processes with wget, nothing fancy , from a main server, but their behavior is very unstable, they simply go down, we tried to monitor ram , processor usage, even network connections, they don't load up so much, max network connections up to... 250 max, 15% processor usage and memory , well, doesn't even fill up, 2.5GB from 8GB max , 
+I have no ideea why can a linux server go down like that, they aren't even public servers, no domain names installed no public serving, for sites. 
+The only thing that I've discovered was that if i didn't restart the network service every couple of hours or so... the servers were becoming very slow, starting apps very slow, but not repoting a high usage of resources...Maybe Centos doesn't free the timeout connections, or something like that...It's based on Red Hat right?
+I'm not a linux expert , but I'm sure that there are a few guys out there that can easily have an answer to this , or even have some leads to what i can do ...
+I haven't installed snort, or other things to view if we have some DOS attacks, still the scheduled script that restarts the network each hour should put the system back online, and it doesn't....
+I've sent the tech to the site, and this is what the server shows on the screen when the server was down (see image link)
+http://ft.beejive.com/icq/648/480731375/img0328152705_kv044e.jpg
+Which is very wierd, no kernel panic in messages, and i don't know what could it be

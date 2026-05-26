@@ -1,0 +1,10 @@
+From what I can tell SQL 2014 Business Intelligence Edition should be somewhat cheaper than Enterprise Edition.  We currently run all our SQL servers on Azure and rent our licences monthly.  I am trying to find an Azure image that contains the BI edition, but have been unsuccessful.  
+Searching "DataWarehousing" in the Azure Portal gives only enterprise edition options. 
+Searching "Business Intelligence" in the Azure Portal also gives only enterprise edition options. 
+The following link for SQL Pricing shows only Web, Standard, and Enterprise Editions. 
+http://azure.microsoft.com/en-us/pricing/details/virtual-machines/#Sql
+Is Business Intelligence not a supported option in Azure Images?
+Unfortunately there's no BI licensing, but you have some of the BI features in Standard images.
+SQL Server Business Intelligence in Azure Virtual Machines
+https://msdn.microsoft.com/library/azure/jj992719.aspx/#bkmk_supported_features
+There's also a few enterprise images optimized for DataWarehouse and Transactional Workloads.

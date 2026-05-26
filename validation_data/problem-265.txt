@@ -1,0 +1,9 @@
+ClearQAM pretty much "just works" on Windows 7.  The real trick is picking out a card that works.  I know that Avermedia and Happauge have a few options that I know of, and there are others.
+I'd check at AVSforum to confirm, but I'm sure there are plenty of models that will do the trick. You probably want USB, as I'm sure your laptop has PCMCIA, which probably doesn't have much support now.  As long as you have USB 2.0, you'll be fine, even for 2 channels.
+Is your PC enough?  Yea, probably.  Recording QAM isn't processor intensive AT ALL...it's just a data dump really, at 2MB/s per stream.  Playback is the issue, but I think a Pentium M isn't going to have any real trouble there.  QAM is just MPEG2, and I think the CPU has enough power to do the job.
+Bear in mind that HD QAM is about 6GB/hr, so you will need space.  Also, it's best not to try doing too much as Disk I/O can become an issue.  If you use an external drive for recordings, the capacity and I/O issues won't present any real problems.
+You can watch ClearQAM-TV even on windows XP if you use software that supports it (for example hauppauge WinTV7).
+You need a tuner for each channel you want to watch. (but there are 2 in 1 so calles dualtuner)
+I think your laptop will be able to handle 2 streams if it has cards built in. If you use external USB-TV-cards it will probably be to slow.
+If you look for a new TV-card you should by one from hauppauge - their cards are good quality for good prices and you most time get for example WinTV 7 for free with it.
+The Windows Media Center often seems to have problems with ClearQAM (see eg. http://thegreenbutton.com/forums/t/79643.aspx) but there are good media-portals like mediaportla or MythTV!

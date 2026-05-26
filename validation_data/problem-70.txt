@@ -1,0 +1,13 @@
+your boot process sure calls an init script, you have to add the NFS mount on that script.
+The init script will receive the variables passed to the kernel at boot time, among the ones you find the NFS mounting parameters.
+I want a client which loads kernel and file system from the server through network.
+Till now, On server side, i changed the settings in /etc/dhcp/dhcpd.conf to get an ip-address to the client. After that i executed service isc-dhcp-server restart command.
+I built openwrt kernel image openwrt-x86-generic-vmlinuz by downloading necessary packages
+I created one directory with name /tftpboot and i copied pxelinux.0 from /usr/lib/pxelinux.0 to /tftpboot
+And i also copied openwrt-x86-generic-vmlinuz in /tftpboot
+Inside /tftpboot i created one directory with name pxelinux.cfg
+append boot=nfs root=/dev/nfs nfsroot=nfs:server-ip:/tftpboot ip=dhcp rw
+At client side , i restarted system and i selected the boot options to pxe booting
+It is loading the kernel openwrt-x86-generic-vmlinuz smoothly . Not mounting the file system which i had given in /etc/exports file
+Now my question is how can i mount the filesystem from server to client while booting
+or any other method to mount file system while booting

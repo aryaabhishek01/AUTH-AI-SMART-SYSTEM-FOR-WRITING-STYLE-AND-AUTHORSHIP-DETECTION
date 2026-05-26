@@ -1,0 +1,7 @@
+I have several storage arrays where a significant number of the drives have been powered on between 25,000 - 30,000 hours (2.8 - 3.4 years). These drives have no other issues or errors. 
+What I want to know: is there a point where drive age alone is a significant enough factor to replace a drive, even if the drive is working fine and has no errors? 
+(I'm curious to see if people tend to run drives until they fail or start throwing errors, or if anyone takes a proactive approach at replacement using Power On Hours as a metric.)
+Drive manufactures generally quote MTBF on enterprise drives at 1,000,000 to 1,500,000 hours, but these numbers don't really mean much in the real world.
+Disk failures in the real world: What does an MTTF of 1,000,000 hours mean to you?
+The study suggests a "sweet spot" between 1 year and 5-7 years where you can expect less failures. Drive age before/after these times tended to be considerably higher.
+I have never met (or heard of) anyone who is replacing drives just because they are 'too old' (while keeping storage/server in production).

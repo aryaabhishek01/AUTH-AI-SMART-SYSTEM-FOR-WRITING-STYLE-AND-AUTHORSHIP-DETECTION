@@ -1,0 +1,5 @@
+Try running a tool like wc to see how much data is in the file.  You may be getting a sparse file with the next record at the file position just after the position where the file was when it truncated and nothing before that. Some services keep their file position and write at that position.  This does not work well when using copytruncate to rotate the log file. 
+Some applications reopen their files when sent a signal, and it is common to allow logrotate to move and recreate the file as log data will continue to be written to the log file until it is reopened.   Use delaycompress when using this method.  The logrotation specification for the syslog daemon is a good example of this.  
+See the man page for logrotate for a discussion on rotating logs. 
+Found the issue... So I had setup my system according to this link: https://github.com/dcos/dcos-docs/blob/master/1.9/monitoring/logging/aggregating/elk.md
+There's a > missing. Their docs have since been corrected. But since I did this step once when I first installed the issue was hidden until we noticed the logs where growing and not truncating...

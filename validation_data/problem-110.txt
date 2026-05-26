@@ -1,0 +1,8 @@
+I've setup similar VirtualDocumentRoot-based for wild-card sub-domains before. It's just so useful to be able to create a directory inside someone's home-directory - usually sharing their directory over Samba so that they can be used from the developer's desktop - and you have create a new website - at least for development & testing.
+As for your problem, I just put them onto different IP addresses, without a default vhost.
+I have a development server for PHP programmers set up and runnig for some time now.
+I have set up about 30 name based VirtualHosts, one for each project and for each developer. 
+I do the configuration with scripts, but now I have to add about 15 new project, all of them with standard directory structure, so I thought, I will use mod_vhost_alias
+The result is, when I connect to http://my-page.com.web.dev.example.com I get the default vhost from /var/www/404 directory. 
+The directory /var/www/web/my-page.com/ exists, and contains copy of my-page.com real webpage. 
+What am I doing wrong? Do I need separate ip addresses for "standard" NameVirtualHost and for vhost_alias?

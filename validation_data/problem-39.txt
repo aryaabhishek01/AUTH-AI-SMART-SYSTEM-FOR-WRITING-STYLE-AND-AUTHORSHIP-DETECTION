@@ -1,0 +1,7 @@
+I am experimenting different loss functions for my regression model. I noticed that in the sklearn, there are:
+sklearn.linear_model.HuberRegressor and sklearn.linear_model.ElasticNet
+To me, both use the combination of L1 and L2 loss. What exactly is the difference of this? Thanks!
+Yes, many loss functions in regression models are using a combination of L1 and L2 for different purposes. To realize the difference, I start with Ridge regression. 
+Ridge regression addresses some of the problems of Ordinary Least Squares by imposing a penalty on the size of the coefficients. The ridge coefficients minimize a penalized residual sum of squares. 
+The HuberRegressor is different to Ridge because it applies a linear loss to samples that are classified as outliers. A sample is classified as an inlier if the absolute error of that sample is lesser than a certain threshold.
+ElasticNet is a linear regression model trained with both $\iota_1$ and $\iota_2$-norm regularization of the coefficients. This combination allows for learning a sparse model where few of the weights are non-zero like Lasso, while still maintaining the regularization properties of Ridge. Elastic-net is useful when there are multiple features which are correlated with one another. Lasso is likely to pick one of these at random, while elastic-net is likely to pick both.

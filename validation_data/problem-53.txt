@@ -1,0 +1,7 @@
+There's no such thing as a 'dual stack protocol'. 
+Fundamentally, you need IPv4 support since your network dosen't 'talk' ipv6 natively at the segment you're in, and the bits must flow somehow.
+You want ipv6 cause, well, that's why you're tunneling, right? As such your network needs to support ipv6 from the system that's the tunnel endpoint, and any and all clients connected to that.
+Since ipv4 and ipv6 run seperately (not counting various 4 to 6 transition methods), having a dual stack setup is a consequence of the necessary pieces needed to run a tunnel, rather than something you need first. 
+You can run dual stack without a tunnel broker (I do!), or run applications purely in ipv4 space (my Ubuntu systems often have ipv6 disabled for apt, cause its proven buggy) or run applications in purely ipv6 space, or any mix of the above.
+It's because you need both IPv4 and IPv6. The tunnel uses IPv6, but the tunnel sources are IPv4 addresses. A tunnel is a virtual interface with it own protocol addressing, but it uses other, real interfaces with their own addressing.
+For example, your IPv6 tunnel needs IPv6 enabled for the IPv6 addressing on the tunnel, but the tunnel is a virtual interface that uses a real IPv4 interface to tunnel the IPv6 traffic across an IPv4 network.

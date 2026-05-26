@@ -1,0 +1,7 @@
+Passwords are stored encrypted. That doesn't mean they can't have access to your account otherwise.
+If you store passwords within google chrome, and they copy your profile, they do copy your password database too. If they then open google chrome with your profile, they can simply navigate to the various sites and login without even entering a password. If they want, they can then go to settings and change your password. 
+If you fear for this, then you may want to consider using a service such as LastPass. It stores your passwords in the cloud rather than locally, meaning that even with your profile, they cannot get in. Plugins are not stored in your profile and LastPass will require a login after installing it again, even if its data is copied, and you previously had the password cached.
+But if someone has access to your pc and they can run chrome, they can simply access your sites through there anyway.
+By default google chrome save you passwords in this location of a computer
+C:\Users\$username\AppData\Local\Google\Chrome\User Data\Default and it's the Login Data file. 
+so if he take the data file and replace this file in his pc , he can sync the password and view the passwords. Thanks

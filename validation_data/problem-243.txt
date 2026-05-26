@@ -1,0 +1,8 @@
+This was migrated here from stackoverflow, and I'm not sure that this is the best place for it. The TCS Stack Exchange is really for theoretical questions, so details about how many bytes are in the key are often not seen here.
+That being said, I will try to answer a question similar to yours that is framed in a somewhat more theoretical way:
+On a disk, you're more concerned about I/O than computation.
+I know of a few ways to reduce the number of I/Os needed on insert.
+There are a few more that you might be interested in, including buffer trees and Brodal et. al's tunable update/query tradeoff trees.
+The mutable state is the set of active IDs and the number of hits for each.  I bet you can fit those in RAM.
+To insert an item, query the hashtable.  If the key is found, increment the hit-counter.  Otherwise, insert the key with count 0 into the hashtable, and append a record to the end of the journal file.  After all the items are inserted, walk through the file and update each hit-counter to reflect what's in the hashtable.
+The increment case involves only a hashtable lookup and increment operation, and never touches disk, so it should be fast.  The append case involves only a hashtable lookup and a single disk write.  You'll build the journal in sequential order which will make good use of cache and avoid seeks.

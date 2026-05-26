@@ -1,0 +1,6 @@
+I'm trying to transfer the contents of some VERY old laptops which have Windows 3.1 on them. The only way I can manage this is via a serial cable (no network on the laptops).
+I've got Kermit on the W3.1 end but it is playing up and won't run nicely, apart from being a pig of a UI which I can't get my head around.
+So I'm after some alternatives for transferring the contents of a 2gb directory from the laptop over a serial link to the Vista PC.
+Ideally, something open source would be great. I've looked at ripping out the HD from the laptops but they are so ancient that they are non-standard and won't fit in a PC any more.
+A lightweight file transfer tool is available with Zip. It provides a command line tool that is run on the server end to wait for a connection and on the client to send and receive files. There are many options available and the software supports both serial and parallel cables (pinouts included).
+As a bonus, the application includes a tool and instructions to copy itself to another machine with just an OS. Great tool to bootstrap communication to a factory controller with no slot for a network card, and routine floppy drive access is not practical.

@@ -1,0 +1,10 @@
+Calling this effect "the table" is misleading, like talking about "the BIOS". Each videocard has a BIOS, but they're not the same. Each manufacturer has its own, and will likely evolve add functionality to it for new products. VESA just descibes some common parts, not everything.
+A bit late but I think I have found something that you or others finding this page could find useful.
+In a driver for 64-bit for GMA 3150 I found a Vbios.zip which contains three files with the same name.
+An executable that runs only in 32-bit windows (probably the Vbios flashing tool), a .dat file that if opened with a hex editor is clearly the Vbios as it states such in the first line, and a .bsf file that if opened with notepad explains what the numbers at each offset are.
+This is way over my head as I don't understand low-level hardware coding, but someone might find this interesting. Especially as this info does not seem to be GMA-3150-specific, although it is a bit outdated (as the GMA's architecture for that matter).
+I'm hosting it on my dropbox, but spread the news and rehost this if you can.
+I'm including the official support page where they give you driver and this package (and say they do)
+DISCLAIMER: THIS STUFF IS VERY DANGEROUS FOR YOUR DEVICE, YOU PLAY WITH IT AT YOUR OWN RISK.
+Dropbox Download link: https://dl.dropboxusercontent.com/u/47541136/GMA_3150_vbios%2Btools.zip
+Official Download link: https://downloadcenter.intel.com/Detail_Desc.aspx?lang=eng&DwnldID=18478

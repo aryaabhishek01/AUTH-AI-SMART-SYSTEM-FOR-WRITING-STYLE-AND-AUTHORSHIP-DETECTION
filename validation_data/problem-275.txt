@@ -1,0 +1,11 @@
+Update is called once a frame, this means that the time between calls depends directly on the frame-rate.
+This problem can be solved by defining the alpha, a, as a function of t, where 0 \leq t \leq 10.
+At t = 10, a = 1, and at t = 0, a = 0, so we can define our function as f(t) = 0.1 * t.
+In Unity, Time.deltaTime expresses how much time in seconds has elapsed since the last frame.
+These are alpha values for 1/2 second, which is the repeat sequence for the 9 s blinking part of your question (0.1 + 0.1 + 0.3 s). These 9 seconds hold 18 repetitions of 0.5 seconds each. You only specify the 0.5 seconds with this array. As you can see, the values begin with 1, 10 slots later (= 0.1 s later) you have 0, then back to 1, where it stays for 30 numbers (0.3 s). After this, it can repeat.
+Whenever you visit your function, you have a time T handy (as you stated). 
+Change your T value to start from 0 and end at 10. Ie. you have values of T like:
+Use the value of T to index into the array A of 50 elements, and pick your alpha there. Index using this statement (pseudo code):
+This will produce a number between 1 and 50, no matter what T is. If for example T=0, IND will be 1. If T=0.05, IND will be 6. If T=7.142857, IND will be 15. If T=9, IND will be 1. Etc. Remove the "1 +" if your language uses zero-origin.
+Your functions would look like this (sorry, i don't know the expressions for modulo and floor, ie. round down, in your language):
+Of course, you can now make different sequences, change the lenght of them, make other effects, etc.

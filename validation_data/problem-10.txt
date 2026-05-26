@@ -1,0 +1,7 @@
+Use redraw-current-line function of bind builtin. First check if it's already bound maybe:
+I've never seen it bound by default, so you will probably need to bind it. Pick a key combination, let's say Ctrl+Y. Check if it's already taken:
+Empty output means the combination is unused. If so, let's bind redraw-current-line to it:
+Now, whenever a background process messes with your command line, hit Ctrl+Y. Then your prompt will be redrawn along with whatever command you have just partially typed (if any), so you can continue as if nothing happened.
+To make the binding permanent you could add the above command to your ~/.bashrc, but don't. The right approach is to modify ~/.inputrc (for user) or /etc/inputrc (system-wide). This way any program that uses readline(3) library will obey. The line to add to either file looks like this:
+But if you create ~/.inputrc anew, make sure its first line says $include /etc/inputrc. This is because up to this point readline has used /etc/inputrc and maybe your workflow relies on what's in this file. From now on, the library will use your ~/.inputrc instead; the line $include /etc/inputrc makes it parse the system-wide file as well.
+If you press Ctrl+L, it will partially do what you want. It will redraw the current line including everything you typed up to that point including the cursor position, but it will clear the screen, so your previous output is lost (or in case of a terminal window in the scrollback buffer). On the other hand, you were willing to try clear, so maybe that is not a problem.

@@ -1,0 +1,11 @@
+To get from X to Y, the public key of X has to be in the authorized_keys file of Y
+Run the ssh command to get from A to B where it asks for a password e.g.
+Then do Ctrl-C,  so you just know you have the ssh command right so it prompts for a password.
+It will prompt for a password. Enter the password. Now Exit.
+Then the next time you ssh in, it should go in automatically.
+If you don't already have keys on A, then run  $ssh-keygen
+In connecting from A to B, All commands mentioned here so, ssh or ssh-copy-id or ssh-keygen, are run from A.
+I have two RH linux hosts, same build 'n everything, call them A & B.
+I can ssh happily from A to B using a public key, but I simply cannot login to A from B (or from my desktop using putty & pageant for that matter) without being prompted for a password. It seems there must be something slightly different with A, but I can't fathom what.
+The authorized_keys file and .ssh directory permissions are correct & PubkeyAuthentication is 'yes' in sshd_config.
+Is there anything else that could be missing or anything that could have been changed from base build that would cause this to happen? I have checked and double checked the above and regenerated keys several times. I can also see it tries using the key when running ssh -v A, but fails.

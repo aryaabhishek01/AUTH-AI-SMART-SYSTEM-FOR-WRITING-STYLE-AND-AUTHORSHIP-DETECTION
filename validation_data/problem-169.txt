@@ -1,0 +1,19 @@
+It would make sense that mouseButton won't have proper values except for events that involve the mouse button - MouseButtonReleased and MouseButtonPressed.
+If for example you wanted the mouse position for MouseMoved events, you should be looking at the mouseMove member, which is of type MouseMoveEvent.
+Always use the right event data for the event type. A mapping can be found in source code:
+  223         SizeEvent             size;              
+  224         KeyEvent              key;               
+  225         TextEvent             text;              
+  226         MouseMoveEvent        mouseMove;         
+  227         MouseButtonEvent      mouseButton;       
+  228         MouseWheelEvent       mouseWheel;        
+  229         MouseWheelScrollEvent mouseWheelScroll;  
+  230         JoystickMoveEvent     joystickMove;      
+  231         JoystickButtonEvent   joystickButton;    
+  232         JoystickConnectEvent  joystickConnect;   
+  233         TouchEvent            touch;             
+  234         SensorEvent           sensor;            
+FYI -858993460 in hexadecimal is CCCCCCCC. It is a garbage value used by microsoft compilers for uninitialised values.
+Using SFML, every event type will produce a large negative value for x and y of -858993460. 
+I am wondering if this is an intended result or am I attempting to use these events incorrectly? 
+It seems to me there is a use case for knowing the position of the mouse cursor on MouseMoved, for example so you can have a button change to a different sprite as if you are hovering over it.

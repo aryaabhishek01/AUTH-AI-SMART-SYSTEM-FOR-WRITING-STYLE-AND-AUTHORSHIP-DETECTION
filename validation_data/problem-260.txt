@@ -1,0 +1,8 @@
+No.  SQL Developer is just a client that interacts with an Oracle database.  It is not a database in and of itself so it has no way to store and manipulate data other than via an Oracle database.
+You could download and install an Oracle database on your machine, connect SQL Developer to that, and use the SQL Developer wizard to load the Excel file into a table you create in this new Oracle database. But that is a decent amount of effort to go through just to deal with a single spreadsheet.
+I have an xlsx file with content in the form of a database table - first row is column names, and columns contain varchars2, integers etc.
+Since VBA and Excel worksheet functions are too slow for it, I want to view and manipulate it in Oracle SQL Developer, Version 19.2.0.206 developer. Everything occurs locally, there is no existing database connection, and none available.
+I attempt to do this by clicking "new connection" (below screenshot; in German), but it prompts me to enter information for a database connection that I cannot have, because there is none yet. 
+When I try to make up a username, password, and use the below seen default hostname, port etc., and click on test, it shows: I/O error: The network adapter could not establish the connection.
+Is it possible, and how do I achieve, that there is a "dummy" "connection" that is not actually connected to anything existing, but allows me to turn a suitable xlsx file into a table for data manipulation?
+I have access to MS Access, but I hate the interface and have more experience with Oracle SQL, so I would appreciate a solution with Oracle SQL

@@ -1,0 +1,10 @@
+I know the question is pretty common, but I not seems to find good answer.
+Setup is following - there is webserver and there is a folder where Apache (user www-data) create directories and upload / delete files.
+The webmaster may decide to add or delete some files.
+Most hosting setups uses same user for both Apache and webmaster.
+I was able to do it inside the folder itself by setting chmod 770 and making a group that include both users, but I was not able to do it for subfolders.
+I would use 664 (rw-rw-r--) instead of 770 (rwxrwx---) for files (default is (rw-r--r--), so files can be read by everyone 
+For directories (where default is rwxr-xr-x) you need the execution bit to enter the directory and access files.
+With setgid newly created files automatically belong to the group of the directory (and not to the default group of the user who created the file),
+If your directory is /var/www/html and your group with write permission is www-data, this is all you need:
+You can add the verbose -v option to the above commands to see what was changed.

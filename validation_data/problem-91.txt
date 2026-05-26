@@ -1,0 +1,10 @@
+So I'm pretty sure this question has been asked before, but I simply cannot find the answer by Googling - feel free to point me to the right site/post to look up the answer. Apologies for my poor search-fu... :(
+I am developing a PHP application on Windows with WAMP. This needs to be deployed to a UNIX web host. The application will ultimately live on its own domain, e.g. www.example.com but I am developing it on my WAMP server under localhost/app1, i.e. I have multiple applications I'm working on, each one lives in its own directory.
+My problem is that I am referring to shared resources by their absolute paths, e.g. /images/test.jpg. Their of course works fine on my production server, but when I try to use this on my local machine, it fails to load those resources because I'm running from within a "subdirectory" in WAMP, i.e. localhost/app1/, so the link to /images/test.jpg fails. It should instead be mapped to localhost/app1/images/test.jpg.
+directive in my .htaccess in the /xxx/app1 directory, but that merely results in an error:
+Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace/
+The certainly makes sense, since now every call to localhost/app1/ redirects to localhost/app1/, etc.
+So, my question is: how should I set up my application so that I can run the same code on localhost with WAMP as well as on my production host? I realize I may have been barking up the wrong tree here and should be structuring this completely differently, so any pointers in the right direction in this regard would be most appreciated!
+The way I develop on Windows (using WampDeveloper Pro) is I either:
+A. Use the same exact domain name and enable Local DNS for the website (Windows host file resolve of domain to 127.0.0.1).
+B. Use a config.inc.php file for my website which uses a variable or constant to define the domain-name as dev.example.com, and on production as www.example.com. And also define any full paths.

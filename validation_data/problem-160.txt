@@ -1,0 +1,7 @@
+So you're using either Debian or Ubuntu, which enable AppArmor by default and restrict which locations the named daemon may read from, or write to, or mmap, or execute. Any attempts to load modules from the "wrong" locations will be denied by the kernel and logged in dmesg.
+The default policy is at /etc/apparmor.d/usr.sbin.named and only allows two locations:
+Custom additions can be made in /etc/apparmor.d/local/usr.sbin.named (as the #include statement at the bottom of the file indicates). That file doesn't have any begin/end delimiters, just the additional rules themselves such as:
+BIND9 allows you to link dynamically loadable zone (DLZ) modules at runtime using the dlopen driver. The unit test for this functionality passes for my environment, but when I try to run named with the compiled shared object file linked, I get this error:
+I already opened a ticket in the BIND9 GitLab here, which includes detailed information about my specific problem.
+More generally, I'm wondering if folks have any insight into common problems when trying to load shared objects, or experience using DLZ modules. My hunch is there is something I'm not understanding about how they work, and there's some silly misconfiguration that's causing the issue. Of course, debugging tips are also appreciated.
+ISC Knowledge Base page "Using DLZ in BIND": https://kb.isc.org/docs/aa-00995

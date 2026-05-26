@@ -1,0 +1,7 @@
+It is extremely difficult to understand what's going on in your code. Try to think of things the following perspective: the goal of programming is to tell other people what you want the computer to do. And what you want to do is match the template to the base as some location. So how can we make that clearer?
+Rather than character-wise matching for the appropriate inversion, we can just invert the template and then we just have to match for equality. Suppose we have a function:
+which flips A/T and C/G. Once we have that inversion, we're just searching for the inverted match_template in base:
+We've now reduced dozens of lines of loops and variables, which are error prone, into a one line standard algorithm which is very easy to both reason about and for other users to understand. I don't know anything about chemistry, but I get this!
+For minor comments, avoid using namespace std; and keep your indentation consistent. You do not need variables for the string length, since you can always call .size(). Avoid comparing against true and false. That part can be if (!check) { ... } else { ... }
+Two constant functions AT and CG which call a common private function that refactors all the repletion there.
+And you need a function to do whatever main is doing.

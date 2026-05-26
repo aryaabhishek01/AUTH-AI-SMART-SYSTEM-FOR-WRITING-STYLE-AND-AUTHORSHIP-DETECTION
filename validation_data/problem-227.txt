@@ -1,0 +1,7 @@
+I prefer to use the wizard to do this sort of thing.
+It will prompt for your data-source (your SQL Server database) and your data destination (choose either MS Access or ODBC for Access.)
+I believe you can also use a data transformation task to do this. Drag on a source connection (SQL Server) and a destination connection (Access/ODBC) then join them with a transformation task.  You won't actually do any transformations, but it still needs to know which field names match which in the source/destination table.
+Note: ODBC functionality is not available in 64-bit Windows 2003 servers, as Microsoft helpfully removed the 64-bit ODBC DLL.  It is coming back in 2008 due to overwhelming demand, apparently.
+There is an a destination for Access database, as long as the Access database already exist. You would add your SQL Server 2005 and the Access database to the connection manager. Then chose the OLE DB source and destination within your data flow. It will allow you to chose the Access connection as your destination.
+Now if you are wanting to create the Access database on the fly, that is something different and would require a bit of scripting to accomplish.
+Your Connection Manager properties and OLE DB destination editor for your access database would look similar to this:

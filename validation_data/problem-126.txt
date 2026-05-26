@@ -1,0 +1,6 @@
+First of all you need to make your Domino accept emails for this domain. By default a Domino server only accepts mails for external domains that are listed in its Global Domain Document(s).
+You can edit several fields in the configuration document of your server. If there is only a small number of hosts (e.g. Firewall, mailsweeper, etc), that send mails to your domino for this domain, you could Add that hosts to the Allow messages only from the following Internet hosts to be sent to external Internet domains field.
+If you want to generally allow this domain you could edit Allow messages to be sent only to the following external Internet domains field. Please check the domino administration help for description of the fields. You find them here: Configuration Settings document - Router/SMTP - Restrictions and Controls - SMTP Inbound Controls tab
+I have a Lotus server 6.5 that has a domain d1.com that recevies mail in the lotus directory I am trying to add a second domain d2.com to lotus and setup lotus in a way that mail receved for this domain is routed to a local zimbra mail server.
+I have added a foreign SMTP domain on the Lotus server to point to the local zimbra server but the Lotus server isn't routing the incoming email 
+I receve this error whan trying to send to the zimbra email from gmail: 

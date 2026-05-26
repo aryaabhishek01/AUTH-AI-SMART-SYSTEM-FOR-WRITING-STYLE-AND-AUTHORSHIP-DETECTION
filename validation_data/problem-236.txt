@@ -1,0 +1,5 @@
+Break NTFS inheritance on the toplevel folder. I'll call it root in this answer. Then grant Authenticated Users - Read to This Folder Only in the advanced view. You might also want to add Administrators - Full Control to This Folder, subfolders, and files so that administrators of the server can still traverse the entire directory tree.
+Then, make your two subfolders: folder1 and folder2 in this example. These folders should inherit the Administrators - Full Control ACE, but not the Authenticated Users - Read one. Now, you can just add the groups and grant permissions as needed on the subfolders.
+Just as a side note, you almost never want to give Full Control to users, you want to give Modify. This will let them delete, create, rename, etc but giving them Full Control instead allows them to change permissions as well.
+I am an AD newbie and have been tasked with this situation:
+Win 2008 r2 environment, create security groups in AD where root folder has only read access for all; sub folder 1 has read for 1 group public and full for another group; sub folder 2 has no public access and full access for another - no group can change root folders names.

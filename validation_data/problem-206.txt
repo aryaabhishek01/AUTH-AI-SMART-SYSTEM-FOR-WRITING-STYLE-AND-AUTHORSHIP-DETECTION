@@ -1,0 +1,5 @@
+You want to implement NIC teaming on the server. Depending on the server and OS there are drivers assoicated with the NICs, or if you run windows 2012 that feature is built into the OS. There may be other OSes that support NIC teaming (I know esx does) but I am not familiar with ,NIX.  Or you can try to 'dual home' the server that is give each NIC its own IP address and have the default gateway point out both switches.
+I have two servers with two Ethernet ports each. I also have two managed Cisco switches. 
+Is it remotely possible to have each server connect to each switch in a way to make the switches automatically handle one of the switches dying?
+I know very little of networking, but it seems to me like there would be a way to do something like LAGG across both switches and have the switches communicate with each other in a master/slave failover way.
+I'm not looking for the best way to handle this necessarily, more just wanting to know if a method exists and a possible light description of it and how it COULD work.

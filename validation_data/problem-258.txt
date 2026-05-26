@@ -1,0 +1,9 @@
+There are plenty of questions on DBA.SE regarding DBCC CHECKDB and how to resolve problems when errors are returned. My specific question is on actually getting notified that DBCC CHECKDB returned errors. Most all DBAs know that you can automate the command and should run it often.
+I came across this article by Cindy Gross, which has some very good notes. In it she mentions use of SQL Server Agent that if it finds errors from the execution of the CHECKDB command it will fail that step (or job depending on configuration). She points to Paul Randal's blog post on the topic here.
+Now I am curious if anyone knows that the Check Database Integrity Task in a maintenance plan would do the same thing? MSDN does not mention that it will and I have not truthfully been an environment where it has come across a corruption issue; so can't say that it does. This would be versus simply setting up a SQL Agent Job with multiple steps that runs the specific command against each database, as Cindy suggested.
+Thoughts? Obviously proof is in the pudding so providing more than just a guess would be helpful...
+I setup a SQL Server 2008 R2 instance and have the following databases:
+I setup a Maintenance Plan with the Check Database Integrity Task in it.
+After reviewing the log it showed that it will continue checking additional databases after hitting one that failed from corruption being found:
+To get notified about DBCC CHECKDB errors I parse the error log with Powershell every night and it emails us when there is an error in the SQL error log and specifically if there are DBCC errors
+It's the easiest way for us to monitor 700+ databases

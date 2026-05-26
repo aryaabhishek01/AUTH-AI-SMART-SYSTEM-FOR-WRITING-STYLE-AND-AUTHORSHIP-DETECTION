@@ -1,0 +1,9 @@
+If there are no options in the BIOS relating to PS/2, the only thing I can advise is to check that the PS/2 socket on the pc is fully working.
+If the touch-screen interface is USB or removable, you can try unplugging it and testing the mouse again (may be it gets disabled if something else is detected - but unlikely).
+The mouse itself is likely 64-bit compatible. It's generally not a matter of OS bitness. Windows 7, x86 and x64, has PS/2 compatibility.
+If it's a complicated mouse, it could be driver-related, but for a simple 2/3-button mouse, you shouldn't have a problem. Does the mouse come with drivers?
+It's far more likely the motherboard, BIOS, or PS/2 mouse plug is the problem.
+The motherboard may not be designed to handle PS/2 mice. If it has a PS/2 plug, you can generally assume it should, but... ya never know. ;)
+I haven't seen a BIOS setting to enable/disable PS/2 devices, they tend to be something that's just on if it's there and are a very low-level interface (hence the support in older systems). You may look for settings that specify where the BIOS enables/loads input methods, there may be something there (mine has a PS/2 or USB-preferred setting, I think).
+It's also possible the PS/2 plug is shot. It's rarer on modern mobos, but older ones were finicky about hot-swapping PS/2 devices.
+Test the plug with a different PS/2 mouse, test the mouse on a different system, and check the manufacturer's websites (for the motherboard/laptop and mouse) for any incompatibility reports or (better yet) patches.

@@ -1,0 +1,15 @@
+There are short term and medium term ways to troubleshoot this problem.  
+In addition, if you want useful help from this site, I would suggest providing more information. Your site configuration files, logfiles, and the error messages you saw when running commands. e.g. cut and paste the text of the output from the graceful restart command
+The best way to troubleshoot a problem that has happened previously, and is not happening now, is through logfiles.  
+The main apache2 error logfile is at /var/log/apache2/error.log 
+and you may have a VirtualHost specific error log configured;
+Errors relating to service restarts will be logged to the journal;
+To look at a particular period of time, use --since and --until
+Your description suggests some sort of resource exhaustion problem, which accumulates over time. So either memory, file descriptors, or potentially apache is unable to serve the requests due to lack of cpu, io, etc and they queue and timeout.
+So generally its useful to track these values, using some tool installed on the box. Personally I would use munin, because I am familiar with it, but it's quite old but it will do the trick.
+Another tool to track cpu, io, memory, is the sysstat package, which will log useful system statistics, which you can compare to your downtime periods.
+I have a client with an ecommerce site and what the issue is Apache stops randomly like once in 3-7 days. We then get from 20mins - 2 hours of downtime until we get to know this through uptime robot. And it is not the problem of the network as we have tried 3 different hosts - Contabo, OVH, Shinjiru. Graceful restart fails. I have been searching for the cause on forums but till now found nothing. 
+Even tried fixing by deleting lines from logrotate by seeing this tutorial  Apache automatically stops each sunday. Why? but still no luck! 
+Apache logs too don't tell anything. We have done the resetup 4-5 times but still. 
+We are using php7.0 with SOAP module with a Wordpress site powered with Woocommerce. Admin panel is Webmin and operating system is ubuntu 16.04. 
+client complains a lot as a lot of clients have been lost as google ads delists the site if it finds it to be down and it takes 3-4 days to again get the listing but then again apache issue. please help 

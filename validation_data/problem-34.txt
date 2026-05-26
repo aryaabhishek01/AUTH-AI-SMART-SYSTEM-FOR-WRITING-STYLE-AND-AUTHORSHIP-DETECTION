@@ -1,0 +1,8 @@
+It sounds like your server is also an Open Directory Master (running slapd), if that is the case the hashes are stored encrypted by the password server and are not really accessible. 
+If the server is not also an OD Master, things are easier and digging around in the default node with dscl as @bourneN5years mentioned is a place to start. The files for the local node can be found in /var/db/dslocal/nodes/Default
+It may be cleaner, if you can have jenkins pass the login info to the auth webapp in Server 5.2. 
+It should provide http style auth at http://localhost:4444/auth
+Is there a way of getting the password hash for a named LDAP user where the user is defined within Open Directory on a MacOS Server running OSX Sierra and MacOS Server 5.2?
+I am setting up a CI/CD node using Jenkins within a Docker container that will run on a server that runs MacOS Server.  I want that Jenkins container to be secured and to be secured using the LDAP open directory of the server, i.e. a user wanting to modify the Jenkins configuration needs to use their own network user/password to log in to Jenkins.
+As part of configuring this, I need to copy an XML file (config.xml) into the Jenkins home directory and this file needs to contain the hashed password of the user that secures the LDAP system.  I think the password hash is stored in an encrypted directory and therefore I want to know how to retrieve it.
+I want the whole of the deployment script to be automated, and so I need to be able to retrieve the hash (or recreate it) for the named user so that it can be injected into the XML file that will be put into the Jenkins home directory.

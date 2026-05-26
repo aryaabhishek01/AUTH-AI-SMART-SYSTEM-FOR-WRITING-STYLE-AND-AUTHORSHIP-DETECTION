@@ -1,0 +1,9 @@
+I am advocating to implement a solid backup concept before facing data loss.
+Having onsite and offsite backups is one pillar of such a concept. However I learned that the metadata is sometimes as valueable as the actual file contents.
+E.g. I had a data backup and a recovered btrfs filesystem and needed to decide whether to restore the backup or to keep the recovered data. As I was lacking checksums of the files, I decided to restore from offsite backup. 
+After the restore I learned, that the file creation date, ownership and permissions are also crucial to keep track of. Luckily, my data is structured and I could set defaults per script.
+However to improve my backup plan, I want to store the metadata of my files.
+The first action was to sha256sum and stat the data and save it to disk.
+How could you index and store the metadata of the files on Linux in an easier and more efficient way?
+I've looked into git-annex which looks promising and I've seen people use updatedb to keep track of files (also metdadata?) but maybe someone has better options?
+You could use a system integrity tool like tripwire, AIDE, etc. to store checksums and metadata for your files. These tools are designed to detect changes to file metadata and contents, so they create an index of this information.

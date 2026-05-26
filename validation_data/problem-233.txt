@@ -1,0 +1,8 @@
+There is a command called "InsertSectionBreak" under "Commands Not in the Ribbon" category in the "Customize Keyboard" window, but it doesn't seem to support evey section break type. However it does seem like it creates a "Section Break (Next Page)."
+This is the only customizable keyboard shortcut I've been able to find so far. Hope this helps.
+PS. Microsoft reaaaly needs to tidy up things in Office keyboard shortcuts customization window.
+I use the Continuous Section Break regularly because it allows me to break inserted excel tables into smaller pieces for editing. Deleting the section break joins them back up and the columns don't have to match.
+The easiest way to quickly access one of the Section Breaks not listed under 'All Commands' is to record a macro and assign a keyboard shortcut.
+Under the Developer tab choose Record Macro.  You'll have to name the macro and
+Go to layout tab, click the Break drop-down and choose your favorite;
+That's it.  Alt B (or whatever you assigned) is now your preferred break shortcut.

@@ -1,0 +1,9 @@
+You cannot avoid casting. You can use generics wildcard to solve the compile error. from the example code, I see that the order of DTOs in the list determines their concrete type. (is that correct?) so this should work:  
+I Have a class which calls a method, that will convert an excel file, and each sheet will be a DTO, and returns a list containing those DTOs
+But I need to get some attributes individually from each DTO.
+At first, I could iterate that list doing a instanceof and casting to my specific DTO.
+But I don't like this approach, and I'm struggling to improve it.
+I tried and created an Abstract class called AbstractDTO, where all DTOs would extend it, and implement a method:
+But since the list of AbstractDTO type, the return will not be specific:
+How can I iterate that list of Object/AbstractDTO, getting the specific dto class, without using instanceof, and maybe without casting? Is it possible?
+By the way, I can't change the service to make individual calls for each DTO, because DTO numbers also depends on some arguments, and not only sheets number.

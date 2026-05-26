@@ -1,0 +1,15 @@
+In Quake, you have 3 different kinds of armor: Green, Yellow, and Red. With Green armor, the armor absorbs 1 point of damage for every point of damage the player takes. In that way, it acts like doubling health. However, consider the complexities of that situation.
+If you have 10 health, and you pick up a 100 health powerup, you go back up to full 100 health. However, if you pick up 100 Green armor, you now effectively have... 20 health. Remember: you die when you run out of health, not armor.
+Point #1: It can reward you for maintaining a state of high health.
+Consider the same situation: you have 10 health. You come across 100 health, and then you come across a 50 health pickup. You still have 100 health. Joy.
+However, if you have 10 health and come across 100 Green armor, and later get a 50 health pickup, you now have effectively 120 health.
+Point #2: It provides a way of breaking the health cap, while still allowing the cap to exist and matter.
+Now look at the Red armor. For every 6 damage you take, 5 goes to the Red armor, and 1 to you. Red armor comes in lots of 200. Even if you are at 10 health, you effectively have 60.
+Point #3: Different grades of armor allow for different qualities of effects. Some can provide more of a reward in certain situations, while others are more situational rewards.
+Point #4: It allows you to provide more rewards for player exploration. It's a different kind of reward from health, weapons, ammo, and other powerups.
+Remember: Quake is not a modern-style hyper-linear FPS. It's more of an adventure game where you shoot people. Rewarding exploration is important, so you need a good set of viable powerups of different qualities. Armor is merely another quality to choose from.
+This is why modern FPS games don't use it. They don't need it, since they're very linear games.
+It can be a valid argument that this type of mechanic just replicates something that's already there, and as such is superfluous, and I've had a similar discussion with someone relating to ammo (the thrust of which was: beyond a certain level you may as well make ammo infinite as either way you're never going to run out anyway).
+However, this does have implications beyond just raw mechanical function.
+Armour, and indeed ammo beyond a certain level, serves an additional purpose.  It's a form of payoff for the player; they defeat the boss, or find a secret area, or navigate a nasty trap, or whatever you have, and as payoff they get to stockpile up on extra goodies.  So it's a risk/reward thing (even if the risk is not always optional) that operates on a psychological level as well as on a purely mechanical one.
+Players like getting extra goodies.  The specific case of armour that may be mechanically identical to extra health is just a variation on goodies that breaks the monotony of stuffing a map with extra health.  Ammo you know the player is never going to use because they already have plenty - so what?  It functions on that level as a reward so it does it's job.

@@ -1,0 +1,12 @@
+In road network it is better to have cost in edges, not in nodes.
+When I was doing road networks (for navigation, not for games) related programming, I used Node that contained set of incoming and outgoing edges (and other data) and edge with both ends, reference to edge in oposite direction and again, other data.
+Some of this you will probubly not need (depends on what you want to do with this graph.
+For A* I would guess that you need: cost of edge, cost to reach node from start, outgoing edges and used incoming edges (for creating actual path once you find cost of path to goal).
+Another complicating thing (that can significantly reduce size of graph):
+Nodes with 2 neighbours are not interesting, unless they are start or goal, theefore you can create simplified graph where they are romeved and replaced with edges connecting their neighbours (if they were originaly connected by removed node)
+Nodes with just one neighbours are not interesting too, so they again can be removed.
+Applying both these rules can in some cases reduce graph size multiple times (on some islands it reduced our graph to single node which was not so usefull ;) ), but in grid like road network it will help only little.
+How excatly I represented this I don't remember (proprietary work I did few years ago).
+And my experience was not with games, but with preprocessing graphs, so I had lot of memeory available (eg. Vieana needed computer with more than 4GB ram)
+I have been reading A* path finding to apply on a road like network structure. Most of the code I saw is about A* on tile based maps. There is a short description at Amit's page here about what I am looking for. My question is about what data-structure should I use to define a road network map. 
+I have infromation like, node, cost,etc. But not sure how to represent both one directional and bidirectional roads. In a graph structure, can I mix directed and undirected edges or use two edges to represent that a segment of road can be traversed in both direction. Any good example available?

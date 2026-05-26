@@ -1,0 +1,7 @@
+If you have no access to switches to get ARP tables, your last resort can be physical access to the cameras: all cams I've seen had a sticker or other label with serial number and MAC-address, unless someone removed these labels.
+Also, if these cameras sending their signal somewhere, there must be a kind of list with their IPs and so on.
+Another way: recently I installed onto my android tablet the software "IP cam viewer lite" by Robert Chou. It scans the network for different models of IP-cams, and does that reliable enough.
+Knowing the IP-address boundaries of the network in question, you may run nmap tool for ping-scan of this range. And, yes, nmap is available for Windows (ask guys from Spiceworks team)
+I work in the security devices industry and most of my work relates to IP cameras. Each camera manufacturer has their own software that scans the network for their cameras and gives details about those cameras even if they have no assigned ip address. The problem is that sometimes we go to sites that have cameras from different manufacturers and the people there don't always know what makes they are or even where they are (large sites obviously) so for us trying to reconfigure those cameras gets a bit tricky since you always have to have all the software from different manufacturers with you all the time.
+Is there a way that I can scan the network and find the mac and ip (or self assigned ip) addresses even if no ip address is assigned? 
+Ideally I'd like to know how to do this with Windows, but linux might be ok too.

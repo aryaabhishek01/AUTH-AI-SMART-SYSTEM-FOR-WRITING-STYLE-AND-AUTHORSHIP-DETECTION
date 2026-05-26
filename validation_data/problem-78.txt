@@ -1,0 +1,12 @@
+For your laptop and supported memory:  https://store.hp.com/us/en/pdp/hp-elitebook-745-g5-notebook-pc-customizable-2mg22av-mb
+For your memory-rank question:  more ranks equals more performance: https://serverfault.com/questions/69612/dimms-single-vs-double-vs-quad-rank
+For your question on RAS/CAS timings:  as you noted, the memory will only operate at the fastest speed supported by the motherboard.  There seems to be people who claim they are working without problems using faster RAM and many others who claim it causes system instability/crashes.  This is likely due to the fact that the stability is relative to the chipset and chipset drivers being able to appropriate handle the incorrect hardware for the mainboard. 
+ Because of this large disparity, I'd recommend using what your mobo supports.  Or, if you want faster RAM, get a better mobo.
+My HP Elitebook 745 G5 has two SODIMM RAM slots feeding it's dual channel memory controller.
+Apparently there is a performance increase for either Single or Dual Rank SODIMMs.
+I'm not sure which one is faster though, Single or Dual.
+Crucial 16GB Kit (2 x 8GB) DDR4-2400 SODIMM (Single Ranked)
+Crucial 16GB Kit (2 x 8GB) DDR4-2400 SODIMM (Dual Ranked)
+Crucial 32GB Kit (2 x 16GB) DDR4-2400 SODIMM (Dual Ranked)
+I will buy the fastest, followed by whatever's the largest.
+The RAM controller is limited to 2400MHZ, but they also sell 2666MHz sticks. They won't run at 2666MHz, but I was wondering, if I bought 2666MHz SODIMMs and it runs them at 2400MHz, would I be able to reduce the RAS/CAS timings? That used to work back in the day, but I haven't built a PC since the DDR2 days!

@@ -1,0 +1,8 @@
+You need to add a route manually to cover all the corporate networks. Find the smallest net block that will cover all the corporate IP addresses. For example, the corporate net might be entirely within the range 172.16.22.XXX—172.16.25.XXX. Thus your net block would be 172.16.16.0/20:
+Note that on my machine, en0 is the Ethernet, en1 is the AirPort.
+I have a script which sets up a bunch of routes for my local situation which is a corporate network for all corporatey stuff (time sheets, leave applications, workplace health & safety reporting, etc), with WiFi for the useful stuff (Bing, O'Reilly Safari, etc). I still haven't figured out where I need to put this script to have Mac OS X automatically add the arcane routes I need when the interface comes up though.
+You can setup your Network Service Order to pass most traffic through Wi-fi or Ethernet.
+This makes the preferred connection be whatever service you put at the top of the list. Unfortunately, if you want most information to go through Wi-fi except for very specific items, this won't do that. If the Ethernet connection uses a different IP network range than the Wi-fi then it will automatically pass the required resources through Ethernet.
+Any services you need to access that have a DNS record pointing to 192.168.5.x will automatically go through Ethernet, but your DNS query WILL still go to 192.168.1.x
+Any other websites that you services you visit will go through Wi-fi if Wi-fi as at the top.
+To change the service order go to System Preferences->Network. Click on the Action menu (the gear at the bottom of the Services list) and choose "Set Service Order" Then drag the service you want to have precedence to the top of the list.

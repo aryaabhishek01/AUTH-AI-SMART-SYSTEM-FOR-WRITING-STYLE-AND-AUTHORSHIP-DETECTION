@@ -1,0 +1,12 @@
+I would recommend - to any still facing this problem - to backup the Easy Settings version and find the proper installer before.
+it works adapting it to W7 compatibility once reinstalled after the needed OS upgrades.
+The new Samsung Settings do not work properly for every Fn key.
+If one of you is still fighting to get Easy Settings to work on Windows 10, here is what I did to finally get backlit keyboard back on a Samsung Series 9 NP900X3C-A03FR after installing Windows 10 version 1709 (Fall Creator Update) :
+- You will want to get version 2.1 of Samsung Settings (new name of this utility).
+- First install the latest version of Samsung Software Update :
+http://downloadcenter.samsung.com/content/SW/201305/20130521090434453/SWUpdate_2.1.15.1.ZIP
+- Launch Software Update and type in your Samsung model number in the upper right corner.
+- Select Windows 10: you will get a list of software and utilities to download.
+- You will need Samsung Settings for the Fn keys for backlit keyboard and Display Manager for the screen backlight control.
+- The downloaded software goes into a folder named SystemSoftware.
+- Install the software in Compatibility Mode and restart computer. Works!

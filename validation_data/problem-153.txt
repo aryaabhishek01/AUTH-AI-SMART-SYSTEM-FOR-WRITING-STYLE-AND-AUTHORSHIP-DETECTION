@@ -1,0 +1,9 @@
+NEVER MERGE that unpartitioned space (in most cases, there will be shown 500 mb).
+ It is kept by system for special cases, and you should not use that space for your needs. 
+At first, try to re-attach that space again and leave it as unallocated space. Then see if system boots.
+I had around a 500 MB of unallocated space in my HDD so I decided to marge it with C: drive. I used AOMEI partition toolkit.
+I did a trial run by splitting my D: drive into two (unallocated one of the partitions) and joined them. This is similar to the scenario with C: drive and some unallocated space. The software said restart the computer and the partition will be allocated in a pre OS mode(Same thing happened with D drive) and it did. Midway through the merging it showed an error occurred and restarted. From that time it is showing
+"DISK READ ERROR OCCURRED press ctrl+alt+del to restart" and it goes on in a loop.
+I installed MiniTool Partition wizard so that I could allocate the drive spaces without booting into the OS but it is showing 
+"USB descriptor file not found" for my mouse(not recognizing it)and not going inside the main partition screen.
+I just want to boot into my win 10...How can I do that??Is there any recovery software that I can try or any cmd code that will help me recover my OS????? 

@@ -1,0 +1,8 @@
+You don't need an X-server for this. You need the X-server up and running on the machine where you tunnel to. You even don't need to tunnel anything unless you are behind NAT or some tricky firewall:
+export DISPLAY=<IP of machine where you are sitting at:0.0
+I'm having quite a bit of difficulty installing X server on a VM running Debian Wheezy.  I basically am just looking to be able to SSH to the box using X11 forwarding.
+After installing xserver through the apt packaging system, (apt-get install xorg xserver-xorg) I'm unable to actually run the server:
+Googling around a bit, there seems to be a consensus that this may have something to do with the video drivers.  
+This seems to be validated somewhat by checking the log, as suggested by the above error message.  The relevant portion of the log reads: 
+So it seems that while looking for a driver, startx attempts to open the device /dev/fb0 (not sure what that is - a framebuffer?), fails, and aborts.
+So apparently I may need to edit the video driver settings in /etc/X11/xorg.conf.  Except, my system doesn't have /etc/X11/xorg.conf, or an xorg.conf file anywhere for that matter.  So I've basically hit a dead-end here.

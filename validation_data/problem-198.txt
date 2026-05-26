@@ -1,0 +1,7 @@
+The connectors themself arn't actually specific to a protocol - It simply refers to the number of pins and that its sub miniature. You could in theory wire up any suitable connector to the right electrical connections and to use it.
+In most systems I've seen, serial ports had 9 pins (since they didn't implement the whole 25 pin standard). I could also have, in theory the same 9 pins on a mini DIN connector or used the same 9 or 25 pins for another protocol.
+On the other hand, printers often had a centronics port rather than a DB25, and once again, the physical connector simply had to support the minimum amount of pins the electrical standard needed.
+At the end of the day the smart thing is to check before you plug anything in ;p
+I would like to know whether the DB-25 port is a serial or parallel port. These ports are otherwise known as printer ports, aka LPT port. 
+I'm very confused about this since, according to Wikipedia, this port is considered part of the D-Subminiature connectors, which are mostly used for RS-232 serial communication. 
+On the other hand, we know that this port is known as the parallel printer port. So, why all this confusion? Is this confusion only associated with DB-25 ports on computers? Then how about other devices that have DB-25 connectors (mostly male DB-25)? 

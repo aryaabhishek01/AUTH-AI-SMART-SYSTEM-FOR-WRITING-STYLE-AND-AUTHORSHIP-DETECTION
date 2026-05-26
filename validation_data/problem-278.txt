@@ -1,0 +1,7 @@
+Using a client that disrespects the private flag on a private tracker does violate your privacy and, potentially, the privacy of other users (if you have peer exchange enabled, for example) and is considered an offense of the highest order by most private trackers. It is also extremely easy to trace back to you, as any competent tracker will notice irregular activity after you join the swarm with such a client. Using a client with a DHT patch will quickly get you on an inter-tracker blacklist.
+The only instance where using such a client will not negatively affect you or others is if you limit it to public torrents that have had the private flag set erroneously. To make sure you don't accidentally use the patched client with other torrent files, move uTorrent's configuration files from %appdata%\Roaming\uTorrent to the same directory as your original uTorrent executable (thus engaging portable mode) before running the patched client.
+There are releases of uTorrent with DHT Patch and I was wondering if they do not pose a privacy threat.
+DHT Patch is basically a patch, that allows you to use DHT on torrents marked with private flag.
+If I'm not wrong, whole idea of private torrents is to allow only auhtorized (for example through registration) users to use torrent. Making it harder to spy on users' downloading habbits.
+And now, there is DHT Patch, which enables to use DHT on those more "secure" torrents.
+Isn't it that patched client starts to propagate IP adressess of people who think they use private torrent and make them exposed?

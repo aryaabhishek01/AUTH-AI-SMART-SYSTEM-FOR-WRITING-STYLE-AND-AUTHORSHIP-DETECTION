@@ -1,0 +1,11 @@
+Coming from a game dev perspective, I'd suggest you pursue a entity component based system (ECS) to build up your simulation.
+An entity is a container for components. Components represent state (and/or) behaviour of an entity.
+Using this notion of components, you can build up an agent as follows:
+Given a set of agents, we need to perform actions on them. We can split this functionality across what is usually termed a "System". We could have a system that updates all agents that have a position and velocity component. This would be the core boids algorithm. We could have a display system that syncs the position component of an entity with it's sprite component.
+With a setup in place like that, the core update loop would composed of calling updates on these systems.
+By splitting up an object into components, and having systems work on components rather than an entity directly, you have will have much more flexibility over your architecture - GameplayKit in iOS has an ECS model built in. You can refer to the starting guide here for more information about why an ECS pattern is better suited here.
+This question is about the proper way to architect an implementation of Craig Reynolds Boids algorithm. 
+And a Simulation object that holds an array of agents. Each iteration of the simulation the Simulation object updates the position and velocity of each Agent in its array of Agents. Something like this:
+This is ok. I can run the simulation and update the Agent models appropriately. However, I also want to draw the models on screen. 
+The question is whether I should create a new AgentView class as the view representation of an Agent model object. Or whether (1) maintaining a relationship between each Agent model and a corresponding AgentView is too cumbersome and (2) I should just replace the Agent model with AgentView entirely and let AgentView be the sole representation of an agent (sort of blending model and view state). 
+Thanks in advance for your help. If you would like additional clarification just let me know. 

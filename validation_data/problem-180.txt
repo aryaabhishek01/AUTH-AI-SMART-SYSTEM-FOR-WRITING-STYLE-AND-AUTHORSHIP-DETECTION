@@ -1,0 +1,6 @@
+Okay, first thing, I need to pick at this a little bit:
+Using READ UNCOMMITTED/NOLOCK should only be considered when the accuracy of the results is not critical, because that's what the transaction isolation level affects. I understand that the operation is not mission-critical, but that should not be the driver behind selecting a less restrictive isolation level.
+If you continue to use READ UNCOMMITTED, the locking overhead will be the same between the two methods (i.e., no locks will be taken). However, running multiple statements instead of one can affect other things, such as query compilation (which uses CPU), network chattiness, and the complexity of your application. In this case, I think the operation of sending a mailer would be relatively infrequent (I could be wrong), so the latter factor may be the most important to consider.
+If you choose to switch back to a higher isolation level for accuracy reasons, that is an entirely different ball game in terms of locking.
+20k records is not that many. Are you SELECTing other data from other tables as part of your mailout which is slowing things down? Are you keeping your transaction open longer than you need?
+Otherwise, can you use one of the opimistic concurrency isolation levels: Snapshot or Read Committed Snapshot? They should allow you to read without blocking.

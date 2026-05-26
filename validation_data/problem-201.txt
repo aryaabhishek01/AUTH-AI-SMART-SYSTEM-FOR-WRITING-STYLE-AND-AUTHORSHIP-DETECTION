@@ -1,0 +1,7 @@
+With 2 x 6870s in crossfire, 4x2 DDR3 DIMMS, i7 and a possible water cooling you should be looking at a 850W PSU. And if you can stretch it - a 1000W would be ideal.  A good PSU can help your system and can cope up with any possible future upgrades.
+I am building a new computer and would like to double check on the power supply. I am using Building a PC, Part VI: Rebuilding as a guideline, updating parts to newer ones available, but am staying within the lines so to speak (aside from the GPUs).
+Overall this will be a gaming rig with 2 x 6870s in crossfire, 4x2 DDR3 DIMMS, i7, etc.  (I am still looking into water cooling units and don't know how that will impact psu requirements.)
+I have churned the expected setup though the psu calcs on newegg, outervision, and used ibuypower as a reference point.  These break down as:
+I understand these are approximations/best guesses.  Based on the Jeff's article above and the reviews on newegg I believe I am going to go with the CORSAIR HX Series (approximate current prices):
+It's probably silly to even be concerned about going up to the 850W at this point based on what I want to do with the box.  Should I even be looking at the 1000W or is that just totally unnecessary?  (not that that's a bad thing)
+I am really enjoying this process and appreciate input, thanks.

@@ -1,0 +1,24 @@
+I have a program that I'm writing that needs to use a priority queue as part of an algorithm. I specifically need to order (String, Integer) pairs for example (Bread, 3), (Beer, 5), (Eggs,2), etc.
+I'd appreciate any comments on my code style and how I've written my class.
+You don't need a custom constructor.  This will declare and initialize it.  
+I prefer the name heap to heapArray.  It's simpler and more accurate.  
+In the latest Java, you don't have to specify Pair<String, Integer> twice.  It's smart enough to figure it out if you just say <>.  
+In general, it is preferable to use interfaces as types rather than implementations.  Among other reasons, it allows you to change implementations easily.  
+What's this do?  If it was called isEmpty, I'd think it was returning whether or not the heap was empty.  As is, I would expect empty to do something, perhaps clear the heap.  
+Whatever it's supposed to do, it doesn't seem to be doing it.  
+Changing != to > handles index values less than 1.  And it's free.  We're already doing a comparison.  Why not do the better one?  
+We don't need getParentData.  We have to calculate parentIndex anyway, so we can just fetch directly.  
+I added some extra whitespace, because I find code easier to read that way.  
+We don't have to explicitly say that we want to put things in the last position.  That's how the single argument add works already.  
+I personally am not crazy about the half-cuddled else {, and it's not the Java standard.  So I fully cuddled:  } else {.  
+We only create nullElement in the one edge case now.  The rest of the time, we don't bother.  But we can actually do better.  Consider 
+This will create the null element the one time you need it, at the beginning.  And this is the kind of thing that you do in a constructor.  
+You don't need the explicit super().  Java's smart enough to do that for you when you're just calling the default constructor.  
+And because we previously changed shiftUp to handle the empty case, we don't need to prevent calling shiftUp in that case.  
+I'm not sure that we need the null element.  The math is a little more complex without it but still doable.  
+This way we set left and right before using them.  So we can't accidentally pick the wrong value one place.  
+If this is an exercise to improve your understanding of how a heap works, that's fine.  There's a reinvent-the-wheel tag that you can use to let us know.  But if you just needed to solve the problem, an easier way is to use a PriorityQueue with a custom Comparator or a custom type that extends Comparable.  Then Java will handle all the fiddly bits of managing the heap.  
+If the order is backwards, switch a and b in the return line.  
+I forget if you have to implement equals as well.  
+Then you can call queue.add and queue.poll to insert and remove items.  
+You don't provide test code, so I haven't tried to compile and test any of this.  Beware of typos, etc.

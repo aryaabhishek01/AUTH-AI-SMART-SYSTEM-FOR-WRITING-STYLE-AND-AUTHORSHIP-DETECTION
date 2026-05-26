@@ -1,0 +1,5 @@
+For future reference, small and odd-sized optical disks only work in certain kinds of tray-loading drives. The slot-loading optical drives on almost all Macs are only designed to work with full-sized 120mm round discs.
+There's no way for a slot-loading drive to get a nonstandard disk fully injected and onto the spindle. There's no way to guarantee that the motorized rollers that handle inject and eject will be able to sense it and grip it and do anything with it.
+So once you've inserted a nonstandard disk into the slot-loading drive, it's equivalent to having stuck a credit card or guitar pick or some other thin rigid sheet of plastic in there. It's just loose debris in your drive and you have to treat it that way.
+Pointing the slot down and shaking it gently hoping it comes out is probably as good as anything. Most technicians would recommend against sticking any tools in there, as you're likely to damage something that way. The only safe bet is time- and hassle-intensive: If you want to protect your warranty, have an authorized technician take the thing apart. Otherwise, take the thing apart yourself.
+http://guides.macrumors.com/Force_Eject_a_Stuck_CD_or_DVD

@@ -1,0 +1,7 @@
+I'm trying to setup password-less SSH login, and I can't seem to make it work. Here is what I have done so far:
+When I attempt to login with the private key I get the following output from ssh -vvv:
+I'm pretty sure the server is running FreeBSD, but it's not mine, and I don't have root access. Any idea on what's going wrong here or what I can try to get this working?
+Well, the "solution" to this wound up being related to the host. The server is run by a company called HybridCluster. I'm still not exactly sure why, but in order to use public key authentication with their servers, the public key has to be added via their control panel interface and not manually to the ~/.ssh/authorized_keys file.
+I think it has something to do with them dynamically switching hardware, so the host fingerprint changes which causes the key to be rejected, but I really can't say for sure.
+Anyway, thanks to all who helped, and hopefully this will help some poor HybridCluster user in the future.
+Why did you chmod your HOME folder on the server? There is no need to do that, and I think it might hamper your connection attempts. Please restore it to 755, and try again. 

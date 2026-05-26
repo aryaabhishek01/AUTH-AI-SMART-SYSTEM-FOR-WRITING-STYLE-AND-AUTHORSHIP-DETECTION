@@ -1,0 +1,7 @@
+Docker uses seccomp, which is a syscall filter – it can whitelist or blacklist specific kernel calls, e.g. block module loading or time adjustment.
+Docker can use AppArmor, which is a security module designed to enforce per-app policies beyond ordinary UID-based privileges. (Some distributions use AppArmor even for standard apps.)
+Docker can also use user namespaces, which allow each container to have distinct UIDs from the host system. Your container processes think they are uid 0, but only have root-like privileges within their own domain (user namespace), while the host system sees a normal non-root uid. Each container's uid 0 is also separate from every other container's uid 0.
+I am aware that directly setting the time from inside a container is not permitted by default, i.e. when I run:
+I get an error stating: date: cannot set date: Operation not permitted
+So Actually I have sufficient permissions and should be able to run it. 
+I undertstand that there is another mechanism preventing me from setting the data, and my question is how exactly is that achieved?

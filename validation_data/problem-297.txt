@@ -1,0 +1,9 @@
+You can create a (fake?) chart with exactly the appearance that you want:
+You can use variations on this. For instance, you can add extra points to your dummy series, with corresponding labels. Gridlines would match the dummy series.
+You can use this technique to create an arbitrary number of axis interruptions. The formula for the "fake" Y-values would be more complicated, with IFs to detect the interval corresponding to each point, and suitable linear transformations to account for the change in scale for each interval (assuming linear scales; no mixing linear-log). But that is all.
+PS: see also the links below. I still think my alternative is better.
+http://peltiertech.com/broken-y-axis-in-excel-chart/
+http://ksrowell.com/blog-visualizing-data/2013/08/12/how-to-simulate-a-broken-axis-value-axis/
+http://www.tushar-mehta.com/excel/newsgroups/broken_y_axis/tutorial/index.html#Rescale%20and%20hide%20the%20y-axis
+I agree with @JonPeltier's point of doing this being a bad idea, conceptually.  However, if you must, there is a simple solution.  
+Graph the entire range and save or capture the graph as an image.  Open the image in an image manipulation program, like Photoshop or GIMP.  Then cut out the area you don't want, move the upper range closer, and add jagged lines to the Y axis at the edges of the break to indicate the discontinuity.  

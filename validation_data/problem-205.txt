@@ -1,0 +1,12 @@
+So, unfortunately, at work the other day we put a site into production after some editing/changes that still had the development database configuration. As a result, we have several records spanning across 4 tables in the development DB that need to be appended onto the production DB.
+Currently I have the necessary data extracted into temporary tables on the development DB. 
+t2 - Submission information - contains submission_id
+t3 - Swing table - contains contact_id & submission_id
+t4 - Submission attributes - contains submission_id
+I have tried just to simply use a query like this for each table:
+However, I quickly found that this is tedious & very error prone. Records could be inserted while I am working and I may get id's mixed up, etc..
+I have thought about adding a very high number to all of the id's in the development data set such as 50000 (the highest id in production out of all of the tables is around 28000). then Just insert all of the data into production. Would MySQL figure out the auto-inc values for all of the tables if I did this or would there be a clash eventually?
+How could I get this relational data from the development database to the production database?
+Clearly, I am not the most seasoned of DB admins. Would really appreciate some answers! Please, let me know if there is any other information you might find useful.
+You'll have to remap them to a non-conflicting insertion range, and to create that you'll need to adjust the AUTO_INCREMENT setting on each affected table.
+For example, alter the AUTO_INCREMENT values on the affected tables to introduce some headroom. If you need to insert ~100 records into a table with the increment set to 2500, then set it to 2700. That way you have 200 non-conflicting IDs to work with.

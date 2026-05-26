@@ -1,0 +1,6 @@
+The near plane parameter shall be strictly larger than zero.
+The smaller it is the more precision you burn close to the camera, and with zero, the projection matrix degenerates into unusability.
+If your geometry isn't where you want it to be when you use a conformant projection matrix, address that problem instead.
+I have just completed my custom mesh class and my engine is very basic right now, but now I am facing this strange issue. I have posted the pictures bellow, it seems like z-buffer is not working properly. I am using the following for projection matrix
+If I give anything other than 0 for near plane the model barely shows up and if camera is zoomed the geometry seems to be appearing partly and disappearing. I know that my view matrix is ok because if I use 0 near plane the geometry is rendered correctly but then the flickering happens. I used simple HLSL posted bellow. If someone faced the same situation please assist me..
+EDIT : I used blender to export mesh to custom format, although unlikely but is there any winding order issue causing this problem??

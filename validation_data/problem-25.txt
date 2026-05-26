@@ -1,0 +1,7 @@
+I use KDE and there is a keybinding for this. From the K menu, run "System Settings" (you can search for that phrase in the search field if the icon is not already showing). Then go to "Shortcuts and Gestures", then "Global Keyboard Shortcuts", choose "KWin" from list of KDE components. There is an action called "Window to Next Screen". Assign a hotkey (I use Ctrl-Alt-Shift-Right) for mine. It's strange that there isn't a hotkey for Window to Previous Screen. But, since I only have 2 monitors, it acts as a toggle between the left and right monitor. I should add that I'm using Linux Mint 13 64-bit with KDE 4.8.5.
+Perform following commands in terminal (based on this git instructions) and then assign a keyboard shortcut.
+Executing the shortcut should move the active window to the other monitor.
+Assigning a keyboard shortcut (based on this blog)
+Open up the Xfce settings → Keyboard → Keyboard shortcuts
+Add an entry for move-to-next-monitor and assign a keyboard shortcut to it.
+It should be active right away, so try it on the settings window. :)

@@ -1,0 +1,6 @@
+Other than the time you need to make sure your PHP cli environment is sane on a number of machines there is no downside.
+I done mostly web stuff and some of our daily crons have been involved. It's been nice to create ~/server/cron/whatever1.mylanguage which can then piggyback off all the site code we've already written for database connections, logging, etc rather than writing all that code again. Or more often than not, not writing that code at all and complicating troubleshooting when it all goes wrong.
+Additionally if it's part of your site code it'll get maintained better and be in source control which many crons never make it into. 
+We've got some CentOS/MySQL VMs that need regular maintenance activities.  Cron is the obvious answer for scheduling, but there's a specific set of events and some significant looping/branching logic involved in the actual shutdown/check/backup/startup.  The box admins don't want to touch this, so it's falling to the DBAs, who are not shell experts by any stretch.
+We use several apps that have PHP scripts from cron, and have written/maintained similar scripts as well.  Since we've got way more PHP talent in house than *sh, I am wondering if PHP-CLI would be a better choice for us, in terms of effective development and maintenance. 
+Are there any downsides/trade-offs that would make this a bad idea?

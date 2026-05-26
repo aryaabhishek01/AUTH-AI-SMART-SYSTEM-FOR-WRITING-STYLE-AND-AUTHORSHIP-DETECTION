@@ -1,0 +1,5 @@
+Most receivers require a microcontroller on the receiving end. The XBee already has a micro on board, so you can use it to directly turn on/off a pin on the xbee. 
+If you don't want to have to program some micro-controllers (e.g. arduino's), you best bet is to get some more remote-plugs. 
+If you don't want to use 220V, just crack them open, and reuse the board inside. You'll have to provide it with low dc-power yourself.
+Instead of reusing the remote, you can use one of these modules to send the commands.  That way you are not limited to only 3/4 devices (depending on the remote you're using).
+Recently I got cheap RF remote controlled plug points. I hacked the remote to control buttons using raspberry pi and it works great. My question is, is there any generic RF transmitter and receiver module? Receiving side, i want few GPIO pins so that we can control multiple motors or relays. I saw xbee modules, but they are very costly. Is there any such cheap RF transmitter receiver? Please help me how to go about it.

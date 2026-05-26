@@ -1,0 +1,7 @@
+As Ivan States you would setup a CNAME for the domain you want to redirect to point to your server. You cannot re-direct using a path as, so you would just create a CName for example.com to point to myserver.com, then you can go to example.com/myapp if you wish.
+To get IIS to handle this, you can do 1 of 2 things. If all requests will be going to the same place, not dependant on the URL, then you can just have one site that listens for all requests on port 80 (or 443 if its https), and your done.
+If however each domain, will need a different site, then you can create multiple sites in IIS, set them to listen on port 80 or 443, but for a specific Host Header, that way that site will only respond to requests for that particualr URL.
+The CNAME they would add is just the domain name, you cannot also use pathnames. And it wouldn't be a redirection per se, as your web server will respond directly to their domains.
+On your end, you'd need to tell your web server to respond to that domain (or better yet, respond to any domain, and let it be handled by your app).
+If you're using Apache, it's pretty easy, as by default it will respond with the default Virtual Host you have defined.
+For IIS unfortunately I don't know how it would work.

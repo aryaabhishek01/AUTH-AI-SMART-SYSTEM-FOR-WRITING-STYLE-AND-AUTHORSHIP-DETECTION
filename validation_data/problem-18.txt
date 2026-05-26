@@ -1,0 +1,6 @@
+I'm creating a new HPE configuration for a Hyper-V cluster.
+Need also to consider Veeam and Off-Host Backup Proxy. 
+This might be a silly question, but considering HPE MSA 2052, does it make any difference if it's SAS or SAN to Veeam in this subject (Hyper-V cluster / Off-Host Backup Proxy)
+With a SAS storage array you need to connect the backup proxy to the array directly (at least one link per controller). You could use a SAS expander ("SAS switch") to share ports between hosts and proxy but that is very costly as are fiber links with extended reach.
+Using the SAN/iSCSI model allows you to use a more budget-friendly (but adequate) Ethernet switch to share the storage ports between hosts and proxy. Additionally, you can run the iSCSI-over-Ethernet connection across multiple switches and could potentially even route it. Technically, it could even work over a VPN link (but likely iSCSI won't perform that well over WAN).
+Overall, the SAN/iSCSI variant scales more easily - when you need to run multiple hosts and storage arrays. If you don't need that SAS is fine is is a bit easier to handle and configure.

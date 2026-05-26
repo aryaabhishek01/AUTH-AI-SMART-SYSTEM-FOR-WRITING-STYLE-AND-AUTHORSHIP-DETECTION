@@ -1,0 +1,14 @@
+Note the i modifier for regex, that makes searching case insensitive.
+You are vulnerable to persistent XSS attacks via the logs, which may or may not currently be a problem, depending on whether or not the log input is user-supplied. I definitely wouldn't trust that they never contain user input, so you should definitely defend against this. 
+You are also vulnerable to reflected XSS via service and host.
+An attacker could for example exploit the command injection issue via XSS, even if you would have CSRF protection.
+You are vulnerable to command injection via service as well as host, meaning anyone using your script can execute arbitrary commands.
+Even if only people who should be allowed to execute arbitrary commands ever have access to this script - a big if - it should be secure against this, as it may be exploited in combination with other issues, eg XSS or CSRF.
+Your code doesn't have CSRF protection. If you don't have that in some other file that you didn't post, you should add it. Without CSRF protection, an attacker can get you to submit a request they define if you visit an attacker-controlled website while authenticated at your site.
+GET and POST shouldn't be treated interchangeably. Accepting POST data via GET makes exploitation of some issues such as CSRF easier.
+If you extract the code to a function, you could get rid of quite a couple of lines, and avoid possible bugs that may happen because of copy-pasting.
+(But as I said above, you shouldn't actually do this at all.)
+I would get rid of this variable. Just check at the beginning if either value you need is set, and if not, return.
+Don't abbreviate variable names, it makes code harder to read. Without proper context, I have no idea what comm or curr are. 
+Your HTML isn't valid, you can check this yourself, eg here.
+You are also using elements such as &nbsp to style your document, which you shouldn't. The same is true of using <br> for styling (it should only be used if it has a semantic meaning). 

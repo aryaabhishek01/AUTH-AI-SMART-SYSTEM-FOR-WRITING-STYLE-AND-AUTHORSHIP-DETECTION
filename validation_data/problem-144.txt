@@ -1,0 +1,6 @@
+With those changes, your code might look something like:
+As you are asking for best practices: methods and exceptions.
+First of all, your code does everything in one method, where you could (and should) clearly divide the parts of
+As you return with a failure anyway if a single line fails, you might as well throw an exception and stop the complete process. If you want to stick to the interface that returns an error/success condition as a result value, you may well catch and return in the outermost method.
+Here, you have a trivial outer loop (or in fact a stream), which uses the nio.Files methods (which have been around since java 8, i.e. more than 4 years now - time to start using them), and two more methods which can trivially be unit-tested without even creating a file.
+A little twist is extending RuntimeException instead of Exception for the hommade business exception, so that it can be used in a lambda expression. As it extends RuntimeException, the throws declaration is technically not really necessary on the methods, but I like to have them there so that the reader immediately sees that this exception type is to be expected.

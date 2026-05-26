@@ -1,0 +1,8 @@
+While looking at my mail queue I noticed the server was attempting to send back a bounce email, presumably to a spammer. Reading the error, I noticed that it was revealing the expanded value of a virtual alias. Is there any way to hide this address and keep it transparent?
+local@myhost.tld email@destination.tld in the alias file, and here is the mail content:
+Do not solve this problem. Solve the original problem.
+There is no need to relay Spam. This is what you are doing here. You accept any mail and then forward all mails to a Google account. Google's Spam filter jumps in and rejects the mail.
+So please think of replacing this strange mail setup. If you want to store any mail in Googlemail because it is convenient, then please use Google-Apps and move the MX of myhost.tld to Google's server farm. If it is a per user setting to forward mails to Google, then you have to filter for Spam and only forward the clean ones.
+In general you should never bounce Spam mails. The bounces do not reach the correct person as 99.999% of all sender addresses are forged.
+There is a better solution I will only sketch shortly.
+For relaying mails to Google create a new transport and a corresponding service in master.cf. In the options of this particular smtp service set the -o bounce_service_name=discard. This should discard any bounce mail from Google. This will stop backscatter but if Google temporarily defers mail it won't be affected and retried later.

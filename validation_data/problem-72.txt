@@ -1,0 +1,6 @@
+Use the route command to show your routing table. Typically, your computer will have a default route (possibly the last network interface added) through which all your traffic will be routed.
+The default route will have a destination of 0.0.0.0 or maybe just the word 'default'. That's where your traffic is going through. You can change it with the route command also.
+http://www.cyberciti.biz/faq/linux-setup-default-gateway-with-route-command/
+It may be possible to configure individual programs to bind to different network interfaces.
+You may also look into bonding your network interfaces but I have never tried it.
+So I'm currently connected to two internet connections. My 3G network and the company's wireless connection. But I don't really understand which one I'm using. Is there a way to find out which connection is being used. And is there a way to use both at the same time. Either by load balancing or dedicating each to separate tasks. For instance, one for downloading, one for surfing?

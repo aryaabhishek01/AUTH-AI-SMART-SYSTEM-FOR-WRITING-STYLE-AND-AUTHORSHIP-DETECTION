@@ -1,0 +1,5 @@
+This is not possible the way I want to implement this with the currently supported versions of JunOS. Yes, there are other ways to reach the goal as were mentioned in the other answer and in comments, but my specific question was to be able to signal blackholing using a BGP session. 
+Dynamic Creation of firewall rules is not only to redirect the traffic for a blachole but also to allow inter-datacenter, inter corporate and intranet traffic geo-distributed, to have firewall policies defined with ip abstraction, using some labelling on the dynamic routing to populate firewall objects and then to allow for the control of the traffic.
+I searched for a solution like that some years ago with Juniper but I did not have any feedback. 
+There are some scripting on Junos which may help on the subject but then the object population was not completely done in response to routing exchange events. There was also no possibility to tag direct routes in order to classify them according to the needs:
+FlowSpec could be a help and a firewall which could connect directly to the mpls core as a PE would be also a help.

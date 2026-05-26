@@ -1,0 +1,9 @@
+I cannot say for sure why RMAN behaves in this way, but as a workaround you can edit the resulting script within the same workflow in EM before the job is created:
+ ALLOCATE CHANNEL disk1 DEVICE TYPE DISK FORMAT '/disk1/%d_backups/%U';
+This will ensure the backups are placed in the destination you specified regardless of RMAN settings in control file saved with CONFIGURE command.
+On one database, the Oracle-Suggested Backup scheduled from Enterprise Manager always ends up in the recovery area, despite RMAN configuration showing that device type disk format points elsewhere.
+As far as I can see, the scheduled backup job is simply:
+Asking RMAN to show all reveals that device type disk is indeed configured to store elsewhere:
+If I run the script manually,  the backupset is placed at the above location, when the script is run from the job scheduler the backupset goes to the RECO group on ASM,
+Why might Oracle still choose to dump the backupset to the db_recovery_file_dest? 
+Ultimately, how can I change the backup destination?

@@ -1,0 +1,7 @@
+Only secondary IP addresses can be moved around without terminating the instance.
+The Network Interfaces option in the console will also greet you with a greyed-out "detach" button for primary interfaces.
+I have a Windows instance (m1.medium) running in a VPC in AWS with one Network Interface (eth0). 
+I am trying to see if there is a way (or a workaround?) to migrate the private IP (IE: 10.80.78.0/24 subnet)from this instance to another instance? 
+I know with Elastic Network Interfaces (eth1) you can hotswap the ENI as needed between different nodes. 
+I have a bad feeling that this instance will need to be terminated, to allow us to migrate the IP to another node. 
+Before doing so though, I was wondering if anyone has ever dealt with this before-and maybe has a solution? Right now all services for a particular application are pointing to the above Private IP, so launching a new instance in the same subnet and updating our code to reflect the new IP (in Production) would be to hasty (at this juncture)..

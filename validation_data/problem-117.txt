@@ -1,0 +1,55 @@
+Yes, or at least mostly "yes". You still have to distinguish whether a method or property should be private by design, or if you are just not using it publicly yet. In the latter case you may ignore the warning, but in the first case, IntelliJ is most likely right.
+Simple rule: High inner, low outer connectivity. Your classes and packages should only expose the bare minimum to the outside, and keep the implementation specific details hidden.
+When it's a magic number, ignore that hint. The IDE will warn because it's only used once, but being verbose doesn't hurt this time.
+While these two are obviously magic numbers, you are being very inconsequent by deriving a lot of other magic numbers in your codebase (essentially all screen space coordinates!) based on the value of these two.
+Take e.g. the bounding boxes in MouseInput, every single occasion where you are drawing an UI element at a fixed location, or even the ingame object placement.
+All of these should have been derived from these two constants!
+You absolutely love writing duplicate code, don't you?
+In every single location in your codebase where you need to handle either 2D coordinates, or 2D bounding boxes, you always chose to store each single component in an individual variable.
+But you didn't just duplicate the pattern of storing the components individually, you also typed the bounding box tests over an over again manually.
+It's so simple to solve that, just group 2D coordinates into a Point object, and bounding boxes into Box object. The Box class should also contain the commonly used methods for test for Box with Box collisions, and Point in Box inclusions.
+So if the player was already dead, he actually dies only on the next collision. But until you let him play, even if the health bar goes already into the negative.
+Well, it doesn't, since your implementation of the health bar actually hit's exactly 0. But this starts to bug out the second you allow custom damage values for the health bar.
+You just spun off 3 threads. The one handling the input is acceptable, you don't want that one to be blocked by anything else.
+That stuff belongs into the actual game loop. Which you don't have in your design. It would look pretty much like this, if you had one:
+Have you even counted how often you tried to repaint the panel? If you type the same command over and over again, all over the place, something smells really fishy.
+In this case it was the indicator, that several components which should have been managed by the GamePanel (well, actually not even that, but by the game loop!) instead took control over it.
+If you take a look at the proposed game loop - you only call that repaint method once after all components have been updated.
+Eh, nope. Looks like you actually managed to bake the game state and logic into the class which was only supposed to be responsible for presentation.
+Well, at least that means the setup of the game state is still in a single location?
+WTF? Why is that part of the setup suddenly part of CollisionDetector?
+This class is apparently strongly coupled with GamePanel. Once again an indicator that the guideline about low outer connectivity is violated.
+Let's take a look at "CollisionDetector" then. Actually, that class would make a fine container for the game state, if it wasn't for misleading naming.
+What that class actually does, is that it handles most of the actual game logic. Do yourself a favor, and strip the stuff which doesn't belong to GamePanel from that class and move if to CollisionDetector where it belongs. Oh, and give that class a proper name which actually describes it's function.
+Problem with that? You managed to do this for every single instance of Bullet. Some problem with Obstacle and Spaceship.
+In your simple application, the effect may be minor. You only have 10 bullets, 6 obstacles and 1 ship in your game.
+But that doesn't change the fact that you managed to keep 10 identical copies of the very same image in memory.
+This is actually not so simple to solve. The problem is, that you encapsulated resource management entirely within each instance.
+Solving this requires a different pattern. Treat Bullet, Obstacle and Spaceship solely as data containers, holding only the attributes unique to each instance. These containers don't know anything about being displayed.
+Manage the resources, and also the painting, in a central location. This actually fit's very well into the GamePanel class. That class only needs to hold one copy of each texture, and the simply iterates over the list of positions at which the instances should be drawn.
+Alternatively, at least load the resources only once per class, and not per instance.
+Just to avoid confusion, the former paragraph isn't applicable for AllTimeLeaders, Menu and alike.
+Abusing a public void paint(Graphics g) to pass in the render surface of the parent JPanel is a horrible hack. Especially when you then continue to render to absolute coordinates in the parents screenspace.
+At least have the decency to leave the layout to GamePanel. That is simply reached by additionally passing x and y offsets to paint, so that these components (at least internally) don't need to know the layout.
+The clean solution would be not to let these components draw directly to the render surface, but to use separate panes instead, completely separating them from the parent component.
+Bonus points for wanting to support *nix systems. All gone for totally messing it up.
+~/, if at the start of a path, is already the home directory. System.getProperty("user.home") + "~/." is not a valid path.
+Argh. You had it right further down in the same file. The correct syntax is File(createDataFolder(), fileName).
+But not to worry too much about that single line. The whole class FileReaderAndWriter smells. For some strange reason, you were obsessed with passing around directory and file names as String, when the proper datatype would have been File.
+And please don't use a trailing / unless you know exactly what you are doing. You don't need it when using the File class to build paths. Respectively, it doesn't even do what you think it does.
+You know there are other implementations of the List interface than just LinkedList, right? You are not even using any implementation specific behavior, so that declaration is overly specific.
+When declaring the variable, only declare it to be the interface you are going to use. The specific implementation only needs to be specified when initializing it. Or not at all, when using e.g. a factory.
+In this case, the only interface you were interested in is the List one:
+This also goes for return types and method parameters. You should never require a specific type, if other implementations of the used interface work perfectly well either.
+I'm going to stop here for now. There are still many undiscussed problems with that code base, but after resolving the already mentioned ones, the code base will already look entirely different.
+I made this game which should imitate a spaceship and obstacles (planets). Move spaceship and try to hit everything.
+I will add some others features and functionality (better images or whatever).
+My IDE (IntelliJ) gives me some warning and I try to remove them. One of them is "access can be package-private". I know what it means, it tries to "narrow down"  the access. So, according to this I should have written for example
+void myMethod() instead of public void myMethod().
+The question : should I be obedient and change everything?
+I am confused because a lot of code is written in "bad" way.
+Other warning is "field can be converted to a local variable". 
+Don't make (private final int SOMETHING = 1231) and make this in appropiate method, right? I want to ask because some variables have to be in the first lines of class (must be accessed generally by whole class) and some in one method. For me it's cleaner when I have all variables like this in one place, but compiler tells to write some here and some in methods.
+I would like to ask if my serialization is in proper way, and reading and writing to files.
+What are the best classes which can deal with simple wav or mp3 file? I want to add some music to that.
+Exceptions - I know I have to catch exceptions or add throws but what should I do with that exception at the end? Make some message like JOptionPaneor what?

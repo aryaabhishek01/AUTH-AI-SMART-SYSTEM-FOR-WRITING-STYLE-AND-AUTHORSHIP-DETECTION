@@ -1,0 +1,5 @@
+I found an implementation in Clojure that's in terms of fairly elementary functions and macros (rewriters) that I can translate into other languages like Mathematica or C++ or even python with macropy.  I think this will be easier for me to deal with than the implementations in Haskell (with its deep monad libraries, which I don't want to translate into other languages [too much work]) or Scheme (with its built-in call/cc, which I can't translate into other languages [without a lot of compiler hacking or similar trouble]).
+I think you might be misreading those rewrite rules.
+A call to shift will find to the nearest enclosing call to reset, regardless of how deeply nested it is. Other examples in the tutorial you linked to should confirm that.
+The Racket Reference has a slightly different set of rewrite rules for reset/shift, that might make things a little clearer.
+I don't speak Mathematica, but it might be possible to transcribe the rewrite rules from the Racket Reference to get what you want.

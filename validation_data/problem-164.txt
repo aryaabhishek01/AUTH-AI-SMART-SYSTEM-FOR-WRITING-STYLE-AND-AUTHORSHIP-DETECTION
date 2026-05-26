@@ -1,0 +1,5 @@
+I think Brendan is right. Chrome seems to look for a field whose name is "username" along with the password field. If the username field is missing, nothing gets filled in. Also, if the username field has some other name, such as "ID", or if the username field is on a separate page from the password field, it probably won't fill in the name.
+Firefox does a much better job of recognizing when username and or password fields need to be filled in or at least completed. This is certainly an area where Chrome could be improved.
+Chrome's basic AutoFill feature will be sufficient for most people, but for some people (like myself) it was sorely lacking. Hence, I created my own Autofill form filler extension. This extension has been working for a lot of people, so maybe it'll work for you also:
+https://chrome.google.com/extensions/detail/nlmmgnhgdeffjkdckmikfpnddkbbfkkk
+You will definitely have more power and control than Chrome's built-in autofill, and it will require one less click to autofill (zero clicks, actually -- no more having to select from a menu to initiate the autofill!).

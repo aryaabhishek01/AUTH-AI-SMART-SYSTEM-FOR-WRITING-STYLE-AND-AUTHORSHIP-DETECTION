@@ -1,0 +1,8 @@
+Looks like GeoTrust has done some re-jiggering of their signing structure.
+The third certificate that you're presenting (per Raj's answer) is this one:
+But when I open your certificate with a Windows client, the chain resolves to this one:
+These two certificates share common cryptography (so they'll both verify for the subordinate's signature), but the one you're presenting is signed by that Equifax certificate, while the one that Windows decides the trust chain leads to is signed by Equifax.
+Since you're presenting the certificate that is signed by Equifax instead of the self-signed one, you're not presenting the full chain.  Add the Equifax certificate to the chain that your web server is presenting:
+Now, that may or may not resolve the trust issues with your openssl command line client - you'll need to make sure that it's properly finding your system's store of trusted roots; you can use -CApath to make sure that it's pointing to the correct location.
+Posting in answer instead of comments as this is too big for comment. Don't have ubuntu to test with right at this moment, but chain looks complete from my redhat server(rhel 5 update 3):
+openssl s_client -showcerts -connect dev.carlipa-online.com:443

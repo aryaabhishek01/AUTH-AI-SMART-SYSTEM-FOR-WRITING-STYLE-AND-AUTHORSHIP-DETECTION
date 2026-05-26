@@ -1,0 +1,7 @@
+So, you said it was mounted over the network. Which filesystem, CIFS or NFS? Either way, I suspect you may've been delegated the file. When your client gets a file delegated, it's able to cache writes locally. However, when you use O_DIRECT (that's what oflag=direct means), the writes are sent to the server immediately instead of any caching.
+Either way, there's something strange going on. You should be getting more than 1.1MB/s unless you're actually using just 10Mbps ethernet. 
+Also, you can get a mid-transfer update for speed by running, in another window, killall -USR1 dd
+If you check the dd man page, you'll see that the USR1 signal does not kill/stop dd but print out I/O statistics. I often do this when waiting for large disk transfers:
+Oh, and if you suspect disk caching, use this command to flush the readcache:
+dd has direct option which requires kernel to bypass any caching and send data directly to block device. If you need benchmarking your device, not RAM, you have to use it, for e. g.:
+dd if=/dev/zero of=direct_output bs=1M count=100 oflag=direct

@@ -1,0 +1,9 @@
+I recently started playing with VM and saw that I have 2 options when creating a VM, I can use a Virtual Disk or a Physical Disk.
+I belive using the physical disk would be faster and better and I would like to confirm if this is true ?
+Another thing I was wondering is if I have to make the partitions myself of if the VMWare will do it for me ?
+For example if I have a 500GB disk that has 400 being used by the host OS so I have 100 spare size would it let me repartition those 100 or it would either ask for the entire 100 or for me to point an already created partition to be used ?
+You may run into problems, like driver issues or booting issues! 
+http://www.vmware.com/support/ws55/doc/ws_disk_dualboot_scsi_issues.html
+I have yet to actually try this, but most would use a physical disk as a storage disk for the virtual machine. If it's for the OS then you will get the same or maybe better performance by running it as a virtual disk. I have actually seen a higher disk performance score in the Windows Experience index on a virtual machine, as opposed to the host OS index score...
+If the 100GB is an unpartitioned (raw) part of the disk, then yes Vmware would partition it for you. If it's just unused space on your primary partition then you would need to shrink your main partition down to 400 and have the 100GB as raw.
+If it were me, I would format that 100GB partition as an area to store the VM files and virtual disks. 

@@ -1,0 +1,12 @@
+You will have to move the configuration over to the nginx configuration folder.
+nginx syntax is fairly straightforward once you get the hang of it, and their documentation is pretty good. And there are a lot of resources online on how to implement a given feature on Apache in nginx instead.
+You may be able to use a .htaccess -> nginx converter like this one to make all necessary changes.
+Then, instead of storing it in that directory, you add it under a location in your config.
+Let's say you have an .htaccess file in /var/sites/example.com/foo
+Convert it to nginx and then store it in /etc/nginx/includes (or wherever your nginx config folder is) as foo.access.
+Then you would include it in the main config file:
+If you have limited access to the config folder (if, for example, you only have FTP access to your site under a shared server), you can put the nginx-compatible files in your webroot and ask the server admin to soft-link from within the includes directory:
+Since they're in the webroot and thus publicly accessible, you'd want to add this to the main config:
+That way anyone trying to access the files will get blocked from doing so.
+I have a script that has 2 .htaccess files. The fist .htaccess file is in the root directory, and the second is in a folder under the root directory called upload.
+However, what I can not figure out is what would be the proper way to configure nginx to apply the proper rules to the .htaccess file in the upload folder?

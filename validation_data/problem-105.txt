@@ -1,0 +1,5 @@
+I've used RapidSSL for years for my clients and have no problem with them at all with browser support.
+Super-fast verification: some of them require you to fax in company letterhead, and/or their "verification team" takes 3-4 business days to activate.  RapidSSL uses an automated system whereas you're presented with a verification code on the screen that must be keyed into the phone when they call.
+Phone support is a bit spotty, although I've only had to call them once when I didn't have a direct line to use... which brings me to the second minor con: you need a direct line, no extensions, etc. and it can't be a cell phone for the verification to work.  This usually isn't an issue though as you can give the receptionist a heads-up that you're expecting a call in x amount of seconds (you can specify how long to wait to dial).
+Again, these are all really minor when you factor in the low cost and the near-instant access to your certificates.
+You could use this website to get an opinion: http://www.sslshopper.com/ssl-certificate-wizard.html

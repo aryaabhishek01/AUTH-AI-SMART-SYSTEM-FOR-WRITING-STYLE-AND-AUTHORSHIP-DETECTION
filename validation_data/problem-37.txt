@@ -1,0 +1,5 @@
+We recently had a very strange problem.  Two users share a 1gbps switch, and their network connection has been getting worse and worse (it does not disconnect, but has gotten REALLY slow, down to bytes/second).  We tried three different known-good switches, with no luck, even with only one person plugged into the switch, and even when forced to 10mbps.  The offices around theirs (all using 1gbps switches) have no problems.
+The thing is, when we hook either of them up directly to the wall, the connection is fine!  Knowing that with only one computer, a hub is basically the same as a repeater, I replaced their switch with a 10mbps hub - presto!  No more problems.
+My question is, what possible circumstances could cause a hub to work when a switch doesn't?
+Maybe the hardware at the other side of the wall is having trouble negotiating the connecton with the swiches but not with the hubs. I found one time that one switch negotiated the connection at full duplex and the other one at half and had LOTs of weird problems.
+The better way to diagnostic the problem I can think of is with a fluke device called Net Tool. You can find it here

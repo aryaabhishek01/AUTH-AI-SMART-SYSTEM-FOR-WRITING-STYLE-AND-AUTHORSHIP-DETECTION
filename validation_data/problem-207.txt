@@ -1,0 +1,5 @@
+I'm trying to configure RRAS (Routing and Remote Access) on Windows 8 (not a server OS).  Is this possible?  I've started the service "Routing and Remote Access Services", but the entry still doesn't appear in the Administrative Tools.  Using Win2008 in the past, I've added this via the Server Manager / Add Roles wizard, but that doesn't exist in Windows 8.
+BTW, I need to do this so I can setup a port redirection (587 to 25).  I sometimes do it with this command in the Startup folder:
+However, that works only when there's a user logging on.  I need it to happen for services too, when there's no user logged on.  That's why I'm trying to use RRAS instead.  If you have any other suggestions, I'm all ears.
+If necessary, I'll install a server OS on this machine, but I had hoped to avoid this, as it's rather low usage.
+According to microsoft documentation RRAS is supposed to be applied only to server versions of operation systems (http://technet.microsoft.com/en-us/library/dd314183(v=ws.10).aspx). So you'll have to deal with setup of server OS.

@@ -1,0 +1,14 @@
+I have a situation where I need best possible throughput (TCP/IP sockets & SMB3) between two Windows Server 2016 connect with a 1m patch cable.
+When you connect two Windows Server 2016 machines together directly, without using a switch, you should be able to get better performance since you know there is only two computers on the subnet.
+The question is, which parameters to tune, and what set those parameters to?
+I have been looking at the parameters on the drivers for the network cards, but I guess that there are settings in windows as well that affect the network stack and how TCP/IP, RPC, named pipes and so on behave.
+Both machines are Dell R430 with Intel Ethernet I350 QP 1Gb Server Adapter.
+The "front" machine is connected the the normal network through one nic, and to the "backend" machine through a 1m patch cable on another nic.
+The "backend" machine is only connected to the "front" machine.
+Using TCP over gigabit Ethernet, there shouldn't be any difference between direct connection or a switch in between (unless the switch is ancient). For the last two decades, switches have been running at "wire speed" = forwarding as fast as is physically possible.
+A switch introduces a tiny, additional latency into the connection (in the order of 2 to 10 µs). Unless the protocol in use is extremely sensitive to latency you won't see any difference. Especially TCP handles latencies well.
+Also, when using a switch there's next to no penalty for other computers on the network unless their traffic shares a single link that's already running at full capacity.
+With a fairly decent network design you can run streams across the entire network and a number of switches that run at close to 100% of the link speed.
+With current Windows versions, the IP stack is already set up or very good performance by default. I haven't had to tweak the parameters in many years.
+Make sure you've got current drivers installed and the offloading features in the NICs are turned on.
+When gigabit speed isn't enough you can aggregate multiple links (this is where the fun starts) or replace the NICs with 10GE ones (much simpler but more costly).

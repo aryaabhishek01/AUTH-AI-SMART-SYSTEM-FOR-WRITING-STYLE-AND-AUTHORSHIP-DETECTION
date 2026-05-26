@@ -1,0 +1,11 @@
+I'm in the middle of migrating some applications from IIS 7.5 (2008R2) to IIS 10 (2016) and I'm beating my head against a wall over something.
+The applications use a backend virtual folder that points to a NAS for common file storage (in a load balanced bundle). I know on 2008 the trick of creating a local username and password that matches a username and password on the NAS and then, set the application pool to run as that user followed by creating the virtual folder pointed to the NAS as the same user.  All of that works great on 7.5 but on 10.0 it fails saying invalid username and password.  Even after trying 10 times one finger typing the username and password. 
+I even tried changing it from the EqualLogic NAS to another windows machine to test and got the same issue so I am pretty sure that there has been a security change in IIS 10.0 but I'm not sure what.  
+I've compared the settings on the application pools, virtual folders, etc side by side and they are all identical but no joy.  
+Has anyone hit this hurdle in an IIS newer than 7.5 ? I don't have access to an 2012R2 server to test it with so I can't confirm if the problem started in 2012R2 or 2016. 
+without knowing more about your environment I would try the following:
+The version of SMB used between a client and the server will be the highest dialect supported by both the client and server.
+Maybe your NAS is using an SMB version that is incompatible with the current version of your Windows server. If so, you could fix that on both ends either the NAS or allow the server to use a lower version of SMB (which I do not recommend).
+In September 2016, security bulletin MS16-114 was released. It described a fatal security flaw in SMB1.
+Of course your problem could be totally different but I would just check the SMB version used.
+You wrote "changing it from the EqualLogic NAS to another windows machine to test" did not help. What OS was that Windows machine running, what SMB version did it use?

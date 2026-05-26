@@ -1,0 +1,5 @@
+I am planning to use m1.small in Elastic Beanstalk for the image processing of my app. It can scale behind a load balancer and provide more processing power when the app needs to based on specific metrics.
+I also considered using m3.medium which is more optimized for compute intensive application like image processing. The problem is that my application runs on ASP.NET 4.5 and when running on Windows 2012, I assume that the m3.medium 4GB SSD drive won't work for this type of instance.
+The other option is m1.medium that has 160GB of storage space but less powerful than the m3.
+Which server considering that I need to run my application on Windows and I am running it behind a load balancer (Elastic Beanstalk) and can add remove servers using auto scale, which one do you recommend for image processing?
+Why don't you try a couple out. You can always launch a different one, with the same image. If you use amazons build-in loadbalancer, it's very easy to do so. I have found out, that using a cluster of micro instances works well for image processing.

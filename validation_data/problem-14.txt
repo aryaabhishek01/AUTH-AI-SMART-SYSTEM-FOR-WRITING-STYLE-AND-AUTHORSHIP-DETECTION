@@ -1,0 +1,9 @@
+According to one user here: http://neosmart.net/blog/2008/download-windows-vista-x64-recovery-disc/
+A vista recovery disk can properly repair bootloader on 2008.  The repair disk is available for download on the linked to page.  
+As far as getting XP to install, I would hide the 2008 partition with whatever disk mgmt utility and just install.  Then put the necessary lines in the boot.ini file on the 2k8 server
+Ok I think I think I've much work to do, I want to dual boot windows server and xp, but I've linux and grub installed. But before I begin I need to ask some questions.
+My linux distro is on an external hard drive, and windows is on my main hard drive.
+I ultimately want to remove grub and linux from my system and replace linux with windows xp.
+The problem is I don't have the repair disk for windows server, and thus I cannot repair the bootloader. I cannot replace linux with xp before grub has been removed because if I do grub will complain about not being able to find the operating systems, and will make me unable to boot to windows. 
+So question 1: How to repair my bootloader so I can dual boot windows server and windows xp? or how to replace linux with windows xp in my grub menu.
+Like I said I've windows server 2008 on my main hard drive. I'm not sure but I thought that windows xp didn't feature partition selection? I thought win xp was a blind missile that just installed itself wherever it could. Am I right?

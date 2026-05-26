@@ -1,0 +1,6 @@
+Is there a way to connect an external driver to my lan network (direct connection, without having any PC opened) and then access it from any device from lan? Like a network drive?
+If its not possible, can you please recommend a sollution? I am asking this so all my development files will be easily accessed by all my lan devices.
+You might want look into what is called NAS - Network-attached storage. Quote:
+Ready-made products come in all shapes and sizes, depending on what exactly your needs are (redundancy, computational and I/O power, etc.). Some manufacturers might be Synology, Qnap and Buffalo.
+As others have pointed out, a NAS with a single bay might already be enough for your purposes. You would install your hard drive, hook it up to the network and you'd pretty much be good to go. The setup and user interfaces of these products tend to be very user friendly.
+In the end, most of them run (sometimes more, sometimes less heavily) modified versions of Linux under the hood. It can be great fun to tinker with them, too.

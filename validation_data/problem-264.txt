@@ -1,0 +1,8 @@
+I have a set of rules in my AWS Config dashboard. And, I want to set a AWS CloudWatch alarm to be triggered whenever Config detects non-compliant resource(s).
+[The plan is to link that alarm to an SNS topic for sending out emails to the team for any non-compliant event/resource]
+Is there a straightforward way to do that? Or is there a workaround for the same?
+I went through the available metrics in the Cloudwatch dashboard, but haven't found anything related to AWS Config.
+From what I know of AWS Config there's no way at the moment to directly publish a metric from which you can base an alarm.
+If the notification has to come from a Cloudwatch alarm then AWS Config will let you execute Lambda based on rules set up in AWS Config - link.
+If you want a simpler option AWS Config also lets you publish directly to an SNS topic when your rule is evaluated - link
+Failing this you can also watch for CloudTrail events and then publish a CloudWatch metric which you can base an alarm on. This is fairly in depth though and if the important part is getting the emails to be looked at by a person then your best bet is probably to have AWS Config publish directly to SNS itself.

@@ -1,0 +1,8 @@
+Memory optimized tables store LOB types in internal tables. 
+I have a table with no explicit LOB types but when I run a query against sys.memory_optimized_tables_internal_attributes, I see varchar(255) columns listed with a type_desc value of INTERNAL OFF-ROW DATA TABLE.
+Running the following query yields 10 columns (COL_58, COL_64, COL_65, COL_67, COL_70, COL_72, COL_73, COL_75, COL_76, COL_79) listed as off-row data table
+I assume this storage decision is based on this table being super wide (nearly 10,400 bytes wide), yes?
+Bill you are absolutely correct and this is a new feature added in SQL 2016.
+To prove that I took out 10 of you varchar(255) data type columns and recreated the table.  Now I get zero record for the 2nd query.  Because you row maximum row length becomes 7824 MB. 
+Now if you add one more column with varchar(255) you will see a single entry for internal off-row data table because maximum row length is over 8060 MB  (8079 MB) 
+You can use this query to check your maximum row length.

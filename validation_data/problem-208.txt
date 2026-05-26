@@ -1,0 +1,7 @@
+As Inkbug mentions, you could run each() straight on the query. split() is definitely an elegant means to retrieve minutes and hours. For style reasons, you probably should have 1 var inside the the each() function. You could split up 480 into 60 * 8, this makes it clear you are supposed to work 8 hours a day. Finally, if you put the code inside a self executing function, you will not mess up the global namespace, and you can then store the code as a bookmarklet.
+I would make it less compact to improve readability.  Leave it up to your build process (minifier) to make things compact.  Your goal should be to make things understandable.
+In cases like this, where you have a strict format, I love using regular expressions:
+This makes it clear that you expect a date to consist of two digits a colon, and two more digits.  As a bonus, let everyone know it's a constant with JSDoc and common coding conventions.
+Here, the parseTime parses the time, returning an object, and calculateOvertime calculates the overtime.
+Putting it together, your actual function does become more compact and more readable because tangental functions are extracted:
+Right now we are exposing a variety of variables and functions on the global object.  This means that anyone could call parseTime or read a similar function.  It also means a minifier can't rename the function to a shorter name.  Wrapping everything in a closure will be the final step for making sure your output code is more compact and your source needn't be:

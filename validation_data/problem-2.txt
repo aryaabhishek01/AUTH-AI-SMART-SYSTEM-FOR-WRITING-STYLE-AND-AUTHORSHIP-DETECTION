@@ -1,0 +1,7 @@
+I figured i'd share my method which worked to hide VM from Windows/Task MGR (It's also got less needless stuff and is easier to read). I was not trying to activate Solidworks but IMO this thread is more about hiding your running in a VM and maybe should be edited as such. Anyway...
+Add the following to your domain.xml and make sure to completley remove the CPU Section
+The official way of activating Solidworks server on KVM is to apply for a "Activation Exempt licensing for SolidWorks".  We do this through the reseller, but possibly could be done directly through Solidworks support.
+Solidworks sends a license file that Solidworks License Manager loads through the Advanced Options of the Server Administration tab.
+Given that the last two years it has taken more than 2 weeks for Solidworks to send the license file, it would be nice to have them not blacklist KVM.
+Solidworks has an "Enhancement Request" open with the title: "Provide SNL Server support for VM KVM Qemu Libvirt." ER # 1-9482749288  I found it by logging in to Solidworks portal, finding the Enhancement Request link, and typing KVM.
+Please leave a comment on this Enhancement Request!  Hopefully they'll decide KVM is a legitimate virtualization environment. 

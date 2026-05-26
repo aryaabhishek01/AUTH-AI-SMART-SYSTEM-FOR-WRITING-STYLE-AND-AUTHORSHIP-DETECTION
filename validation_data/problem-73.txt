@@ -1,0 +1,6 @@
+I'm building a script that will download and install a bunch of programs. One of those programs depends on a virtual driver, which needs its certificate to be imported in order to function. Normally, the installer does this for you in the GUI and just pops up a confirmation dialog asking if you trust this driver. However, that interruption is unacceptable for the script I'm writing.
+I have found a way to export the certificate via the file properties GUI and can import that file with the script, thus allowing me to install without any user interaction. However, in order to deploy and fully automate this script, I need to also be able to export the certificate file from the installer via the script. Can this be done?
+The whole process can be done in powershell using the X509Certificate class available in the .Net framework.
+The first thing you need to do is get the cert file from the signed file. This is done using the CreateFromCertFile function. Just take note that the function can only take full paths and not relative ones.
+You can then open up the certificate store on the local computer and import the certificate. To write into the Local Machine store, this needs to be executed as an administrator.
+FYI, I used this method to install VirtualBox Guest Additions that also had driver prompts.

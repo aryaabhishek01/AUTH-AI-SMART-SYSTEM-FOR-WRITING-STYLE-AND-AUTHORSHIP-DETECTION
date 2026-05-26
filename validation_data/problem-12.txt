@@ -1,0 +1,13 @@
+This is a confusing situation, as you have shown by including the USB pinout in your question.
+Compounding the confusion is the use of the same colours that USB uses, but for completely different functions.
+There is a chip buried inside the USB plug that is doing the USB-UART conversion.
+There is no standard for what white/green means in this situation. There is also no standard that they even use white/green.
+You may improve your situation by making sure you buy the same part number from the same manufacturer every time.
+If you need to find out which is which, you can try connecting each wire to an LED first. Transmitting at 9600 baud will cause the LED on the TXD line to flash.
+if you want to be able to find where is +5V, GND, TX and RX pins, you need a multimeter (a voltmeter basically), 1kOhm resistor and a simple LED.
+first you need to find the GND and +5V, most probably these are BLACK and RED, however might be any colour. connect multimeter to the GND and touch other pins starting from RED, once you see 5V on your multimeter, you've found the power pins. if you don't see 5V on the multimeter, choose another pin as GND, and measure voltage between the selected pin and other pins. repeat as necessary.
+then you may try to find the TX pin. make a probe, according to the picture:
+touch +5V with the probe end, the LED should become ON, otherwise you either missed the GND and +5V or the LED polarity (the longer lead should connect to the probe).
+from now on, you may safely ignore +5V pin, because it's not required for a proper operation of the serial port, unless you're going to power RasPi from USB port, that's generally not recommended and will eventually fail.
+if everything works so far, connect the probe to the probable candidate to TX pin and type something into the terminal window (choose lower baud rate in the terminal settings, something like 2400, 4800 or 9600), connected to USB tty port on your PC. see if the LED will flash when you type. if nothing happens, try another possible TX candidate pin. at least one of them will make the LED flash, and the other will be RX pin.
+ps. I have mistaken TX and RX pins many times in the past, with TTL serial levels it's quite difficult to do any damage, you should not worry much about that.

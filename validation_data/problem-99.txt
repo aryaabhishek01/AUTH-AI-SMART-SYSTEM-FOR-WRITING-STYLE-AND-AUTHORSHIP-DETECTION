@@ -1,0 +1,8 @@
+Let me clarify my question. In todays world there are lots of devices that has built-in support for Contacts or a Calendar, if not both. In this case, I'm going to imagine a personal set of devices: A windows PC, an iPad and a Mobile 7 smartphone. (I currently own the windows PC and the iPad, but the remaining two are upcoming)
+I have a dream of a central location for all my contacts and calendars. Currently I'm using Google Contacts and Google Calendar (which covers Windows) synchronized using a windows Exchange profile in iPad for my calendar and contacts. I'm fairly happy with it, but it lacks some data fields in the contact sync, for instance birth dates.
+A scenario from previously mentioned dream would be (Just an example, you don't have to read it):
+The reason I'm posting this question is to figure out the best method of storing my Contacts and Calendars. ("Best" meaning covering as many devices as possible retaining as many features as possible, and obviously being live two-way synchronization)
+Examples of such methods would be Google Contacts & Google Calendar, Microsoft Exchange, Apple MobileMe -
+The most reasonable and convincing answer will be marked as correct.
+What is your prob with Gmail/contacts/calendar? They do exactly what you are looking for.
+I have all three google services synced via Exchange to iPhone/iPad. On PC, Gmail web interface has the same functionality as well.

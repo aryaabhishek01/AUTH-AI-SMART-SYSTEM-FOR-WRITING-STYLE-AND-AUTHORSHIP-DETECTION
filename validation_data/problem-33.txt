@@ -1,0 +1,10 @@
+You can configure this by setting the "Connections in primary role" setting when configuring read-only routing. You have 2 options:
+This setting isn't configured at the login level though - this relies on what you said in the first part of your question, that your logins are using ApplicationIntent=ReadOnly in their connection string. 
+If they don't ask for that specifically - meaning, if they don't declare that they're only going to write - then SQL Server has no fast way of knowing that they have no writeable permissions in any database, on any object. After all, they could even execute a stored procedure signed with a cert, and that cert could allow them to do writes.
+So if you really want to stop them from logging in even if they don't use ApplicationIntent=ReadOnly, then I'd do it by simply disabling their logins on the primary. Then, run an Agent job every minute on every replica, checking to see if this particular replica is a primary. If a failover has occurred, and this replica is now a primary, disable the reporting-only logins. If the replica is a secondary, and the reporting-only logins are disabled, then enable them.
+This will of course run into problems if you really do want to disable someone's login - it'll instantly be enabled again in a minute.
+We are configuring an availability group with a readable secondary replica.
+A login can connect to the secondary replica using "ApplicationIntent=ReadOnly" in its connection string. But we came across a problem that could make our headache in future.
+If the secondary replica is unavailable due to any causes when the login establishes connection, this login will be directed to the primary replica whatever it's using "ApplicationIntent=ReadOnly" or not.
+So, my question - is there any way to ban particular logins from connecting to the primary replica if they configured for working with the secondary one?
+I mean if the primary replica isn't able to direct the connection to the secondary one the connection should be closed instead of going on working on the primary replica.

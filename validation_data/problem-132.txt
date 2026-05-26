@@ -1,0 +1,8 @@
+This is what I would start looking into at this point.
+If you have another instance of SQL Server running on your machine on the same port.  In my experience; having run SQL Server and then have installed Visual Studios where an instance of SQL is installed , and it become a race condition on who owns the port.
+Enter your services (Crtl R)  for the run box type services.msc to load the services manager.
+From there locate SQL Server and disable the service you are not using and restart the desired SQL Server and then try to connect.
+I just installed MS SQL Server 2014 a couple days ago and it was working fine until today. I attempted to connect using the Object Viewer and I got the error message 
+ A connection was successfully established with the server, but then an error occurred during the pre-login handshake.(provider: Shared Memory Provider, error: 0 - Mo process is on the other end of the pipe.) (Microsoft SQL Server, Error: 233)
+The consensus seems to be that the issue is caused either by Named Pipes being disabled in my SQL Server Configuration Manager or that Named Pipes come before TCP/IP in the protocol order. I have made sure that my protocol order is appropriate. I have it set to Shared Memory first, TCP/IP Second and lastly Named Pipes. Another source said that my port might be blocked but I already have a working rule on my firewall to allow access to the default port which is 1433 in my case. 
+Another source said that I need to click the Allow Remote Connections under server properties in SQL Serer Server Manager but every time I right-click and click properties the program crashes... 

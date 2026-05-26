@@ -1,0 +1,7 @@
+Looks like you're selecting the Unit of Measure (UoM) id column instead of the value column.
+You'll need to make sure you replace the [fimensions unit of measure id] column with [dimensions unit of measure VALUE] column
+NOTE: I'll assume your table are named product and unit; please replace those with the actual names if you try to use any of this.
+If every row in product has a valid  weight or dimension unit of measure ID- that is to say, if none of the IDs is NULL, and all ID values actually exist in unit - then you can do this with an INNER JOIN.
+If some rows in product have a NULL value in that field, or have a value that doesn't match the actual ids in unit, and you'd still want those product rows to show up in your results, then you need to use an OUTER JOIN.
+I'll construct a demonstration query using a LEFT OUTER JOIN for both IDs. IF you have a row where the actual unit row can't be found, then that unit name will come out as NULL:
+When joining to the same table twice, you must use a table alias so you can tell which joined table you're referring to.

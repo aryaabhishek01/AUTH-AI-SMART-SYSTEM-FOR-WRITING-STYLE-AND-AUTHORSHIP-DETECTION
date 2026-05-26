@@ -1,0 +1,6 @@
+Holding Ctrl+Shift while clicking on a shortcut (or in the Start Menu’s search box) no longer works to run as administrator. Specifically, nothing happens; no UAC prompt and the program does not run at all.
+I can still run things as administrator by using the run as admin context-menu item on the EXE, but not on shortcuts to it. I can also run as admin if the run as admin property of a shortcut is checked and the shortcut is opened normally. Also, EXEs that have the admin flag (those with the shield icon overlay) work either directly or through the shortcut. It is non-admin programs that cannot be manually run as admin.
+The only notable change since this behavior that I can think of is that I disabled the Win-key hotkeys (NoWinKeys=1), but that should not be related.
+Does anyone know what could be causing this? I thought that maybe something in the shortcut handler (HKCR\lnkfile) was corrupted, but it looks okay.
+I have the impression that CTRL+SHIFT+ENTER only works when using the Instant Search feature in the Windows Start menu. Open the Services applet and check if Windows Search Service is enabled. If disabled, see if enabling it changes anything (let it have a few moments to do its indexing).
+A question : What happens if you turn off UAC temporarily ?

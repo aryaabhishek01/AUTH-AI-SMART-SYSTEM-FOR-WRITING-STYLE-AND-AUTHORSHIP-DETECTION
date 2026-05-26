@@ -1,0 +1,7 @@
+I tried adding additional info to the answer by sphilp but that edit got rejected because some people seem to think it's incorrect. I can assure you: it is not.
+The Registered Servers functionality in SSMS can be used to connect to several servers in just a couple of clicks.  If you group the servers together by creating a New Server Group under the Local Server Groups node, you'll be able to right-click that group and select Object Explorer. This will open all servers in ... Object Explorer!
+More details: SSMS: Connect To Several Servers In One Click (Okay, Two)
+You can even influence the order in which the connections are opened (alphabetically).
+If you use the SSMSBoost plugin, then you can set any of your preferred connections to "Connect object explorer at startup".
+This option can be found on the SSMSBoost->Settings->Preferred Connections->List page of the connection.
+Since I like having the master databases of all the instances I routinely work with at the top of my preferred list, I just enable this option for the ones I want to always have available in the Object Explorer.

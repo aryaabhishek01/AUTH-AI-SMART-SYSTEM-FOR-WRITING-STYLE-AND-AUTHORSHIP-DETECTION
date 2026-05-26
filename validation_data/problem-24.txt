@@ -1,0 +1,10 @@
+I don't know FC11 all that well, but you may not be able to do an online shrink of the root partition.  If the partition on the logical volume isn't root, boot into single user, and shrink it from there.  If it is /, you need to boot from a rescue disk.  Lots of good ones around, but get one with GParted!  Ubuntu Live CD fits the bill, as does SystemRescueDisk: http://www.sysresccd.org/Main_Page.
+Once you've done that, you need to first shrink the space in use by LVM, and then re-write the parition table to expand /boot. 
+Once you've got things ready to shrink the LV, first shrink the filesystem on the partition:
+where SLICE is the partition, and new_size is the total new size you want once shrunk.  You can use 'M' or 'G' to specify the size.  
+For example, if I wanted to shrink my root parition down to 100G, I would do this:
+Now shrink the logical volume that holds the partition:
+Now shrink the physical volume (actually, the amount of the pv availble to LVM)
+If you're not sure of the physical volume name, use pvs.
+Now you need to actually change the partition table on the drive, shinking /dev/sda2 to that same 100G, and put the rest into whatever partition /boot is on.  Use GParted for this -- it's a million times easier than fdisk.  It's a GUI program, so can't show you an example, but it's pretty easy to use.
+Shrink the filesystem (resize2fs), the logical volume (lvreduce), the physical volume (pvresize), then the partition.

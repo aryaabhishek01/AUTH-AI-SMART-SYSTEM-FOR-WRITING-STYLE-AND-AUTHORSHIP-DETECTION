@@ -1,0 +1,9 @@
+ALB's have many other advantages than just SNI.. they support HTTP/2, path-based routing to multiple target groups (useful in some scenarios), and as far as I'm aware they're cheaper than classic ELB's.
+And yes, Elastic Beanstalk DOES support ALB's. Unfortunately, you can a) only select to use it at environment creation time, and b) only do this via the new UI. I've posted some gripes about UI and EB in general having really gotten into using it over the last few weeks. Hopefully they'll fix these issues in the future. In the meantime, you should at least be able to save your current environment's configuration, launch a new one from the saved configuration (changing the load balancer type before creation), and then switch the CNAMEs once it's up and running.
+Note also: your environment must be configured to use a VPC in order to use ALB's.
+For a SaaS application where customers can use their own custom domain names, I will be using lets encrypt to generate the certs for customer domains.
+I am currently using elastic beanstalk (which uses ELB).
+Is it possible for me to continue to use beanstalk?
+Seeing as elastic load balancer will have to handle the cert verification, and my certs will be on my instances I guess I have to somehow route traffic to my instances myself.
+Are there any work arounds that would be worth while, could I do this?
+The SSL will be terminated at my ec2 instance running haproxy.

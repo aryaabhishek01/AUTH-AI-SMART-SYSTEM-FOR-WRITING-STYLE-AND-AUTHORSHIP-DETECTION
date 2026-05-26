@@ -1,0 +1,8 @@
+This should be a simple thing to find, but I've spent over an hour on it--time to ask for some assistance.  I have a very basic CentOS 5.5 box running two virtual machines.  The first machine has been up for several weeks without any issues and accepts connections over 80 and 443 with a signed SSL cert.
+Today I went in to add a second Virtual Host entry for a site that will only need to listen on 80.  I set up the VM as I normally do, created a SIMPLE index.php script that contains only the word 'test'.
+If I mv that file to index.html the page loads just fine, but when it is index.php I get a 500 error:
+In my logs I get no errors but the access log shows:
+The original site is a PHP/MySQL site and is working just fine!  At this point I am just out of ideas for where to look so any suggestions would be appreciated.
+Are any other PHP files loading correctly on the 2nd VM? 
+save as test.php under your 2nd VM web directory and browse to it.. This will give you an idea if its related to the PHP install, your apache, etc.
+I would also check the errors.log if you haven't already.. Better yet, tail -f errors.log while you attempt to access a PHP page.

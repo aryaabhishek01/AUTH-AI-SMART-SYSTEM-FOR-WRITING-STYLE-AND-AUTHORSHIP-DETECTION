@@ -1,0 +1,9 @@
+Before anything : your code looks nice and seems to be properly commented which is a good point. It could have been a good idea to give a pointer to some reference (wikipedia or anything else) as your implementation does not seem to rely on the usual sieve but on some kind of optimisation of it.
+This being said, from my point of view, a bit too long as you are using too many blank lines and too many lines for comment. There is only so much text I can fit on my screens, I'd rather read this :
+Everything else I was about to say has just been said by vnp.
+As there has already been said something on newlines and braces I will just highlight the "normal java" way of placing braces. As I highlighted in multiple answers of mine, the usual way is to place the opening brace on the same line as the opening statement and the closing brace on a separate line.
+And in this short code-sample there are again 3 things I want to put out a comment on:
+Single operation if-statements should have braces placed, even though they are not required. Why? Have you heard of apple's goto fail; bug? They forgot to place the braces and broke a core functionality of iOS.
+Your Numbers[i] contains true. Why not evaluate that directly??
+is actually exactly the same as the following, given Numbers is of type boolean[]
+the Naming convention for java fields, methods and variables is camelCase. This means they usually start with a lowercase letter:

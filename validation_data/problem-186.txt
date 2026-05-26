@@ -1,0 +1,12 @@
+Find out what port you are using to stream to the X-Box and configure the windows firewall to only allow traffic over that port. 
+You can open the firewall settings by typing in wf.msc into the search box on the start menu.
+For Xbox to work, these are the known ports for its usage:
+Now, these are ports that are reliant on your router, and not you're PC that you're streaming with however, the data streaming is most likely occurring on one of these.
+To find which port your PC is actually using to stream content to xbox, you'll want to run an nmap scan on your PC's local address, and your Xbox's local address.
+a) nmap -sS -sU -p 1-65535 -T4 -A -v 192.168.1.ip_of_your_xbox
+b) nmap -sS -sU -p 1-65535 -T4 -A -v 192.168.1.ip_of_your_pc
+When the scans have finished and you have identified the ports necessary, its time to close off the firewall.
+To close off all connections, inbound and outbound on your computer, you must execute the following command strings in an elevated command prompt window.
+This command will reset all changes made this process:
+This command will delete all rules on your firewall (Not that good of an idea)
+Delete all rules: netsh advfirewall firewall delete rule all

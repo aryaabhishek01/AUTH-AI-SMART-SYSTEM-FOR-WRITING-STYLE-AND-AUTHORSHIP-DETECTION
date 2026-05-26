@@ -1,0 +1,12 @@
+Rotating a bitmap will always result in a blurred image - there is no way around that. (Except for rotations of 90/270/360 degrees.) Even high-end programs like photoshop cannot work around the issue - but they mitigate it.
+First, a bitmap stores its information pixel per pixel. So you have a large grid of pixels that composes the image. To see it in action, open you favorite bitmap painting tool and zoom in to the max. At that point, you can see the individual pixel that composes an image. 
+Those pixels are always arranged in a grid of horizontal rows and vertical columns. Always vertical and horizontal. This is where the rotation problem arise...
+The image above shows what is going on. In the top left you have an example bitmap. Notice that its rows and column are horizontal and vertical. In the bottom right, you first have the same bitmap, with a slight rotation. But as I explained earlier, you cannot leave rows non-horizontal, so you have to transcribe the rotated image to an horizontal/vertical grid (shown in red in the image). 
+By the way, each square represents a pixel. As you can see the pixels of the red grid do not align cleanly with the bitmap behind. (In fact the bitmap is now a little bit larger than it used to be - another effect of the rotation.) To figure how each of the grid pixel should be colored, you take an average of the pixels in the bitmap overlapping the pixel you want to draw. 
+Which, of course, results is colors that are slightly different and therefore a blurred image.
+The technique you use to average the color are varied and some result it much much better images, but they also take longer to evaluate.
+I suspect that the Android .createBitmap image does do a good job at it. You have a few solutions:
+If you are not using OpenGL, then most games load sprite sheets with rotation already done (see other image).. You only need a quadrant worth of rotation pre-calculated. It saves memory and you can rotate on the fly to 90/180/270 without loosing quality to cover the other 4 quadrant (going back to the first figure, notice that the grids will align perfectly with rotations of 90/180/270 degrees).
+I am developing an android game. and in this I want to move an object along a Bezier path.
+my object is rotating with some angle on this curve.
+my object is moving and rotating as i supposed but image is getting blur. am not getting why is so.

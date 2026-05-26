@@ -1,0 +1,7 @@
+A SQL statement always runs in a transaction.  If you don't start one explicitly, every SQL statement will run in a transaction of itself.
+The only choice is whether you bundle multiple statements in one transaction. Transactions that span multiple statements leave locks that hurt concurrency.  So "always" creating a transactions is not a good idea.  You should balance the cost against the benefit.
+The issue is whether a group of operations must be treated as a single action.  In other words all of the operations must be completed and committed successfully or none of the operations can be committed.
+If you have a scenario that requires you to read preliminary data and then perform updates based on that data then the initial read should probably be part of the transaction.
+Note: I am avoiding Select/Insert/Update on purpose.  The transaction scope may actually be at the application level and involve multiple database(s) operations.
+Think of classics patterns such as Airplane Seat Reservation or Bank Balance Query/Withdrawal.
+One must take a wider view of the problem to ensure the whole application yields reliable, consistent data.

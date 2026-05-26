@@ -1,0 +1,7 @@
+Similar situation with me. I use a bash script to convert a list of domain names, e.g.:
+Into a list of IP addresses. Then, I fed the list of IP addresses into ipset:
+The benefit: Every morning a cron job re-resolves the domain list into an IP list and updates the Blacklist set, and I don't have to touch the iptables rule at all. The update script uses -F instead of -N for its first line.
+The trick is to use Squid with authenticated users. SSL traffic can't be proxied if you are running a transparent proxy. Squid can run both ways at the same time (on different ports):
+You would obviously have to add some rules to allow and deny authenticated users to navigate where it is allowed or forbiden. Still, users who are accessing the web transparently, will be forbiden access to HTTPS if it is blocked on your firewall.
+The other way (more dirty one), would be to get the sites allowed from a file, get their DNS records, and update/remove rules, something like:
+This would create a new chain SSL_FORWARD, and send packets coming from your net destined to port 443 to be evaluated on this new chain. If the packet doesn't match any rule inside this chain, then it will be dropped.

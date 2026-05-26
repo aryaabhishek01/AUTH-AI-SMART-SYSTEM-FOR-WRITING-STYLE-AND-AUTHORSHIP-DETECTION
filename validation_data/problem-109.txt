@@ -1,0 +1,7 @@
+The problem using the /etc/fstab file is that the mountpoint is mounted always and if not reacheable, it can hang your machine because the kernel will continuously try to mount the point.
+To avoid this, you could use autofs (/etc/auto.master), which is a kernel-based automounter. In that case, the mountpoint will only be mounted if you (or some process) access the configured directory, and if you don't, or the mountpoint is idle for some time, it will automatically be unmounted and this way you can avoid the the hanging behavior.
+I believe not all operating systems have the autofs package installed by default. You can check if it's installed and if not, install the autofs package. Once installed, simply run man autofs to get some help.
+I have that entry in my fstab which works pretty well when I'm at home and 192.168.1.195 is in my LAN
+Now when I'm not connected at home, on another network, I face that issue launching deluge-gtk  where it takes ages to launch and outputs that error message
+If I comment the fstab entry, then deluge-gtk launches absolutely fine and  don't get that message.
+What can I do in order to solve that issue, is there a param in /etc/fstab i could add to detect I'm not at home ?

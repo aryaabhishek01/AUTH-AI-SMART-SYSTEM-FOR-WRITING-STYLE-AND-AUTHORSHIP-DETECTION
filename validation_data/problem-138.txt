@@ -1,0 +1,7 @@
+Microsoft IT: A Case Study on “Hekaton” against RPM – SQL Server 2014 CTP1 seems to demonstrate the syntax,
+Hekaton was the internal Microsoft project that references the In-Memory OLTP feature, starting with SQL 2014. Some people still use the word Hekaton generically, to describe the In-Memory feature in any version of SQL server (2014, 2016, 2017). 
+In-Memory OLTP is a feature that stands alone - it is not part of any other feature, i.e. Analysis Services. 
+There is tons of info out there on the web about In-Memory OLTP, but I would caution you to avoid anything that references SQL 2014 (as you have above), because that was essentially v1.0, and much has changed since then. 
+First - have you proven through a valid POC that your workload is likely to benefit from using In-Memory OLTP? 
+I have blogged extensively about In-Memory OLTP, but you might be better off starting with the documentation, here:
+https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization

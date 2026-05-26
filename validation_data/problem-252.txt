@@ -1,0 +1,8 @@
+Well.. if you change your point of view to a security based one the choice becomes pretty obvious (vBulletin).
+I don't run anything big enough (vBulletin and SMF for a small amount of users) to comment on performance, but I know that a extremely large gaming site (mmo-champion.com) just switched to vBulletin to increase scalability.
+Also - consider SMF. It's kind of stalled in development right now (getting 2.0 released), but from what I've seen it's by far the best free software out there for forums. I've played a little with it using nginx, php-fpm and apc and the speed is simply blazing - much faster than I ever could get my vbulletin.
+It all depends on how far you need it to scale and in what direction.
+I'm currently working on a moderately large vBulletin-based site. Some rough numbers:
+There are plenty of bigger forum sites out there, but we're big enough to have run into scaling problems with vBulletin.
+We're not running stock vBulletin and from anecdotal evidence many sites of our size or greater have modified their installs to account for particular issues they run into. For example, we modified vBulletin to speed up handling of long threads since stock vBulletin isn't really set up to handle threads with 100,000+ posts in them. Other forum sites will have made hacks to account for large numbers of users, or for fast-moving threads or whatever their particular bottleneck is. Anything I've seen from large phpBB sites would indicate that it's fairly common for them to do so too.
+If you think your forum is going to be large, then you probably will run into scaling issues with the software no matter what you pick. Pick the forum software with which you have the most expertise or where it's easy for you to buy in expertise.

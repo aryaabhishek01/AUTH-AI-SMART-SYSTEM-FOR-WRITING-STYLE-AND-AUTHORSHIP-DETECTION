@@ -1,0 +1,10 @@
+Inspired by @Paul's answer, I did some research and found that while it is true that stack space does limit the number of concatenations, and that stack space is a function of available memory and thus varies, the following two points are also true:
+First, I adapted Paul's test code to concatenate strings: 
+With this test, the highest I could get when running on my not-so-great laptop (only 6 GB of RAM) was:
+Next, I tried grouping the concatenations by using parenthesis such that the operation would be concatenating multiple groups of concatenations. For example:
+Doing that I was able to go well beyond the previous limits of 3312 and 3513 variables. The updated code is:
+The maximum values (for me) now are to use 42 for the first REPLICATE, thus using 43 variables per group, and then using 762 for the second REPLICATE, thus using 762 groups of 43 variables each. The initial group is hard-coded with two variables.
+The output now shows that there are 32,768 characters in the @S variable. If I update the initial group to be (@A+@A+@A) instead of just (@A+@A), then I get the following error:
+Notice that the error number is different than before. It is now: 8632. AND, I have this same limit whether I use my SQL Server 2012 instance or the SQL Server 2017 instance.
+It is probably no coincidence that the upper-limit here — 32,768 — is the max capacity of SMALLINT (Int16 in .NET) IF starting at 0 (the max value is 32,767 but arrays in many/most programming languages are 0-based).
+Using SELECT statements instead of SETs can improve performance and readability, and may get you around the stated error. So instead of:

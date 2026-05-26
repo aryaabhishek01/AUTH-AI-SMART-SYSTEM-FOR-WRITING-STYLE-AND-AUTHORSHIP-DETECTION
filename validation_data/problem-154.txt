@@ -1,0 +1,8 @@
+If you enter man 5 crontab you will see the following example:-
+Alternatively, if YourCommand is a script, you can incorporate the time tests into it.
+Note that, since the command is invoked at multiples of 5 minutes past the hour, tests for > and >= are equivalent (likewise < and <=); otherwise, you may need to adjust the test boundaries (eg >= 02:18), since test doesn't support >= and <= in string comparisons.
+I've seen quite a few questions here related to configuring CronExpressions. But they all seem to have exact hours (no minutes specified) as their time window for running.
+Is there a way to configure a CronExpression to run say, every 5 minutes of every day between 7:37AM and 9:13PM? Configuring for 7AM - 9PM is simple. But I can't seem to figure out if there is a way (maybe it's not even supported) to run on a more detailed schedule.
+I have an application that allows users to specify custom schedules. Right now I'm rounding up/down to the nearest "whole hour" as I cannot seem to figure out how to do specific times.
+0 0/5 2-16 ? * 1-7 //runs every 5 minutes between 2am and 4pm every day of the week
+Or is this just not possible (outside of creating multiple CronExpressions and making it really messy imo)

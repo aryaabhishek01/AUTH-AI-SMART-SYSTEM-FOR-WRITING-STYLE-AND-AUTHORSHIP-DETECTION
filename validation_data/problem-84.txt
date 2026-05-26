@@ -1,0 +1,10 @@
+What you want is reverse ssh tunneling with a machine acting as a middleman.
+You should follow rogerovo's hint and create the port forwarding from the VPS (some random high port) to the LinuxBox (port 22). However you will also need a SSHD server running on the LinuxBox. 
+Only having two clients is not going to work. A client coming from the LinuxBox, cannot take a command from the VPS back to the LinuxBox. You need a server on the LinuxBox that actually receives and handles commands.  
+Breaking tunnels -> You better take a look at the keep alive option
+Second tunnel -> To simplify logging in you could add another tunnel from the Windows Box to the VPS. 
+(Win 22222 -> VPS 22221 -> VPS 22222 -> LinuxBox 22)
+Then you need to login only once to reach the linux box. No idea however how to do port forwarding from Windows :/.
+Hi I want to remotely administer (command line interface) a linux box from my home Windows PC.  
+I have an ssh client on the linux box.  I have an ssh client on my home Windows PC.  I have a login on a VPS running an ssh server.  I am able to ssh from the linux box to the VPS.  I am able to ssh from my home Windows PC to the VPS.
+How do I connect the two ssh clients?  Is there an easy way to connect the ports locally (on the VPS/ssh server)?

@@ -1,0 +1,10 @@
+This will also fix a bug you may not have noticed.  A derived table returns an unordered set of rows.  That is, the optimizer is permitted to ignore the ORDER BY in the formulation you have.  This gives you not the first 10 rows, but some arbitrary 10 rows.
+FOUND_ROWS is passe.  Have you noticed that search engines first moved to "about 1,000,000 hits", then got rid of the count?  Do you really need the count?
+What indexes do you have on chitentrygroup?  In particular, this one may be beneficial:
+Are you using InnoDB?  What is the value of innodb_buffer_pool_size.  For a tiny 2GB machine (or VM), it should be no more than 400M.
+What version of MySQL are your running?  Old versions defaulted that to 8M or 128M.  These are too small.
+What are the mappings?  Is there one employee per chitentrygroupid?  That is "1:many".  What about account and chitentry?  If these are each 1:many, you don't need to GROUP BY -- which is the real villain.
+That is, if you can SELECT the chitentrygroupids, get through the ORDER BY and LIMIT without needing the ORDER BY, you avoid the "inflate-deflate" that happens with JOIN + GROUP BY.
+This method takes a little longer SQL_CALC_FOUND_ROWS; have you tried using count()
+I find it cool to have the response time using some methods
+http://phpdevblog.niknovo.com/2009/06/mysql-pagination-sql-calc-found-rows-vs-count-query.html

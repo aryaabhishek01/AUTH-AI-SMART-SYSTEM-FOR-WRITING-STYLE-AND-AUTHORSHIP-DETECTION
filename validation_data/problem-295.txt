@@ -1,0 +1,10 @@
+I have a really weird problem with my DNS. My domain name (strugee.net) is unresolvable from some networks, and resolvable from others.
+For example, on my home network (same network the server's on):
+However, if I log in to a server I have on Digital Ocean, the domain fails to resolve:
+But, going directly to the authoritative nameservers works just fine:
+It's pretty clear that there's a problem with some large network somewhere that's failing to resolve my domain, but I can't seem to figure out where. I skimmed the dig manpage for options that might help, but didn't find anything particularly useful.
+I'm on Namecheap both as a domain registrar as well as DNS hosting. I have the DNSSEC option turned on. I haven't made any changes to my DNS settings recently.
+How can I debug this problem and find the offending nameserver?
+While you are indeed seeing that the authoritative name servers are responding correctly, you need to follow up the entire chain of DNS resolution. This is, walk down the whole DNS hierachy from the root servers up.
+This basically checks that the public DNS servers are working, and you're doing the same thing that your DNS resolver should be doing. So you should be getting the same answers as above in your Digital Ocean server unless something's wrong with their DNS resolver:
+If the first two queries fail, it's the DNS on Digital Ocean's side failing. Check your /etc/resolv.conf and try querying the secondary DNS server. If the secondary one works, just switch the order for resolvers and try again.

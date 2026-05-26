@@ -1,0 +1,7 @@
+Thank you for all the comments above which enlighten me.
+ps -ew contains no BSD options, so I get the default output, which get the process name from /proc/<pid>/stat, which is no more than 15 characters.
+The -w option is indeed in effect, it does show wide output. If I shrink the window very narrow, ps -ew will try to wrap the lines so that I still get the full 15 characters in COMMAND column. But with out -w, like ps -e, long lines are are not seen, but they are still there since I can not see them but can grep them.
+As of ps -w <pid>, I find the answer from parser.c of procps source code. It implies BSD style output if there are PID arguments, which is not said in the man page: 
+So ps -w <pid> will show BSD-style output, which will show command args (COMMAND) instead of the executable name (CMD). -w is in effect similar to the above example.
+I don't think "wide output" means what you want.  I created a script named foo_foo_foo_foo_foo_foo_foo_foo_foo_foo_foo_foo_foo_foo.sh and get the following
+The only thing w and -w seem to do is let lines wrap if I shrink the window so it won't fit on a line:

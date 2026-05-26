@@ -1,0 +1,8 @@
+First, as you have, select the preference to mark the original email with a chevron (>).
+Then, when replying, look at the end of the subject line and click on Plain Text. This will convert the entire email to plain text format and will include ">" on each line.
+The link at the end of the subject field will now read Rich Text. Click on that.
+This will convert the email back to HTML formatting, but keep the chevrons. You can now reply with HTML formatting on your text, but still have the original message marked out with ">" on each line.
+A side-effect is that it renders the original email without any of the formatting it had originally, like colours, tables and images.
+I use the "new" Yahoo Mail interface (which is actually about 5 years old). When replying or forwarding to a message I would like to mark the original message with '>' so you can easily distinguish the reply from the original like this:
+Although I have this selected, it doesn't appear to make any difference. I guess that in order for it to work, I also need to change my messages to plain text, but I can't figure out how to do this.
+Do I really have to choose between HTML messages and marking my messages with '>', i.e. I can't have both? If that's the case, I'll give up the HTML. Can someone tell me if it's possible to have both, but if not, how do I turn on plain text?

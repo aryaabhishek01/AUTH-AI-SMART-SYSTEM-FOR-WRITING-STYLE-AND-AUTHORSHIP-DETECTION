@@ -1,0 +1,9 @@
+I am trying to install libtirpc on RHEL 6.5 but it fails and asks for dependencies.
+Why here it is showing three GLIBC versions 2.14, 2.15 and 2.16. ??
+Does it mean that any of these three versions can be installed ??
+There are many other private RPMs which depend on glibc-2.12-1.132.el6.x86_64, so I dont want to touch glibc-2.12, is that possible to install same RPMs of different version. ??
+The version of glibc you have installed does not satisfy the dependencies of the RPM you are trying to install.
+You mentioned that you are using RHEL 6.5 -- the RPM you are trying to install has "el7" in the filename (libtirpc-0.2.4-0.3.el7.x86_64.rpm) which means that it was compiled and built against RHEL 7.
+You can see that your system has GLIBC 2.12, but your RPM requires at least GLIBC 2.14 (but anything up to GLIBC 2.16 will work, too).
+So, you need to find a version of libtirpc for "el6" which will work on RHEL 6.x. I'm not sure where you found your RPM, but check the provider of libtirpc for an el6 version.
+If you can't find one, you could locate the source rpm for the RPM that you have and try rebuilding it yourself on your RHEL 6.5 machine by following this guide. That will produce an RPM that works with the GLIBC you have installed.

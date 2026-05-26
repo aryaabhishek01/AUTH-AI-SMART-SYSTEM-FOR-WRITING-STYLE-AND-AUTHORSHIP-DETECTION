@@ -1,0 +1,8 @@
+Noob poster. Running windows 7, recently updated with all critical updates. Had BSOD with a non paged memory error on startup a few days ago. Otherwise, the system runs well, although I have noticed some problems with Chrome browser crashing, which I just attributed to the usual nonsense.
+Tried to run windows update today and found the service was not running. Went to Control Panel > Adminsitrative Tools > Services and found Windows Update not running and all the other services hung at "started". 
+Started windows update. It hangs at "started" too. Tried to run it, says not runnning, try restart... which has no effect, naturally.
+Any ideas? Is this a OS problem or a hardware problem? Virus?
+Yes, very likely a virus. There's a few things you might be able to jimmy it with.  
+1) Microsoft update fix it. Download it off their website. it'll run a diagnostic set, maybe fix you up.
+2) open up a search, look for .cmd. Right click on program cmd in pulldown, choose "run as admin". When you have the dos shell open, type
+3) Download combofix off of bleepingcomputer.com(there are lookalikes out there that ARE viruses, which is why i recommend getting it there). Run as admin

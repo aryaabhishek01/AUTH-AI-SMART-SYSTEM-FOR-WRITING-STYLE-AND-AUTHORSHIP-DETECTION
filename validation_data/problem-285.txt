@@ -1,0 +1,10 @@
+Yes, but it depends on which index key you search by. 
+Think of it like one of those old "white pages" phone books.  In a phone book, people are ordered on the pages in the order LastName, FirstName.  That means there are two components to the phone book's index.  
+If you're looking for all of the people with the last name of "Smith", you just find the first "Smith" (easy to do since it's in order), then keep reading until you see someone who's not a "Smith".  
+But if you're looking for all of people with the name "William", you're going to have a tough time.  You'll have to scan each and every entry in the phone book, collecting answers, even though FirstName is in the phone book's "index".
+Database indexes (conceptually) work the exact same way.  
+query planner should use index first_idx ( 'whatever' value is for example 5% of all records). It's faster because index is smaller so there is less read.
+it's obvious that index first_second_idx will be used
+But if we remove first_idx in both queries planer should use first_second_idx. 
+If there is no index for this table full table scan will be triggered.
+So if you have both types of queries from application:

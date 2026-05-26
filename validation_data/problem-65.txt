@@ -1,0 +1,12 @@
+This seems similar to wanting to extend the range of Bad Router.
+If your Good Router has a Repeater mode, you can connect it to Bad Router, then have your devices connect to Good Router. The Good Router I use right now, ASUS RT-AC68U has this Repeater mode:
+You'll be asked for the wireless password to Bad Router, then you can create your own WLAN.
+This will let other devices continue to use Bad Router.
+I wasn't very specific on my title, but I'll elaborate. For the purposes of my question, I'll call one router Bad Router and the other router Good Router (Which is true, btw). Here is the outline:
+I have the Good Router connect by Ethernet. I don't have physical access to the Bad Router (For ignorant non-parental fascistic reasons). However, I have wireless access to it (Including configuration). 
+I want to know if I can connect the Good Router to the Bad Router, and then configure the Bad Router to directly connect my Good Router to the modem so it can handle everything (Almost bypassing it, if you will). The Bad Router should preferably stay with its own DHCP. Even though I want to bridge the Modem through the Bad Router to my Good Router, when reading the Wireless Bridging methods that I found on Google (And here) this is not what seems to be described.
+Scheme: [Modem] --Bridge--> [Bad Router] --Bridge--> [Good Router] --DHCP/NAT--> Connected devices
+I'm asking the question in a generic way. Meaning that I'm not specifically limiting it to my routers  or firmware being used. I saw similar questions here and found other ways of doing what I asked in the title, but nothing specifically like this.
+Thanks for your attention, hopefully you can help :). 
+Found the solution. I was looking at the wrong way of doing it. It can be done if your firmware supports a "client mode" where it makes your second wireless router look like a regular device to the first. Then your second router will get the WAN from the first router, without even touching it. It can be easily done with dd-wrt, not limited. Next I'll try using my second band as an AP.
+P.s.: If you got across this post and wants a mode detailed explanation with links to guides and firmwares, just comment on this answer and I'll do so. 

@@ -1,0 +1,9 @@
+Millions of cron jobs all over the world are being run as root every day (or whatever period they're set to run).
+The important thing is that proper permissions are set. If you're running something that's writable by everybody, then a malicious user or process could change what it's doing.
+Cron jobs are run by the owner of the crontab, generally speaking. A user crontab might be in /var/spool/cron/crontabs/username for example. Cronjobs that are in /etc/crontab, /etc/cron.d/ or /etc/cron.hourly (daily, weekly, monthly) will be run by root. It's important that the ownership and permissions are correct for these crontab files, too.
+If you have secured access to the script sufficiently and made sensible precautions, running something from roots crontab is not usually a security risk.
+But don't run a script as root that a non root user can edit or overwrite. This applies to jobs run from cron as well as interactively.
+If that script includes other files same applies to them too.  
+If in doubt always use the principle of least privilege. If you are still unsure you can always ask specific questions on forums and in IRC.
+There is (nearly) always a way to run something as a non root user. If all else fails using sudo to limit a user to specific commands also limits the potential to do harm.
+So with the example you gave of backing up /etc/apache2/sites-available, that file is by default readable by anyone, so that implies it is access to the destination that is writeable by root only. 

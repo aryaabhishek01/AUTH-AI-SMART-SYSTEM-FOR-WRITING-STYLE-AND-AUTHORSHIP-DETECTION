@@ -1,0 +1,11 @@
+I would say that the best option is to use Facebook ads or Google ads. I have had pretty good success using FB for advertising because you can set a daily spending limit and you can target your (fairly close) audience. I would also suggest a facebook page for your game. 
+I personally am not a huge FB fan but I can vouch that doing that really helps.
+Let me ask you: How do you intend to make money with your game?
+If your game just have advertisement as the revenue source, I highly discourage you to invest even $0.01 in marketing. You will spend money foolishly. I know because I've been there.
+Why? You will expend at least $0.10 / click. Suppose that 1,000 users click in ads you set to acquire users. You expended $100.
+Now you must be aware that the eCPM of ads inside your game will pay you at most $25/1,000 clicks. But usually it's around $0.10/1,000  clicks.
+If all acquired users clicked in the ads inside your game, you would get at most $25. A loss of $75.
+But notice that the CTR (how many clicks per 100 users apps/games usually get) is around 2%.
+So, you can expect that from 1,000 users you will get around 20 clicks. For the highest eCPM ($25/1,000 clicks) you would earn $0.50. A loss of $99.50.
+Let me repeat once more: only invest money in marketing if your application has in-app purchase in it and you expect to earn much more than you will invest.
+Note: for in-app purchase, it's expected that around 7% of active user base will expend money. All other users won't expend anything.

@@ -1,0 +1,10 @@
+Try This. this changes the default sound device for Windows and these type of softwares often take settings like this from here. 
+Start Menu -> Control Panel -> Sounds and Audio Devices -> Audio tab -> Change Default Device for Sound Playback.
+I have dual monitors on an XP SP2 system: one connected to the VGA port, the other on the HDMI port. Normally analogue sound is chosen but I can fiddle with the device drivers to get sound on the HDMI channel. But when the system is rebooted, it reverts to analogue. I would like HDMI to be the default. How do you do this?
+The two drivers involved are (1) AMD High Definition Audio Device which appears to control HDMI and (2) Realtek High Definition Audio controlling the analogue.
+The controlling software is the Catalyst Control Center
+The solution to the problem was surprising and had little to do with the computer or its operating system.
+The culprit was the HDMI monitor switching itself off after a certain amount of time and although the vision came on when it was switched on again, the sound connection was not re-established. The solution was therefore to set it up so that it no longer switched itself off.
+This monitor has both VGA and HDMI inputs and although the default can be set to HDMI as far as vision is concerned, the default for sound remains analogue and cannot be set to digital. So, if the HDMI monitor is manually switched off and on again, the sound returns analogue on the VGA monitor.  However, when both monitors are switched on and the computer is booted or re-booted, sound appears on the HDMI channel.
+Monitor#1 is on the VGA  channel and is used as the primary monitor
+Monitor#2 is on the HDMI channel and extends the Windows desktop

@@ -1,0 +1,9 @@
+Some routers will be able to be WiFi clients and hosts (at the same time). This is key to your problem.
+You'd want one network for your RV, so you can connect your laptops with your own router. But your router should connect to the internet through the hotspot of the camp grounds.
+People are often only used to their router being able to connect to DSL or cable. But WiFi can provide the same service.
+However, setting something like that up can be complicated (depending on the router). And, to my understanding, requires 2 radios in the router. Something that is usually reserved for higher performance equipment. 
+I personally own a WNDR3700 which, to my understanding, would support a configuration like that. But, it only does so because I installed a custom firmware on it. Something I would not suspect you'd want to deal with.
+...or, as you've already realized yourself, just add WiFi dongles to your laptop so you can connect them to both your own router and the campgrounds network at the same time.
+Having multiple WiFi connections in this context shouldn't be a problem.
+Your printer and router are on a different network than the campground wireless access points.  Unless you set up your computer in such a way that it can connect to multiple wireless networks simultaneously (i.e.: with multiple wireless adapters) you will have to connect to each network on an as-needed basis - connect to the campground Wi-Fi when you need Internet access, and to your RV's router when you need to print.
+Alternately, as @OliverSalzburg suggests, some wireless routers can connect to the Internet through other wireless APs.  This is not a feature available on all routers though, so you'll have to look up your own router's specifications and read the friendly manual.

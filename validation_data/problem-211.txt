@@ -1,0 +1,7 @@
+I have a Windows 7 laptop (Dell Inspiron) and I'm trying to simply listen to music through headphones. This process used to work flawlessly.
+Something changed and now iTunes (as well as WMP and any other audio playing device) will not play through the headphones, which are plugged in. Instead, the music plays through the crappy laptop speakers.
+The only thing I can see is that the music seems to be playing through the Speakers/Headphones playback device (seems reasonably named) but should be playing through the Independent R.T.C. Headphones, instead. This info comes from the Sound config area of the Windows 7 Control Panel.
+The funny thing is that Skype uses my headphones just fine. I just don't know where to start looking to make sure the media players are using the correct audio when headphones are plugged in.
+When you go to Itunes --> Edit --> preferences --> play --> play audio with:
+you will see two options 'Direct sound' & 'windows audio session' 
+direct sound is the option to play sound from ear/head phones or external speakers(in case of a dock connection).

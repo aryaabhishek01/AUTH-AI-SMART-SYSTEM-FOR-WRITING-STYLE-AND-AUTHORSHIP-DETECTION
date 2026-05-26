@@ -1,0 +1,8 @@
+I wrote a server program for my company and now I'd like to keep it running on the ubuntu server.
+I was thinking of setting a cronjob to restart the entire system once a week (for security purposes, to clear RAM in case of memory leaks which I still haven't found.. etc..) but I'm not sure how should I keep the process up.
+and detaching it. Is this a good way to run a web-exposed program on a server?
+Do I need something like daemontools or runit for whatever reason?
+Your question is actually a combination of two questions:
+Use Upstart or systemd (a script in /etc/init.d), depending on your version.
+The most simple approach would be to add a cron job that checks if the process name is in the running state, and restarts it if it isn't. I would supplement this with having it send you an e-mail when it finds this to be the case so that if there is something happening to the system that is repeatedly killing it, you will know. I would also add timestamped logging to the program if it doesn't already have it, so you can have a record of when these events occur.
+If possible, the signal or condition that caused it to die should also be logged so you can prevent it. You may even consider adding the program logs to your automated e-mails.

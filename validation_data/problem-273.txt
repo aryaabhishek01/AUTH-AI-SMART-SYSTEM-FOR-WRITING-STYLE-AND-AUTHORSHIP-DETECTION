@@ -1,0 +1,7 @@
+I am attempting to reboot a Windows XP SP2 box (acting as a server, yeah I know winxp isn't a great choice but currently I am unable to change the OS) on a daily schedule.
+This appears to have been working correctly in the past, running at 3am each morning, however since the time has been changed to 12.05am then 11.55pm, it appears to have not run at all, the log file indicating the error:-
+I have confirmed that the Run as user is set correctly with the correct password. Additionally I have tried setting 'Run only if logged in' which failed to correct the error.
+When run manually, however, it appears to run correctly!
+If anyone has any ideas what this might by, I would be very grateful!
+Does it work if you try shutting down the machine with PsShutdown? I use PsShutdown as a scheduled task to shut down ~600 machines at work each night, sheduling the schtasks CLI command in XP.
+And it is probably stating the obvious, but does the user the task is being scheduled to run as have permission to shut down the machine in question?

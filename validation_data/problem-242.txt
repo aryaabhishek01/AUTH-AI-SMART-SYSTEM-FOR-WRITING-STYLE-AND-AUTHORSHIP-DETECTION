@@ -1,0 +1,9 @@
+You can make a rules file in /etc/udev/rules.d/ folder and make it run a bash script when your USB device is connected. For this you need to find the ID_Vendor and ID_Product code of device. Run lsusb command. There you will see something like Bus 003 Device 005: ID ffff:0005. In this case idVendor = ffff and idProduct = 0005. Yours will be different. 
+Than create for example 50-myUSB.rules file in the above directory with content something like (change ID_vendor and ID_product):
+ATTRS{idVendor}=="ffff", ATTRS{idProduct}=="0005", RUN+="/path/to/script.sh"
+This will run script.sh every time you will plug in the device. Now you have to create the script.sh with content something like:
+I am not sure if you need to restart the OS or not for the changes to take effect. 
+Click here if you want to know more about udev rules.
+Im using 4G airtel dongle to connect  internet on Raspberry pi , Im able to auto connect successfully to the internet when the Pi is booted.
+I have removed the dongle from the USB of Pi and when I plug it back again it doesn't connect to internet,but the Pi recognizes as modem (wwan0). Im using wvdial to connect  internet.
+Can anyone please help with the solution why the pi is unable to connect to internet when it is replugged ?

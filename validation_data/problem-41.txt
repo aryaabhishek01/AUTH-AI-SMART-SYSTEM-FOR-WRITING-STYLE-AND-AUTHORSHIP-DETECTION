@@ -1,0 +1,7 @@
+At a minimum, your HDD is too full and that will certainly slow down your computer. This will also cause everything to slow down. 
+The first thing I would do is get another HDD and off load at least 60% (more if possible) of what's on your "C" drive.
+My computer boot up slowly and have a strange behaviour:
+SOMETIMES when I boot, from a RANDOM moment after going in to desktop, it will start to "block" all programs that requires administrator privilege from running(when attempted nothing happens), and it looks like the boot up process just stopped. sometimes if the moment happens pretty early, I get infinite desktop screen with only a cursor, sometimes it happens in the middle of opening all startup programs. Sometimes ALL programs will not run(when attempted nothing happens). Sometimes when I try to restart it stuck at logging off infinitely.
+This kind of strange behaviours happens more and more frequently. I use to encounter it every 10-20 reboots, and then 3-4 reboots, now I have to reboot multiple times to see a boot without problem.
+I forgot to make a disk D so I filled 99 percent of my disk C. I think this is the reason why I have a slow boot up. 
+I have attempted system scan, chkdsk, malware scan in safe mode, no problems at all.

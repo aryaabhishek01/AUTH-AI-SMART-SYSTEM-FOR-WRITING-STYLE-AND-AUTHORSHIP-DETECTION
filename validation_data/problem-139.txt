@@ -1,0 +1,8 @@
+Izzy's answer is fine if you don't care that the Administrators group will effectively be locked out of future changes from the local machine.  This will also wipe out any groups that were already members of the Administrators group before the policy setting was applied.
+However, you can use the same policy setting in a slightly different way to bypass those annoyances (assuming you even consider them annoyances).
+It's a subtle but important difference in the way the two sections work.  Members of this group effectively works out to be "Group A will only ever contain Groups X, Y, and Z". This group is a member of effectively works out to be "Make sure Group A is a member of Groups X, Y, and Z".
+Once you've set policy with Members of this group, the only thing that can modify the group's membership is an overriding policy object that also uses Members of this group or any other policy using This group is a member of.
+You say adding new hires is what's a hassle, but shouldn't it be adding new tablets that would be a hassle?
+Have a domain security group that contains all the users that should be administrators on the tablet PCs (i.e. TabletAdministrators).
+On each tablet, add that group to the Administrators group.
+Whether this is the proper technique or not, I don't know.  It's just the first idea that comes to me on how to implement.

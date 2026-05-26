@@ -1,0 +1,7 @@
+Ethernet Flow Control is different than Storm Control.
+Ethernet Flow Control was developed because traffic on a link may be generated faster than the receiver can handle it. The IEEE has several efforts for this in 802.1 and 802.3. Unfortunately, this really doesn't help with STP loops.
+Storm Control is something which some switch vendors have implemented, and it is typically used to limit broadcast and multicast traffic to acceptable levels in order to mitigate STP loops. Cisco does have an implementation for unicast traffic, too.
+If I understand this correctly,  "Ethernet Flow control" is used when one computer on a single Ethernet network segment can not cope with the rate that pockets are being sent to it.
+"Ethernet Flow control" is blocked by switches (bridges), so does not effect what happens on any other Ethernet network that is connected to the switch.
+These days, it is uncommon to find a "Ethernet network segment" that consists of more then one computer and one switch port.   In the "old days" there used to be lots of computers on each network segment, sharing the same wire.
+In real life, most flow control is done by the TCP protocol and network buffers are large enough that "low level" flow control is not really needed to the extent it was when I was a child and Ethernet run on yellow cables the thickness of my finger.

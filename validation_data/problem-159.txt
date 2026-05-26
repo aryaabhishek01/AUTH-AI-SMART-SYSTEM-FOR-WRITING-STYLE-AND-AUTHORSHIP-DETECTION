@@ -1,0 +1,6 @@
+Application (pod) presently running in GLB<->GKE Europe (say Netherlands). I got requirement to scale the  application to serve customer in US and ASIA (say SFO & Japan).
+Please help to clarify whether whether GKE need to duplicate in US & Asia or Europe is sufficient.
+Please share some best practice/recommendation for this scenario.
+I might be few weeks too late but this might be still relevant for someone.
+I don't know your architecture but if applicable use container native load balancing with a global load balancer.
+Simple container native load balancer setup where you can do everything with Kubernetes resources doesn't give you global load balancing. You would need to use standalone network endpoint groups(NEG). Create load balancer manually (or with whatever tooling you use), create backend service that includes NEGs for the same service in different clusters and add backend service to the load balancer. You will get the benefits of the premium network tier (lower latency for clients globally) and traffic spillover if the service is overloaded or down in one of the regions.

@@ -1,0 +1,14 @@
+I've been wondering lately what (if any) are the improvements available in MariaDB over 'conventional' MySQL?
+I understand that where platform interoperability and/or backwards compatibility may be an issue then sticking with the tried and trusted MySQL is best. But for a stand-alone DB on a stand-alone web site/application are there any benefits to be had by using Maria?
+Will Maria work with common web platforms such as WordPress, Drupal, Joomla etc.?
+I expect that some of this is going to come down to choice/preference of storage engines, but to be honest I still don't know half the time if/when I should use MyISAM, InnoDB or any of the others! Which is better or faster or whatever?
+The only thing I get is that if I want 'true' table relationships (i.e. foreign keys etc.) I use InnoDB.
+Thanks for any help or clarity people can offer me.
+MariaDB developers claim that it's a drop-in replacement, and it's true until version 5.5.
+The small "incompatibility" issues usually don't apply, however, they are documented here:
+https://kb.askmonty.org/en/mariadb-vs-mysql-compatibility/
+There are also a lot of bug fixes and new features, the most important being listed here:
+https://kb.askmonty.org/en/mariadb-vs-mysql-features/
+The default storage engine, XtraDB, is a Percona's fork of Oracle InnoDB, which includes several bug fixes and some extra features. And you can also replace MyISAM with Aria and Federated with FederatedX. However, Oracle InnoDB can be installed if you experience compatibility problems, as well as Federated, and MyISAM is already there.
+MariaDB 10.0 can replace MySQL 5.5 too, and has some features from MySQL 5.6 (some of which have been reimplemented by Monty's team because the code quality was too low). However, some features from 5.6 are not in MariaDB, at the moment. For example, they don't have GET DIAGNOSTICS in stored procedures, and the JSON format for EXPLAIN output.
+All APIs and clients which work with MySQL should work with MariaDB. If something doesn't work, it's a bug and will be solved. If you use Windows, probably you want to use the HeidiSQL GUI, because it supports some MariaDB specific features like Virtual Columns.

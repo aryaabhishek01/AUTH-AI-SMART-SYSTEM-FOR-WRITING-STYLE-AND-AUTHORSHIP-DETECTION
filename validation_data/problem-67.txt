@@ -1,0 +1,8 @@
+There is a twofold problem at work here.  One cause can be a .DS_Store file containing UTF-8 characters inside of it in the local directory that is being read behind the scenes.  If this is the case, simply adding the encoding to the top of the file will fix it:
+A second cause can be how we get code from one place to another.  If you are on a Mac and you copy code and then paste it into a file with cat as follows:
+This can lead to an interesting issue.  The formatting, more specifically the leading space, looks Pythonic.  However, your tabs have been replaced with something containing wide characters that no amount of character encoding configuration can seem to resolve.  If you face this, simply replace all of the leading whitespace and Python will be very happy.
+I'm using OSX Yosemite on a Macbook Pro with a UK keyboard. When I type # into a Python file (using Alt+3) I sometimes, but not always, see this syntax error when I try to run the Python file:
+I can usually fix it by copying and pasting a hash character from elsewhere in the file. 
+I could fix it by manually setting every Python I ever work on to UTF-8 encoding:
+but that's not really practical when I'm working on other people's code. 
+Is there any way I can reset the value of this key to an ASCII-friendly # to avoid this error?

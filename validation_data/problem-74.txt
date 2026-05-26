@@ -1,0 +1,7 @@
+You can't effectively get such a list.  You can use inotifywatch if you are using linux and your linux distribution supports it to see files being created and deleted in a directory in realtime, but not historically (such logs are not kept).
+You should consider checking your filesystem for consistency if files are being lost.  In ext2 and some other filesystems they will appear in the lost+found folder in the partition root, but the exact way to identify this depends on your filesystem.
+Check also whether you have a periodic job running which might delete them for some reason (such as by restoring a directory from a backup).
+i have a image sharing website , users log and upload image 
+last night i've lost about 30 newly-consecutive uploaded images ... i mean they have been uploaded ... apparently ... they are in the database but the actual image on the server is gone ! 
+error log doesn't show anything ... so i thought my best option is to check list of created and deleted files ... if there is any !
+is there a log file for created and deleted files on the server ? i'm using directadmin

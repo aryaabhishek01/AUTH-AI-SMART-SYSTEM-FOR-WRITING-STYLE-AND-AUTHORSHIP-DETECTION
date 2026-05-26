@@ -1,0 +1,26 @@
+I was trying to get python and set up an environment to work on the upcoming project. 
+In Windows 10 Ubuntu bash, I run the following command successfully:
+sudo wget https://www.python.org/ftp/python/2.7.6/Python-2.7.6.tgz
+Then I unzipped it and type in some other commands too, until I found that I need gcc in one particular step which I didn't have. So I try the following command:
+But then it failed with the following error messages:
+Err:1 http://archive.ubuntu.com/ubuntu xenial-updates/main amd64 binutils amd64 2.26.1-1ubuntu1~16.04.4
+  Could not connect to archive.ubuntu.com:80 (2001:67c:1560:8001::14). - connect (111: Connection refused) [IP: 2001:67c:1560:8001::14 80]
+Err:2 http://security.ubuntu.com/ubuntu xenial-security/main amd64 libc-dev-bin amd64 2.23-0ubuntu9
+  Unable to connect to archive.ubuntu.com:http: [IP: 2001:67c:1560:8001::14 80]
+Ign:3 http://security.ubuntu.com/ubuntu xenial-security/main amd64 linux-libc-dev amd64 4.4.0-96.119
+Ign:4 http://security.ubuntu.com/ubuntu xenial-security/main amd64 libc6-dev amd64 2.23-0ubuntu9
+81% [Connecting to security.ubuntu.com (91.189.88.161)]
+Err:2 http://security.ubuntu.com/ubuntu xenial-security/main amd64 libc-dev-bin amd64 2.23-0ubuntu9
+  Unable to connect to archive.ubuntu.com:http: [IP: 2001:67c:1560:8001::14 80]
+Err:3 http://security.ubuntu.com/ubuntu xenial-security/main amd64 linux-libc-dev amd64 4.4.0-96.119
+  Unable to connect to archive.ubuntu.com:http: [IP: 2001:67c:1560:8001::14 80]
+Err:4 http://security.ubuntu.com/ubuntu xenial-security/main amd64 libc6-dev amd64 2.23-0ubuntu9
+  Unable to connect to archive.ubuntu.com:http: [IP: 2001:67c:1560:8001::14 80]
+E: Failed to fetch http://archive.ubuntu.com/ubuntu/pool/main/b/binutils/binutils_2.26.1-1ubuntu1~16.04.4_amd64.deb  Could not connect to archive.ubuntu.com:80 (2001:67c:1560:8001::14). - connect (111: Connection refused) [IP: 2001:67c:1560:8001::14 80]
+E: Failed to fetch http://security.ubuntu.com/ubuntu/pool/main/g/glibc/libc-dev-bin_2.23-0ubuntu9_amd64.deb  Unable to connect to archive.ubuntu.com:http: [IP: 2001:67c:1560:8001::14 80]
+E: Failed to fetch http://security.ubuntu.com/ubuntu/pool/main/l/linux/linux-libc-dev_4.4.0-96.119_amd64.deb  Unable to connect to archive.ubuntu.com:http: [IP: 2001:67c:1560:8001::14 80]
+E: Failed to fetch http://security.ubuntu.com/ubuntu/pool/main/g/glibc/libc6-dev_2.23-0ubuntu9_amd64.deb  Unable to connect to archive.ubuntu.com:http: [IP: 2001:67c:1560:8001::14 80]
+E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+I am not familiar with it and it seems to me that it is some kind of connection problem. Why I am encountering this failure and how may I solve it? Any suggestion is appreciated!
+The problem is most likely in the firewall settings that you are using, and possibly in settings IPv4 and IPv6. Reading:
+https://www.reddit.com/r/bashonubuntuonwindows/comments/6h71ku/bash_aptget_wont_work/ (last comment)
